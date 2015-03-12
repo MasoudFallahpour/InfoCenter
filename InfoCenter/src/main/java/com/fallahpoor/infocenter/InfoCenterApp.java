@@ -33,11 +33,11 @@ import org.acra.sender.HttpSender;
  * @author Masood Fallahpoor
  */
 @ReportsCrashes(
-        formUri = "https://mfxpert.couchappy.com/acra-infocenter/_design/acra-storage/_update/report",
+        formUri = "https://mfxpert.cloudant.com/acra-infocenter/_design/acra-storage/_update/report",
         reportType = HttpSender.Type.JSON,
         httpMethod = HttpSender.Method.POST,
-        formUriBasicAuthLogin = "infocenter-reporter",
-        formUriBasicAuthPassword = "!|\\|f0(3|\\|+3R",
+        formUriBasicAuthLogin = "ghtleadvasifisteardsters",
+        formUriBasicAuthPassword = "UndcmjgHamlXQjWkoaLhifLk",
         formKey = "",
         customReportContent = {
                 ReportField.REPORT_ID, ReportField.APP_VERSION_CODE,
