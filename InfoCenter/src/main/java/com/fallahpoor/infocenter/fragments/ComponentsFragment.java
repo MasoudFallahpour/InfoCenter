@@ -110,7 +110,7 @@ public class ComponentsFragment extends Fragment {
          *
          * @param position the position of the clicked item
          */
-        public void onComponentClick(int position);
+        void onComponentClick(int position);
 
     }
 

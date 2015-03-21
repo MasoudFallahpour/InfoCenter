@@ -30,8 +30,8 @@ import android.view.ViewGroup;
  */
 public interface ListItem {
 
-    public int getViewType();
+    int getViewType();
 
-    public View getView(LayoutInflater inflater, View convertView, ViewGroup parent);
+    View getView(LayoutInflater inflater, View convertView, ViewGroup parent);
 
 }
