@@ -116,10 +116,10 @@ public class GpsObservable extends Observable {
                 if (addresses != null && addresses.size() > 0) {
                     Address address = addresses.get(0);
                     if (address.getLocality() != null) {
-                        cityName = addresses.get(0).getLocality();
+                        cityName = address.getLocality();
                     }
                     if (address.getCountryName() != null) {
-                        countryName = addresses.get(0).getCountryName();
+                        countryName = address.getCountryName();
                     }
 
                 }
