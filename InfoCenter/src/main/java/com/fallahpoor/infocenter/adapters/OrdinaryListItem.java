@@ -76,4 +76,4 @@ public class OrdinaryListItem implements ListItem {
 
     }
 
-} // end class ListOrdinaryItem
+} // end class OrdinaryListItem
