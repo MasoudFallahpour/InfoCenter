@@ -25,6 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.hb.views.PinnedSectionListView;
+
 import java.util.List;
 
 /**
@@ -32,7 +34,8 @@ import java.util.List;
  *
  * @author Masood Fallahpoor
  */
-public class CustomArrayAdapter extends ArrayAdapter<ListItem> {
+public class CustomArrayAdapter extends ArrayAdapter<ListItem> implements
+        PinnedSectionListView.PinnedSectionListAdapter {
 
     private LayoutInflater mInflater;
 
@@ -56,6 +59,11 @@ public class CustomArrayAdapter extends ArrayAdapter<ListItem> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         return getItem(position).getView(mInflater, convertView, parent);
+    }
+
+    @Override
+    public boolean isItemViewTypePinned(int viewType) {
+        return viewType == ItemType.HEADER_ITEM.ordinal();
     }
 
     public enum ItemType {

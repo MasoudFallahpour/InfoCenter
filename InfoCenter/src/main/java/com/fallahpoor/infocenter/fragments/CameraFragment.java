@@ -65,7 +65,7 @@ public class CameraFragment extends Fragment {
 
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View view = inflater.inflate(R.layout.fragment_others, container,
+        View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
 
         mListView = (ListView) view.findViewById(R.id.listView);

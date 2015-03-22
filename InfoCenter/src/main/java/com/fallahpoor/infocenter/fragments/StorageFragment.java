@@ -55,7 +55,7 @@ public class StorageFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_others, container,
+        View view = inflater.inflate(R.layout.fragment_storage, container,
                 false);
 
         mIsApiAtLeast18 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.
