@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release
+        version="1.2"
+        versioncode="6">
+        <change>تغییرات در ظاهر برنامه</change>
+        <change>رفع مشکل فورس کلوز در هنگام مشاهده اطلاعات باتری در برخی از دستگاه‌ها</change>
+        <change>رفع مشکل فورس کلوز در هنگام مشاهده اطلاعات موقعیت‌یاب در برخی از دستگاه‌ها</change>
+    </release>
+</changelog>

@@ -19,6 +19,7 @@
 
 package com.fallahpoor.infocenter.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -30,6 +31,8 @@ import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.ComponentsFragment;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
+
+import de.cketti.library.changelog.ChangeLog;
 
 /**
  * MainActivity is the main Activity of the app.
@@ -43,6 +46,7 @@ public class MainActivity extends ActionBarActivity implements
     private final String CURRENT_FRAGMENT = "current_fragment";
     private int mCurrentFragment = FragmentType.UNKNOWN;
     private boolean mIsDualPane;
+    private AlertDialog changelogDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,16 @@ public class MainActivity extends ActionBarActivity implements
 
         if (mIsDualPane) {
             displayFragment(FragmentType.GENERAL);
+        }
+
+        ChangeLog changeLog = new ChangeLog(this);
+        /*
+         * Show the changelog dialog if this is the first time
+         * the app has been run after being upgraded.
+        */
+        if (changeLog.isFirstRun()) {
+            changelogDialog = changeLog.getLogDialog();
+            changelogDialog.show();
         }
 
     } // end method onCreate
@@ -98,6 +112,17 @@ public class MainActivity extends ActionBarActivity implements
 
         super.onSaveInstanceState(outState);
         outState.putInt(CURRENT_FRAGMENT, mCurrentFragment);
+
+    }
+
+    @Override
+    protected void onPause() {
+
+        super.onPause();
+
+        if (changelogDialog != null && changelogDialog.isShowing()) {
+            changelogDialog.dismiss();
+        }
 
     }
 
