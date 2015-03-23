@@ -24,6 +24,7 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'net.kianoni:fontloader:0.3.0'
     compile files('../libraries/ACRA/acra-5.0.0.jar')
     compile project(':libraries:ckChangeLog')
     compile project(':libraries:PinnedSectionListView')

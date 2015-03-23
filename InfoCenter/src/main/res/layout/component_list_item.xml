@@ -18,9 +18,9 @@
         android:minHeight="?android:attr/listPreferredItemHeight"
         android:orientation="horizontal">
 
-        <TextView
+        <net.kianoni.fontloader.TextView
             android:id="@+id/componentTextView"
-            style="@style/TextAppearance.AppCompat.Large"
+            style="@style/TextAppearance.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

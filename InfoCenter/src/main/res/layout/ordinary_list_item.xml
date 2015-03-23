@@ -22,18 +22,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical">
 
-            <TextView
+            <net.kianoni.fontloader.TextView
                 android:id="@+id/itemTextView"
-                style="@style/TextAppearance.AppCompat.Large"
+                style="@style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/list_item_item_text_view_horizontal_margin"
                 android:gravity="right"
                 android:text="Item"/>
 
-            <TextView
+            <net.kianoni.fontloader.TextView
                 android:id="@+id/subItemTextView"
-                style="@style/TextAppearance.AppCompat.Small"
+                style="@style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@id/itemTextView"

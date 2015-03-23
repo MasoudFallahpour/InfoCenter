@@ -16,9 +16,9 @@
         android:elevation="@dimen/elevation"
         android:minHeight="?android:attr/listPreferredItemHeight">
 
-        <TextView
+        <net.kianoni.fontloader.TextView
             android:id="@+id/headerTextView"
-            style="@style/TextAppearance.AppCompat.Large"
+            style="@style/TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

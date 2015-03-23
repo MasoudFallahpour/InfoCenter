@@ -16,8 +16,24 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="TextAppearance.Medium" parent="@style/TextAppearance.AppCompat.Medium">
+    <style name="XMYekan">
+        <item name="fontFilePattern">fonts/{fontFamily}-{fontVariant}.ttf</item>
+        <item name="fontFamily">XMYekan</item>
+        <item name="fontVariant">Regular</item>
+    </style>
+
+    <style name="TextAppearance.Large" parent="XMYekan">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TextAppearance.Medium" parent="XMYekan">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TextAppearance.Small" parent="XMYekan">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
     </style>
 
 </resources>
