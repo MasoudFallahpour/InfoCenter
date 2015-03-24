@@ -45,6 +45,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.webkit.WebView;
 
+import com.alertdialogpro.AlertDialogPro;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -248,7 +250,7 @@ public class ChangeLog {
         //wv.setBackgroundColor(0); // transparent
         wv.loadDataWithBaseURL(null, getLog(full), "text/html", "UTF-8", null);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        AlertDialogPro.Builder builder = new AlertDialogPro.Builder(mContext);
         builder.setTitle(
                 mContext.getResources().getString(
                         full ? R.string.changelog_full_title : R.string.changelog_title))

@@ -41,3 +41,6 @@ project.ext {
     ]
 }
 
+dependencies {
+    compile 'com.github.fengdai:alertdialogpro-theme-material:0.2.1'
+}
