@@ -137,6 +137,7 @@ public class AndroidFragment extends Fragment {
             case Build.VERSION_CODES.KITKAT:
                 return getString(R.string.and_sub_item_kk);
             case Build.VERSION_CODES.LOLLIPOP:
+            case Build.VERSION_CODES.LOLLIPOP_MR1:
                 return getString(R.string.and_sub_item_lollipop);
             default:
                 return getString(R.string.unknown);
