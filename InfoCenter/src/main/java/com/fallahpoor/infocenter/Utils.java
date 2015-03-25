@@ -30,7 +30,7 @@ import java.util.Locale;
  */
 public class Utils {
 
-    private static Locale mPersianLocale = new Locale("fa", "IR");
+    private static Locale mPersianLocale;
     private static Context mContext;
 
     private Utils() {
@@ -38,6 +38,7 @@ public class Utils {
 
     public static void initialize(Context context) {
         mContext = context;
+        mPersianLocale = new Locale("fa", "IR");
     }
 
     public static Locale getLocale() {
