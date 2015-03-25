@@ -69,8 +69,6 @@ public class FragmentFactory {
             case FragmentType.LIBRARIES:
                 return new Libs.Builder()
                         .withFields(R.string.class.getFields())
-                        .withVersionShown(true)
-                        .withLicenseShown(true)
                         .fragment();
             default:
                 return new GeneralFragment();
