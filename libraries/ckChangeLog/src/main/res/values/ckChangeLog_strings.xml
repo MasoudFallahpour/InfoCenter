@@ -4,7 +4,11 @@
     <string name="library_ckChangeLog_author">cketti</string>
     <string name="library_ckChangeLog_authorWebsite">http://cketti.de/</string>
     <string name="library_ckChangeLog_libraryName">ckChangeLog</string>
-    <string name="library_ckChangeLog_libraryDescription">An Android library to display a changelog</string>
+    <string name="library_ckChangeLog_libraryDescription">
+        <![CDATA[
+        <b>ckChangeLog</b> provides an easy way to display a changelog in an Android app.
+        ]]>
+    </string>
     <string name="library_ckChangeLog_libraryVersion">1.2.2</string>
     <string name="library_ckChangeLog_libraryWebsite">https://github.com/cketti/ckChangeLog</string>
     <string name="library_ckChangeLog_licenseVersion">Apache Version 2.0</string>

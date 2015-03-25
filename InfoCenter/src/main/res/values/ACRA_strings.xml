@@ -3,7 +3,11 @@
     <string name="define_ACRA"/>
     <string name="library_ACRA_author">ACRA authors</string>
     <string name="library_ACRA_libraryName">ACRA</string>
-    <string name="library_ACRA_libraryDescription">ACRA (Application Crash Reports for Android) is a library enabling Android applications to automatically post their crash reports</string>
+    <string name="library_ACRA_libraryDescription">
+        <![CDATA[
+        <b>ACRA</b> (Application Crash Reports for Android) enables Android applications to automatically post their crash reports.
+        ]]>
+    </string>
     <string name="library_ACRA_libraryVersion">4.6.1</string>
     <string name="library_ACRA_libraryWebsite">https://github.com/ACRA/acra</string>
     <string name="library_ACRA_licenseVersion">Apache Version 2.0</string>
