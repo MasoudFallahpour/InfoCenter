@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_PinnedSectionListView"/>
+    <string name="library_PinnedSectionListView_author">Sergej Shafarenka</string>
+    <string name="library_PinnedSectionListView_libraryName">PinnedSectionListView</string>
+    <string name="library_PinnedSectionListView_libraryDescription">Easy to use ListView with pinned sections for Android</string>
+    <string name="library_PinnedSectionListView_libraryVersion">1.6-beta.2</string>
+    <string name="library_PinnedSectionListView_libraryWebsite">https://github.com/beworker/pinned-section-listview</string>
+    <string name="library_PinnedSectionListView_licenseVersion">Apache Version 2.0</string>
+    <string name="library_PinnedSectionListView_licenseId">apache_2_0</string>
+    <string name="library_PinnedSectionListView_isOpenSource">true</string>
+    <string name="library_PinnedSectionListView_repositoryLink">https://github.com/beworker/pinned-section-listview</string>
+</resources>

@@ -21,10 +21,12 @@ package com.fallahpoor.infocenter.fragments;
 
 import android.support.v4.app.Fragment;
 
+import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.battery.BatteryFragment;
 import com.fallahpoor.infocenter.fragments.bluetooth.BluetoothFragment;
 import com.fallahpoor.infocenter.fragments.gps.GpsFragment;
 import com.fallahpoor.infocenter.fragments.wifi.WifiFragment;
+import com.mikepenz.aboutlibraries.Libs;
 
 /**
  * A factory class to create different Fragments.
@@ -64,6 +66,12 @@ public class FragmentFactory {
                 return new SimFragment();
             case FragmentType.ABOUT:
                 return new AboutFragment();
+            case FragmentType.LIBRARIES:
+                return new Libs.Builder()
+                        .withFields(R.string.class.getFields())
+                        .withVersionShown(true)
+                        .withLicenseShown(true)
+                        .fragment();
             default:
                 return new GeneralFragment();
         } // end switch
@@ -87,6 +95,7 @@ public class FragmentFactory {
         public final static int GPS = 11;
         public final static int SIM = 12;
         public final static int ABOUT = 13;
+        public final static int LIBRARIES = 14;
 
     }
 
