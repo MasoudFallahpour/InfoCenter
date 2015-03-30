@@ -54,24 +54,34 @@ public class ComponentListItem implements ListItem {
     public View getView(LayoutInflater inflater, View convertView,
                         ViewGroup parent) {
 
-        View view;
+        final ViewHolder viewHolder;
 
         if (convertView == null) {
-            view = inflater.inflate(R.layout.component_list_item, parent,
+            convertView = inflater.inflate(R.layout.component_list_item, parent,
                     false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.componentTextView = (TextView) convertView.findViewById(
+                    R.id.componentTextView);
+            viewHolder.componentImageView = (ImageView) convertView.findViewById(
+                    R.id.componentImageView);
+
+            convertView.setTag(viewHolder);
         } else {
-            view = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        TextView textView = (TextView) view.findViewById(
-                R.id.componentTextView);
-        ImageView imageView = (ImageView) view.findViewById(
-                R.id.componentImageView);
+        viewHolder.componentTextView.setText(mItemText);
+        viewHolder.componentImageView.setImageResource(mItemImageId);
 
-        textView.setText(mItemText);
-        imageView.setImageResource(mItemImageId);
+        return convertView;
 
-        return view;
+    }
+
+    private static class ViewHolder {
+
+        public TextView componentTextView;
+        public ImageView componentImageView;
 
     }
 

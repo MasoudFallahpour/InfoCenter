@@ -28,6 +28,8 @@ import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.adapters.CustomArrayAdapter.ItemType;
 
 /**
+ * This class is responsible for inflating an ordinary list item.
+ *
  * @author Masood Fallahpoor
  */
 public class OrdinaryListItem implements ListItem {
@@ -55,24 +57,34 @@ public class OrdinaryListItem implements ListItem {
     public View getView(LayoutInflater inflater, View convertView,
                         ViewGroup parent) {
 
-        View view;
+        final ViewHolder viewHolder;
 
         if (convertView == null) {
-            view = inflater.inflate(R.layout.ordinary_list_item, parent,
+            convertView = inflater.inflate(R.layout.ordinary_list_item, parent,
                     false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.itemTextView = (TextView) convertView.findViewById(
+                    R.id.itemTextView);
+            viewHolder.subItemTextView = (TextView) convertView.findViewById(
+                    R.id.subItemTextView);
+
+            convertView.setTag(viewHolder);
         } else {
-            view = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        TextView itemTextView = (TextView) view.findViewById(
-                R.id.itemTextView);
-        TextView subItemTextView = (TextView) view.findViewById(
-                R.id.subItemTextView);
+        viewHolder.itemTextView.setText(mItemText);
+        viewHolder.subItemTextView.setText(mSubItemText);
 
-        itemTextView.setText(mItemText);
-        subItemTextView.setText(mSubItemText);
+        return convertView;
 
-        return view;
+    }
+
+    private static class ViewHolder {
+
+        public TextView itemTextView;
+        public TextView subItemTextView;
 
     }
 

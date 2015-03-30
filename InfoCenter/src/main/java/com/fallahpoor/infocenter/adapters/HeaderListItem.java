@@ -28,6 +28,8 @@ import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.adapters.CustomArrayAdapter.ItemType;
 
 /**
+ * This class is responsible for inflating a header list item.
+ *
  * @author Masood Fallahpoor
  */
 public class HeaderListItem implements ListItem {
@@ -47,21 +49,31 @@ public class HeaderListItem implements ListItem {
     public View getView(LayoutInflater inflater, View convertView,
                         ViewGroup parent) {
 
-        View view;
+        final ViewHolder viewHolder;
 
         if (convertView == null) {
-            view = inflater.inflate(R.layout.header_list_item, parent,
+            convertView = inflater.inflate(R.layout.header_list_item, parent,
                     false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.headerTextView = (TextView) convertView.findViewById(
+                    R.id.headerTextView);
+
+            convertView.setTag(viewHolder);
         } else {
-            view = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        TextView headerTextView = (TextView) view.findViewById(
-                R.id.headerTextView);
-        headerTextView.setText(mHeaderText);
+        viewHolder.headerTextView.setText(mHeaderText);
 
-        return view;
+        return convertView;
 
     }
 
-} // end class ListHeaderItem
+    private static class ViewHolder {
+
+        public TextView headerTextView;
+
+    }
+
+} // end class HeaderListItem
