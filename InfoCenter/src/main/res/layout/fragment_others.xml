@@ -11,9 +11,9 @@
         android:listSelector="@android:color/transparent"
         android:verticalScrollbarPosition="left"/>
 
-    <TextView
+    <net.kianoni.fontloader.TextView
         android:id="@+id/textView"
-        style="@style/TextAppearance.AppCompat.Large"
+        style="@style/TextAppearance.Large"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|center_vertical"
