@@ -168,6 +168,9 @@ public class BatteryObservable extends Observable {
             case "li-ion":
                 tech = mContext.getString(R.string.bat_sub_item_lithium_ion);
                 break;
+            case "li-poly":
+                tech = mContext.getString(R.string.bat_sub_item_lithium_polymer);
+                break;
             default:
                 tech = technology;
         }

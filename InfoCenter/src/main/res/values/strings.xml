@@ -117,6 +117,7 @@
     <string name="bat_sub_item_centigrade">درجهٔ سانتی‌ گراد</string>
     <string name="bat_sub_item_milli_volt">میلی ولت</string>
     <string name="bat_sub_item_lithium_ion">لیتیوم-یون</string>
+    <string name="bat_sub_item_lithium_polymer">لیتیوم-پلیمر</string>
     <string name="wifi_connected_to_access_point">متصل به اکسس پوینت</string>
     <string name="wifi_ssid">شناسهٔ شبکه</string>
     <string name="wifi_ip_address">آدرس آی پی</string>
