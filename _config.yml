@@ -6,6 +6,7 @@ encoding: utf-8
 
 # Build settings
 exclude: [CNAME, README.md, .gitignore, LICENSE.txt]
+baseurl: /InfoCenter
 permalink: / # disables post output
 timezone: Asia/Tehran
 lsi: false
