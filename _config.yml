@@ -14,7 +14,7 @@ highlighter: pygments
 
 # content configuration
 app_source_code_link: "https://github.com/MasoodFallahpoor/InfoCenter"
-site_source_code_link: "https://github.com/MasoodFallahpoor/InfoCenter.github.io"
+site_source_code_link: "https://github.com/MasoodFallahpoor/InfoCenter/tree/gh-pages"
 favicon: "img/favicon.png"
 
 # template colors, used site-wide via css
