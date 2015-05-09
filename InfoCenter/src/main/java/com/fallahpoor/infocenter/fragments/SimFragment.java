@@ -179,10 +179,22 @@ public class SimFragment extends Fragment {
         String netOpName = telephonyManager.getNetworkOperatorName();
 
         if (Utils.isEmpty(netOpName)) {
-            return getString(R.string.unknown);
+            netOpName = getString(R.string.unknown);
         } else {
-            return netOpName;
+            switch (netOpName.toLowerCase()) {
+                case "ir-mci":
+                    netOpName = getString(R.string.sim_sub_item_irmci);
+                    break;
+                case "irancell":
+                    netOpName = getString(R.string.sim_sub_item_irancell);
+                    break;
+                case "rightel":
+                    netOpName = getString(R.string.sim_sub_item_rightel);
+                    break;
+            }
         }
+
+        return netOpName;
 
     }
 

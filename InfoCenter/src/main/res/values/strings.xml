@@ -170,6 +170,9 @@
     <string name="sim_sub_item_iden">IDEN</string>
     <string name="sim_sub_item_lte">LTE</string>
     <string name="sim_sub_item_umts">UMTS</string>
+    <string name="sim_sub_item_irancell">ایرانسل</string>
+    <string name="sim_sub_item_irmci">همراه اول</string>
+    <string name="sim_sub_item_rightel">رایتل</string>
     <string name="supported">دارد</string>
     <string name="unsupported">ندارد</string>
     <string name="item_status">وضعیت</string>
