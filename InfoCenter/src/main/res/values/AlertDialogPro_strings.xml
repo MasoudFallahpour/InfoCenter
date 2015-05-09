@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_AlertDialogPro"/>
+    <string name="library_AlertDialogPro_author">Feng Dai</string>
+    <string name="library_AlertDialogPro_libraryName">AlertDialogPro</string>
+    <string name="library_AlertDialogPro_libraryDescription">
+        <![CDATA[
+        <b>AlertDialogPro</b> makes it easy to theme and customize Android\'s Dialogs.
+        ]]>
+    </string>
+    <string name="library_AlertDialogPro_libraryVersion">0.2.2</string>
+    <string name="library_AlertDialogPro_libraryWebsite">https://github.com/fengdai/AlertDialogPro</string>
+    <string name="library_AlertDialogPro_licenseVersion">Apache Version 2.0</string>
+    <string name="library_AlertDialogPro_licenseId">apache_2_0</string>
+    <string name="library_AlertDialogPro_isOpenSource">true</string>
+    <string name="library_AlertDialogPro_repositoryLink">https://github.com/fengdai/AlertDialogPro</string>
+</resources>
