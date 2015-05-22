@@ -61,25 +61,25 @@ public class BluetoothFragment extends Fragment implements Observer {
 
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-        mListView = (ListView) view.findViewById(R.id.listView);
+
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
         msgTextView.setText(R.string.blu_sub_item_no_bluetooth);
 
+        mListView = (ListView) view.findViewById(R.id.listView);
+        mListView.setEmptyView(msgTextView);
+
         mHasBluetooth = hasBluetoothFeature();
 
-        populateListView(msgTextView);
+        populateListView();
 
         return view;
 
     } // end method onCreateView
 
-    private void populateListView(TextView msgTextView) {
+    private void populateListView() {
 
         if (mHasBluetooth) {
             mBluetoothObservable = new BluetoothObservable(getActivity());
-        } else {
-            mListView.setEmptyView(msgTextView);
-            mListView = null;
         }
 
     }

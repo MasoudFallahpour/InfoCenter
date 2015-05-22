@@ -55,24 +55,23 @@ public class SimFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
-
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
         msgTextView.setText(R.string.sim_sub_item_no_sim);
 
-        populateListView(listView, msgTextView);
+        ListView listView = (ListView) view.findViewById(R.id.listView);
+        listView.setEmptyView(msgTextView);
+
+        populateListView(listView);
 
         return view;
 
     }
 
-    private void populateListView(ListView listView, TextView msgTextView) {
+    private void populateListView(ListView listView) {
 
         if (isTelephonySupported() && isSimPresent()) {
             listView.setAdapter(new CustomArrayAdapter(getActivity(),
                     getListItems()));
-        } else {
-            listView.setEmptyView(msgTextView);
         }
 
     }
