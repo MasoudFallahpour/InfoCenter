@@ -76,8 +76,27 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
+            android:autoLink="web"
             android:gravity="center_horizontal"
             android:text="@string/app_github_address"/>
+
+        <net.kianoni.fontloader.TextView
+            style="@style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
+            android:text="@string/app_web_site"/>
+
+        <net.kianoni.fontloader.TextView
+            style="@style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
+            android:autoLink="web"
+            android:gravity="center_horizontal"
+            android:text="@string/app_web_site_address"/>
     </LinearLayout>
 
 </ScrollView>

@@ -8,6 +8,8 @@
     <string name="masood_fallahpoor">مسعود فلاح‌پور</string>
     <string name="app_github_page">دسترسی به کد برنامه</string>
     <string name="app_github_address">https://github.com/MasoodFallahpoor/InfoCenter</string>
+    <string name="app_web_site">وب سایت برنامه</string>
+    <string name="app_web_site_address">https://masoodfallahpoor.github.io/InfoCenter</string>
     <string name="action_exit">خروج</string>
     <string name="action_about_app">دربارهٔ برنامه</string>
     <string name="action_about_libraries">کتابخانه‌های استفاده شده</string>
