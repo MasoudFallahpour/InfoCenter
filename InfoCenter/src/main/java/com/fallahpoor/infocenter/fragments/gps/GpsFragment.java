@@ -59,26 +59,26 @@ public class GpsFragment extends Fragment implements Observer {
 
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-
+        mListView = (ListView) view.findViewById(R.id.listView);
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
         msgTextView.setText(R.string.gps_sub_item_no_gps);
 
-        mListView = (ListView) view.findViewById(R.id.listView);
-        mListView.setEmptyView(msgTextView);
-
         mHasGpsFeature = hasGpsFeature();
 
-        populateListView();
+        populateListView(msgTextView);
 
         return view;
 
     }
 
-    private void populateListView() {
+    private void populateListView(TextView msgTextView) {
 
         if (mHasGpsFeature) {
             mGpsObservable = new GpsObservable(getActivity());
             updateListView();
+        } else {
+            mListView.setEmptyView(msgTextView);
+            mListView = null;
         }
 
     }

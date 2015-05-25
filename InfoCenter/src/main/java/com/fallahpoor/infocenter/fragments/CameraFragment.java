@@ -68,23 +68,25 @@ public class CameraFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
 
+        mListView = (ListView) view.findViewById(R.id.listView);
+
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
         msgTextView.setText(R.string.cam_no_camera);
 
-        mListView = (ListView) view.findViewById(R.id.listView);
-        mListView.setEmptyView(msgTextView);
-
-        populateListView();
+        populateListView(msgTextView);
 
         return view;
 
     }
 
-    private void populateListView() {
+    private void populateListView(TextView msgTextView) {
 
         if (Camera.getNumberOfCameras() > 0) {
             mGetCameraParamsTask = new GetCameraParamsTask();
             mGetCameraParamsTask.execute();
+        } else {
+            mListView.setEmptyView(msgTextView);
+            mListView = null;
         }
 
     }
