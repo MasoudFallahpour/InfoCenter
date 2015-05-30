@@ -25,6 +25,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'net.kianoni:fontloader:0.3.0'
+    compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.3'
     compile('com.mikepenz.aboutlibraries:library:4.5.9@aar') {
         transitive = true
     }

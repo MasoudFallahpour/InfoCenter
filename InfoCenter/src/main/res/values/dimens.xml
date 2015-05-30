@@ -17,6 +17,7 @@
     <dimen name="fragment_about_logo_height">110dp</dimen>
     <dimen name="fragment_about_logo_width">110dp</dimen>
     <dimen name="fragment_about_text_size">18sp</dimen>
-    <dimen name="elevation">3dp</dimen>
+    <dimen name="elevation">2dp</dimen>
+    <dimen name="translation">2dp</dimen>
 
 </resources>
