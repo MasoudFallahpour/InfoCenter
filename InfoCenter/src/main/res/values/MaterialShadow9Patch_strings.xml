@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_MaterialShadow9Patch"/>
+    <string name="library_MaterialShadow9Patch_author">Haruki Hasegawa</string>
+    <string name="library_MaterialShadow9Patch_libraryName">Material Shadow 9-Patch</string>
+    <string name="library_MaterialShadow9Patch_libraryDescription">
+        <![CDATA[
+        <b>Material Shadow 9-Patch</b> provides 9-patch based drop shadow for view elements.
+        ]]>
+    </string>
+    <string name="library_MaterialShadow9Patch_libraryVersion">0.6.3</string>
+    <string name="library_MaterialShadow9Patch_libraryWebsite">https://github.com/h6ah4i/android-materialshadowninepatch</string>
+    <string name="library_MaterialShadow9Patch_licenseVersion">Apache Version 2.0</string>
+    <string name="library_MaterialShadow9Patch_licenseId">apache_2_0</string>
+    <string name="library_MaterialShadow9Patch_isOpenSource">true</string>
+    <string name="library_MaterialShadow9Patch_repositoryLink">https://github.com/h6ah4i/android-materialshadowninepatch</string>
+</resources>
