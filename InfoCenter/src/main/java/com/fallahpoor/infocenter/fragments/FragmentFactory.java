@@ -58,6 +58,8 @@ public class FragmentFactory {
                 return new BatteryFragment();
             case FragmentType.WIFI:
                 return new WifiFragment();
+            case FragmentType.GPU:
+                return new GpuFragment();
             case FragmentType.BLUETOOTH:
                 return new BluetoothFragment();
             case FragmentType.GPS:
@@ -89,11 +91,12 @@ public class FragmentFactory {
         public final static int SENSORS = 7;
         public final static int BATTERY = 8;
         public final static int WIFI = 9;
-        public final static int BLUETOOTH = 10;
-        public final static int GPS = 11;
-        public final static int SIM = 12;
-        public final static int ABOUT = 13;
-        public final static int LIBRARIES = 14;
+        public final static int GPU = 10;
+        public final static int BLUETOOTH = 11;
+        public final static int GPS = 12;
+        public final static int SIM = 13;
+        public final static int ABOUT = 14;
+        public final static int LIBRARIES = 15;
 
     }
 

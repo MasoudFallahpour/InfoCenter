@@ -132,6 +132,10 @@
     <string name="wifi_very_good">بسیار خوب</string>
     <string name="wifi_excellent">عالی</string>
     <string name="wifi_mbps">مگابیت بر ثانیه</string>
+    <string name="gpu_item_vendor">سازنده</string>
+    <string name="gpu_item_model">مدل</string>
+    <string name="gpu_item_opengl_version">نسخه اُپن جی ال</string>
+    <string name="gpu_sub_item_qualcomm">کوالکام</string>
     <string name="blu_item_address">آدرس بلوتوث</string>
     <string name="blu_item_paired_devices">نام دستگاه‌های جفت شده</string>
     <string name="blu_item_name">نام بلوتوث</string>

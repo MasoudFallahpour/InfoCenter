@@ -38,7 +38,7 @@ import java.util.ArrayList;
 
 /**
  * This Fragment displays a list of components. The components are: General,
- * Android, CPU, Screen, RAM, Storage, Camera, Sensors, Battery, Wi-Fi,
+ * Android, CPU, Screen, RAM, Storage, Camera, Sensors, Battery, Wi-Fi, GPU
  * Bluetooth, GPS and Sim card. A user can tap a component to see some
  * information about that component.
  *
@@ -91,8 +91,9 @@ public class ComponentsFragment extends Fragment {
                 R.drawable.ic_screen, R.drawable.ic_ram,
                 R.drawable.ic_storage, R.drawable.ic_camera,
                 R.drawable.ic_sensor, R.drawable.ic_battery,
-                R.drawable.ic_wifi, R.drawable.ic_bluetooth,
-                R.drawable.ic_gps, R.drawable.ic_sim};
+                R.drawable.ic_wifi, R.drawable.ic_gpu,
+                R.drawable.ic_bluetooth, R.drawable.ic_gps,
+                R.drawable.ic_sim};
 
         for (int i = 0; i < listItems.length; i++) {
             items.add(new ComponentListItem(listItems[i], listImageIds[i]));
