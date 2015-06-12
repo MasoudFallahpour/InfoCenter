@@ -93,17 +93,16 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int itemId = item.getItemId();
-
-        if (itemId == R.id.action_about_app) {
-            displayDetails(FragmentType.ABOUT);
-            return true;
-        } else if (itemId == R.id.action_about_libraries) {
-            displayDetails(FragmentType.LIBRARIES);
-            return true;
-        } else if (itemId == R.id.action_exit) {
-            finish();
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_about_app:
+                displayDetails(FragmentType.ABOUT);
+                return true;
+            case R.id.action_about_libraries:
+                displayDetails(FragmentType.LIBRARIES);
+                return true;
+            case R.id.action_exit:
+                finish();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
