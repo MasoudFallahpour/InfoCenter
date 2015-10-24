@@ -21,7 +21,7 @@
     <string name="gen_item_fingerprint">اثر انگشت دستگاه</string>
     <string name="gen_item_imei">آی اِم ای آی</string>
     <string name="gen_item_serial_number">شماره سریال</string>
-    <string name="gen_item_radio_firmware_version">نسخهٔ سفت‌افزار</string>
+    <string name="gen_item_radio_firmware_version">نسخهٔ فیرم‌ور</string>
     <string name="gen_item_uptime">مدت کارکرد از آخرین راه‌اندازی</string>
     <string name="and_item_version">نسخه</string>
     <string name="and_item_name">نام</string>
