@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
     <release
-        version="2.0"
-        versioncode="6">
-        <change>بازطراحی ظاهر برنامه براساس طراحی متریال</change>
-        <change>استفاده از فونت جدید</change>
-        <change>نمایش لیست آخرین تغییرات، در اولین اجرای برنامه پس از بروزرسانی</change>
-        <change>رفع مشکل فورس کلوز در هنگام مشاهده اطلاعات باتری در برخی از دستگاه‌ها</change>
-        <change>رفع مشکل فورس کلوز در هنگام مشاهده اطلاعات موقعیت‌یاب در برخی از دستگاه‌ها</change>
+        version="2.1"
+        versioncode="7">
+        <change>پشتیبانی از اندروید نسخه مارشمالو</change>
+        <change>افزودن اطلاعات پردازنده گرافیکی</change>
+        <change>اعمال تغییرات جزئی در ظاهر برنامه</change>
     </release>
 </changelog>
