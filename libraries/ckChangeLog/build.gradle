@@ -11,8 +11,8 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         versionName "1.2.2"
@@ -42,5 +42,5 @@ project.ext {
 }
 
 dependencies {
-    compile 'com.github.fengdai:alertdialogpro-theme-material:0.2.1'
+    compile 'com.github.fengdai:alertdialogpro-theme-material:0.2.4'
 }
