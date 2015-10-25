@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    compile 'com.pnikosis:materialish-progress:1.7'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'net.kianoni:fontloader:0.3.0'
     compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.3'

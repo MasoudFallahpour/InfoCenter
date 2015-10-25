@@ -21,8 +21,10 @@ package com.fallahpoor.infocenter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.ProgressBar;
+
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 /**
  * This class creates a custom dialog to display when something is loading.
@@ -37,9 +39,16 @@ public class LoadingDialog extends Dialog {
 
     public static LoadingDialog show(Context context) {
 
+        ProgressWheel progressWheel = new ProgressWheel(context);
+        progressWheel.setBarColor(Color.BLUE);
+        progressWheel.setCircleRadius(90);
+        progressWheel.setBarWidth(8);
+        progressWheel.setBarColor(Color.parseColor("#607d8b"));
+        progressWheel.spin();
+
         LoadingDialog dialog = new LoadingDialog(context);
         dialog.setCancelable(false);
-        dialog.addContentView(new ProgressBar(context), new LayoutParams(
+        dialog.addContentView(progressWheel, new LayoutParams(
                 LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         dialog.show();
 
