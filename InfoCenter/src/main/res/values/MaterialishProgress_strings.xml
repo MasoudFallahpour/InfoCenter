@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_MaterialishProgress"/>
+    <string name="library_MaterialishProgress_author">Nico Hormazábal</string>
+    <string name="library_MaterialishProgress_libraryName">Material-ish Progress</string>
+    <string name="library_MaterialishProgress_libraryDescription">
+        <![CDATA[
+        <b>Material-ish Progress</b> is a Material style progress wheel.
+        ]]>
+    </string>
+    <string name="library_MaterialishProgress_libraryVersion">1.7</string>
+    <string name="library_MaterialishProgress_libraryWebsite">https://github.com/pnikosis/materialish-progress</string>
+    <string name="library_MaterialishProgress_licenseVersion">Apache Version 2.0</string>
+    <string name="library_MaterialishProgress_licenseId">apache_2_0</string>
+    <string name="library_MaterialishProgress_isOpenSource">true</string>
+    <string name="library_MaterialishProgress_repositoryLink">https://github.com/pnikosis/materialish-progress</string>
+</resources>
