@@ -40,10 +40,9 @@ public class LoadingDialog extends Dialog {
     public static LoadingDialog show(Context context) {
 
         ProgressWheel progressWheel = new ProgressWheel(context);
-        progressWheel.setBarColor(Color.BLUE);
+        progressWheel.setBarColor(Color.parseColor("#607d8b"));
         progressWheel.setCircleRadius(90);
         progressWheel.setBarWidth(8);
-        progressWheel.setBarColor(Color.parseColor("#607d8b"));
         progressWheel.spin();
 
         LoadingDialog dialog = new LoadingDialog(context);
