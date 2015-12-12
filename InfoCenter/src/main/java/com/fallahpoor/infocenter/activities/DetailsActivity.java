@@ -22,6 +22,7 @@ package com.fallahpoor.infocenter.activities;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
@@ -33,7 +34,7 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
  *
  * @author Masood Fallahpoor
  */
-public class DetailsActivity extends ActionBarActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

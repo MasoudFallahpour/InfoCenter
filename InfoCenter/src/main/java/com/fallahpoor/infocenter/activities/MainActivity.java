@@ -23,7 +23,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,7 +39,7 @@ import de.cketti.library.changelog.ChangeLog;
  *
  * @author Masood Fallahpoor
  */
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends AppCompatActivity implements
         ComponentsFragment.ComponentsListener {
 
     public static final String FRAGMENT_TO_DISPLAY = "fragment_to_display";
