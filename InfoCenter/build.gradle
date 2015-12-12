@@ -30,7 +30,7 @@ dependencies {
     compile('com.mikepenz.aboutlibraries:library:4.5.9@aar') {
         transitive = true
     }
-    compile files('../libraries/ACRA/acra-5.0.0.jar')
+    compile 'ch.acra:acra:4.7.0'
     compile project(':libraries:ckChangeLog')
     compile project(':libraries:PinnedSectionListView')
 }

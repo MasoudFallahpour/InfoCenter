@@ -38,7 +38,6 @@ import org.acra.sender.HttpSender;
         httpMethod = HttpSender.Method.POST,
         formUriBasicAuthLogin = "ghtleadvasifisteardsters",
         formUriBasicAuthPassword = "UndcmjgHamlXQjWkoaLhifLk",
-        formKey = "",
         customReportContent = {
                 ReportField.REPORT_ID, ReportField.APP_VERSION_CODE,
                 ReportField.APP_VERSION_NAME, ReportField.ANDROID_VERSION,
