@@ -7,10 +7,6 @@
         android:title="@string/action_about_app"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_about_libraries"
-        android:title="@string/action_about_libraries"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/action_exit"
         android:title="@string/action_exit"
         app:showAsAction="never"/>

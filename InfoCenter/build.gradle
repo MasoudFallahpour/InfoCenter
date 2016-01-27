@@ -27,9 +27,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'net.kianoni:fontloader:0.3.0'
     compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.3'
-    compile('com.mikepenz.aboutlibraries:library:4.5.9@aar') {
-        transitive = true
-    }
     compile 'ch.acra:acra:4.7.0'
     compile project(':libraries:ckChangeLog')
     compile project(':libraries:PinnedSectionListView')

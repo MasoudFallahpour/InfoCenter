@@ -97,9 +97,6 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.action_about_app:
                 displayDetails(FragmentType.ABOUT);
                 return true;
-            case R.id.action_about_libraries:
-                displayDetails(FragmentType.LIBRARIES);
-                return true;
             case R.id.action_exit:
                 finish();
                 return true;
