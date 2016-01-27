@@ -134,19 +134,19 @@ public class WifiObservable extends Observable {
 
         switch (intStrength) {
             case 0:
-                strength = mContext.getString(R.string.wifi_poor);
+                strength = mContext.getString(R.string.wifi_sub_item_poor);
                 break;
             case 1:
-                strength = mContext.getString(R.string.wifi_not_bad);
+                strength = mContext.getString(R.string.wifi_sub_item_not_bad);
                 break;
             case 2:
-                strength = mContext.getString(R.string.wifi_good);
+                strength = mContext.getString(R.string.wifi_sub_item_good);
                 break;
             case 3:
-                strength = mContext.getString(R.string.wifi_very_good);
+                strength = mContext.getString(R.string.wifi_sub_item_very_good);
                 break;
             case 4:
-                strength = mContext.getString(R.string.wifi_excellent);
+                strength = mContext.getString(R.string.wifi_sub_item_excellent);
                 break;
             default:
                 strength = mContext.getString(R.string.unknown);
@@ -187,7 +187,7 @@ public class WifiObservable extends Observable {
     private String getLinkSpeed(WifiInfo wifiInfo) {
 
         return String.format(Utils.getLocale(), "%d", wifiInfo.getLinkSpeed())
-                + " " + mContext.getString(R.string.wifi_mbps);
+                + " " + mContext.getString(R.string.wifi_sub_item_mbps);
 
     }
 

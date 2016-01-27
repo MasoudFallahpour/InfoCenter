@@ -97,12 +97,12 @@ public class WifiFragment extends Fragment implements Observer {
         return new ArrayList<>(Arrays.asList(
                 new String[]{
                         getString(R.string.item_status),
-                        getString(R.string.wifi_connected_to_access_point),
-                        getString(R.string.wifi_ssid),
-                        getString(R.string.wifi_ip_address),
-                        getString(R.string.wifi_mac_address),
-                        getString(R.string.wifi_signal_quality),
-                        getString(R.string.wifi_link_speed)
+                        getString(R.string.wifi_item_connected_to_access_point),
+                        getString(R.string.wifi_item_ssid),
+                        getString(R.string.wifi_item_ip_address),
+                        getString(R.string.wifi_item_mac_address),
+                        getString(R.string.wifi_item_signal_quality),
+                        getString(R.string.wifi_item_link_speed)
                 }));
 
     }
