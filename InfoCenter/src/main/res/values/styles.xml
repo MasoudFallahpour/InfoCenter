@@ -2,23 +2,8 @@
 
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/blue_gray</item>
-        <!-- Setting the theme of AlertDialogPro -->
-        <item name="alertDialogProTheme">@style/MyAlertDialogProTheme</item>
+        <item name="alertDialogProTheme">@style/Theme.AlertDialogPro.Material.Light</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    </style>
-
-    <!-- Customizing the theme of AlertDialogPro -->
-    <style name="MyAlertDialogProTheme" parent="Theme.AlertDialogPro.Material.Light">
-        <item name="adpButtonBarPositiveButtonStyle">@style/AlertDialogProButtonStyle</item>
-        <item name="android:windowTitleStyle">@style/AlertDialogProTitleStyle</item>
-    </style>
-
-    <style name="AlertDialogProButtonStyle" parent="Widget.AlertDialogPro.Material.Light.Button">
-        <item name="android:textColor">@color/red</item>
-    </style>
-
-    <style name="AlertDialogProTitleStyle" parent="@style/DialogWindowTitle.AlertDialogPro.Material">
-        <item name="android:textColor">@color/red</item>
     </style>
 
     <style name="LoadingDialogTheme" parent="@style/Theme.AppCompat.Dialog">
