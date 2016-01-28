@@ -17,18 +17,35 @@
         android:layout_marginLeft="@dimen/list_item_layout_horizontal_margin"
         android:layout_marginRight="@dimen/list_item_layout_horizontal_margin"
         android:layout_marginTop="@dimen/list_item_layout_vertical_margin"
-        android:background="@drawable/header_list_item_background"
+        android:background="@drawable/list_item_background"
         android:minHeight="?android:attr/listPreferredItemHeight">
 
-        <net.kianoni.fontloader.TextView
-            android:id="@+id/headerTextView"
-            style="@style/TextAppearance.Large"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/list_item_item_text_view_horizontal_margin"
-            android:gravity="left"
-            android:text="Header"/>
+            android:layout_gravity="center_vertical">
+
+            <net.kianoni.fontloader.TextView
+                android:id="@+id/itemTextView"
+                style="@style/TextAppearance.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/list_item_item_text_view_horizontal_margin"
+                android:gravity="right"
+                android:text="Item"/>
+
+            <net.kianoni.fontloader.TextView
+                android:id="@+id/subItemTextView"
+                style="@style/TextAppearance.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/itemTextView"
+                android:layout_below="@id/itemTextView"
+                android:layout_marginTop="@dimen/list_item_sub_item_text_view_top_margin"
+                android:gravity="right"
+                android:text="Sub Item"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

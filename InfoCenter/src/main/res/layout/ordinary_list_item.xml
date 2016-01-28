@@ -30,8 +30,8 @@
                 style="@style/TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/list_item_item_text_view_horizontal_margin"
-                android:gravity="right"
+                android:layout_marginLeft="@dimen/list_item_item_text_view_horizontal_margin"
+                android:gravity="left"
                 android:text="Item"/>
 
             <net.kianoni.fontloader.TextView
@@ -39,10 +39,10 @@
                 style="@style/TextAppearance.Small"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignRight="@id/itemTextView"
+                android:layout_alignLeft="@id/itemTextView"
                 android:layout_below="@id/itemTextView"
                 android:layout_marginTop="@dimen/list_item_sub_item_text_view_top_margin"
-                android:gravity="right"
+                android:gravity="left"
                 android:text="Sub Item"/>
 
         </RelativeLayout>

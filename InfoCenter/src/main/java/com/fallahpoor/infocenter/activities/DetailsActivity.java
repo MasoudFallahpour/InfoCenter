@@ -21,9 +21,8 @@ package com.fallahpoor.infocenter.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 
+import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
@@ -34,18 +33,13 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
  *
  * @author Masood Fallahpoor
  */
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends LocalizationActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
-        // if the Activity is being restored, no need to recreate the GUI
-        if (savedInstanceState != null) {
-            return;
-        }
 
         int fragmentType = getIntent().getIntExtra(MainActivity.
                 FRAGMENT_TO_DISPLAY, FragmentType.GENERAL);
@@ -53,7 +47,11 @@ public class DetailsActivity extends AppCompatActivity {
                 activity_titles);
 
         setTitle(titles[fragmentType]);
-        displayFragment(fragmentType);
+
+        // if the Activity is being restored, no need to recreate the GUI
+        if (savedInstanceState == null) {
+            displayFragment(fragmentType);
+        }
 
     }
 

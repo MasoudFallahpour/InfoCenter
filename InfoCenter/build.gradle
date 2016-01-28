@@ -25,9 +25,11 @@ android {
 dependencies {
     compile 'com.pnikosis:materialish-progress:1.7'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:preference-v14:23.1.1'
     compile 'net.kianoni:fontloader:0.3.0'
     compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.3'
     compile 'ch.acra:acra:4.7.0'
+    compile 'com.akexorcist:localizationactivity:1.0.13'
     compile project(':libraries:ckChangeLog')
     compile project(':libraries:PinnedSectionListView')
 }

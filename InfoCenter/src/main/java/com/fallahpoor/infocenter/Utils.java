@@ -30,19 +30,35 @@ import java.util.Locale;
  */
 public class Utils {
 
-    private static Locale mPersianLocale;
+    public final static String LANGUAGE_EN = "en";
+    public final static String LANGUAGE_FA = "fa";
+    private static Locale mLocale;
     private static Context mContext;
 
     private Utils() {
     }
 
     public static void initialize(Context context) {
+        initialize(context, LANGUAGE_FA);
+    }
+
+    public static void initialize(Context context, String language) {
         mContext = context;
-        mPersianLocale = new Locale("fa", "IR");
+        setLocale(language);
     }
 
     public static Locale getLocale() {
-        return mPersianLocale;
+        return mLocale;
+    }
+
+    public static void setLocale(String language) {
+
+        if (language.equalsIgnoreCase(LANGUAGE_EN)) {
+            mLocale = new Locale(LANGUAGE_EN, "US");
+        } else {
+            mLocale = new Locale(LANGUAGE_FA, "IR");
+        }
+
     }
 
     public static boolean isEmpty(String string) {

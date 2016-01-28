@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/list_item_item_text_view_horizontal_margin"
-            android:gravity="left"
+            android:layout_marginRight="@dimen/list_item_item_text_view_horizontal_margin"
+            android:gravity="right"
             android:text="Header"/>
 
     </LinearLayout>

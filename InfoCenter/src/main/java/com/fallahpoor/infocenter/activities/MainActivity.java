@@ -23,11 +23,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.fallahpoor.infocenter.R;
+import com.fallahpoor.infocenter.Utils;
 import com.fallahpoor.infocenter.fragments.ComponentsFragment;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
@@ -39,7 +40,7 @@ import de.cketti.library.changelog.ChangeLog;
  *
  * @author Masood Fallahpoor
  */
-public class MainActivity extends AppCompatActivity implements
+public class MainActivity extends LocalizationActivity implements
         ComponentsFragment.ComponentsListener {
 
     public static final String FRAGMENT_TO_DISPLAY = "fragment_to_display";
@@ -49,10 +50,13 @@ public class MainActivity extends AppCompatActivity implements
     private AlertDialog changelogDialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
+        setDefaultLanguage(Utils.LANGUAGE_FA);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Utils.setLocale(getLanguage());
 
         /*
          * When detailsContainer is present in the layout, then app is
@@ -96,6 +100,9 @@ public class MainActivity extends AppCompatActivity implements
         switch (item.getItemId()) {
             case R.id.action_about_app:
                 displayDetails(FragmentType.ABOUT);
+                return true;
+            case R.id.action_settings:
+                displayDetails(FragmentType.SETTINGS);
                 return true;
             case R.id.action_exit:
                 finish();

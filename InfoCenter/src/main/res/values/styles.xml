@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/blue_gray</item>
         <!-- Setting the theme of AlertDialogPro -->
         <item name="alertDialogProTheme">@style/MyAlertDialogProTheme</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <!-- Customizing the theme of AlertDialogPro -->

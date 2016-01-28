@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog>
+    <release
+        version="2.1"
+        versioncode="7">
+        <change>پشتیبانی از اندروید نسخه مارشمالو</change>
+        <change>افزودن اطلاعات پردازنده گرافیکی</change>
+        <change>اعمال تغییرات جزئی در ظاهر برنامه</change>
+    </release>
+</changelog>
