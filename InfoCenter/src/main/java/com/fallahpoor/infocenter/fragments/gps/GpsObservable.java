@@ -76,6 +76,9 @@ public class GpsObservable extends Observable {
                 notifyObservers();
             }
             
+        } else {
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                    MIN_UPDATE_INTERVAL, MIN_DISTANCE, mGpsLocationListener);
         }
 
     }
@@ -91,6 +94,8 @@ public class GpsObservable extends Observable {
                 mLocationManager.removeUpdates(mGpsLocationListener);
             }
 
+        } else {
+            mLocationManager.removeUpdates(mGpsLocationListener);
         }
 
     }
