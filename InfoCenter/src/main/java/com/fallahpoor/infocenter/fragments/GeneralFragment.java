@@ -19,15 +19,12 @@
 
 package com.fallahpoor.infocenter.fragments;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -181,17 +178,13 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
                 getSystemService(Context.TELEPHONY_SERVICE);
         String deviceID = null;
 
-        if (telMgr == null) {
-            return getString(R.string.unknown);
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ActivityCompat.checkSelfPermission(getActivity(),
-                    Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+        try {
+            if (telMgr != null) {
                 deviceID = telMgr.getDeviceId();
             }
-        } else {
-            deviceID = telMgr.getDeviceId();
+        } catch (SecurityException exception) {
+            /* App is running on a device with Android Marshmallow and user hasn't granted the
+               READ_PHONE_STATE permission. */
         }
 
         if (Utils.isEmpty(deviceID)) {
