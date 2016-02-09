@@ -7,9 +7,7 @@
     <string name="app_programmer">برنامه‌نویس</string>
     <string name="masood_fallahpoor">مسعود فلاح‌پور</string>
     <string name="app_github_page">دسترسی به کد برنامه</string>
-    <string name="app_github_address">https://github.com/MasoodFallahpoor/InfoCenter</string>
     <string name="app_web_site">وب سایت برنامه</string>
-    <string name="app_web_site_address">https://masoodfallahpoor.github.io/InfoCenter</string>
     <string name="action_exit">خروج</string>
     <string name="action_about_app">درباره</string>
     <string name="action_settings">تنظیمات</string>
@@ -90,7 +88,7 @@
     <string name="sen_item_accelerometer">شتاب‌سنج‌</string>
     <string name="sen_item_ambient_temperature">دماسنج</string>
     <string name="sen_item_game_rotation_vector">حسگر وکتور چرخش بازی</string>
-    <string name="sen_item_geomagnetic_rotation_vector">حسگر وکتور چرخش هندسی</string>
+    <string name="sen_item_geomagnetic_rotation_vector">حسگر وکتور چرخش ژئومغناطیسی</string>
     <string name="sen_item_gravity">جاذبه‌سنج</string>
     <string name="sen_item_gyroscope">ژیروسکوپ</string>
     <string name="sen_item_light">نورسنج</string>
@@ -113,8 +111,8 @@
     <string name="bat_sub_item_discharging">در حال تخلیه</string>
     <string name="bat_sub_item_good">سالم</string>
     <string name="bat_sub_item_dead">خراب</string>
-    <string name="bat_sub_item_over_voltage">ولتاژ بیش از اندازه</string>
-    <string name="bat_sub_item_overheat">دمای بیش از اندازه</string>
+    <string name="bat_sub_item_over_voltage">ولتاژ بیش از حد</string>
+    <string name="bat_sub_item_overheat">دمای بیش از حد</string>
     <string name="bat_sub_item_yes_ac">بله از طریق جریان متناوب</string>
     <string name="bat_sub_item_yes_usb">بله از طریق یو اِس بی</string>
     <string name="bat_sub_item_yes_wireless">بله از طریق بی‌سیم</string>
