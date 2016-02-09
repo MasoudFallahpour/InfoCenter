@@ -135,7 +135,7 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
                 Build.BOOTLOADER,
                 Build.DISPLAY,
                 Build.FINGERPRINT,
-                getDeviceID(),
+                getImei(),
                 Build.SERIAL,
                 getRadioFirmwareVersion(),
                 getFormattedUptime()
@@ -172,26 +172,26 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
     }
 
     // Returns the IMEI/MEID of the device or "unknown" if it's not available.
-    private String getDeviceID() {
+    private String getImei() {
 
         TelephonyManager telMgr = (TelephonyManager) getActivity().
                 getSystemService(Context.TELEPHONY_SERVICE);
-        String deviceID = null;
+        String imei = null;
 
         try {
             if (telMgr != null) {
-                deviceID = telMgr.getDeviceId();
+                imei = telMgr.getDeviceId();
             }
         } catch (SecurityException exception) {
             /* App is running on a device with Android Marshmallow and user hasn't granted the
                READ_PHONE_STATE permission. */
         }
 
-        if (Utils.isEmpty(deviceID)) {
-            deviceID = getString(R.string.unknown);
+        if (Utils.isEmpty(imei)) {
+            imei = getString(R.string.unknown);
         }
 
-        return deviceID;
+        return imei;
 
     }
 
