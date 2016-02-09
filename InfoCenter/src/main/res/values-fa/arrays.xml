@@ -20,26 +20,26 @@
 
     <string-array name="activity_titles">
         <item>مشخصات کلی</item>
-        <item>اطلاعات اندروید</item>
-        <item>اطلاعات پردازنده</item>
-        <item>اطلاعات صفحه نمایش</item>
-        <item>اطلاعات رم</item>
-        <item>اطلاعات حافظهٔ جانبی</item>
-        <item>اطلاعات دوربین</item>
-        <item>اطلاعات حسگرها</item>
-        <item>اطلاعات باتری</item>
-        <item>اطلاعات وای فای</item>
-        <item>اطلاعات پردازندهٔ گرافیکی</item>
-        <item>اطلاعات بلوتوث</item>
-        <item>اطلاعات موقعیت‌یاب</item>
-        <item>اطلاعات سیم کارت</item>
-        <item>دربارهٔ برنامه</item>
+        <item>اندروید</item>
+        <item>پردازنده</item>
+        <item>صفحه نمایش</item>
+        <item>رم</item>
+        <item>حافظهٔ جانبی</item>
+        <item>دوربین</item>
+        <item>حسگرها</item>
+        <item>باتری</item>
+        <item>وای فای</item>
+        <item>پردازندهٔ گرافیکی</item>
+        <item>بلوتوث</item>
+        <item>موقعیت‌یاب</item>
+        <item>سیم کارت</item>
+        <item>درباره</item>
         <item>تنظیمات</item>
     </string-array>
 
     <string-array name="language_list_entries">
         <item>انگلیسی</item>
         <item>فارسی</item>
-    </string-array>	
-	
+    </string-array>
+
 </resources>
