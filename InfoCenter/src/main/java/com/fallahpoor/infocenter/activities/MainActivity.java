@@ -118,7 +118,12 @@ public class MainActivity extends LocalizationActivity implements
                 return true;
             case R.id.action_latest_changes:
                 ChangeLog changeLog = new ChangeLog(this);
-                changelogDialog = changeLog.getLogDialog();
+                if (getLanguage().equalsIgnoreCase("fa")) {
+                    changeLog.setDirection(ChangeLog.Direction.RTL);
+                } else {
+                    changeLog.setDirection(ChangeLog.Direction.LTR);
+                }
+                changelogDialog = changeLog.getFullLogDialog();
                 changelogDialog.show();
                 return true;
             case R.id.action_about_app:
