@@ -1,16 +1,12 @@
 package com.fallahpoor.infocenter.fragments.gps;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 
 import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.Utils;
@@ -62,40 +58,26 @@ public class GpsObservable extends Observable {
 
     private void enableLocationUpdates() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                            PackageManager.PERMISSION_GRANTED) {
-                mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                        MIN_UPDATE_INTERVAL, MIN_DISTANCE, mGpsLocationListener);
-            } else {
-                mLocation = mContext.getString(R.string.gps_sub_item_location_access_not_granted);
-                setChanged();
-                notifyObservers();
-            }
-            
-        } else {
+        try {
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                     MIN_UPDATE_INTERVAL, MIN_DISTANCE, mGpsLocationListener);
+        } catch (SecurityException exception) {
+            /* App is running on a device with Android Marshmallow and user hasn't granted the
+               ACCESS_FINE_LOCATION permission. */
+            mLocation = mContext.getString(R.string.unknown);
+            setChanged();
+            notifyObservers();
         }
 
     }
 
     private void disableLocationUpdates() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) ==
-                    PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                            PackageManager.PERMISSION_GRANTED) {
-                mLocationManager.removeUpdates(mGpsLocationListener);
-            }
-
-        } else {
+        try {
             mLocationManager.removeUpdates(mGpsLocationListener);
+        } catch (SecurityException exception) {
+            /* App is running on a device with Android Marshmallow and user hasn't granted the
+               ACCESS_FINE_LOCATION permission. */
         }
 
     }

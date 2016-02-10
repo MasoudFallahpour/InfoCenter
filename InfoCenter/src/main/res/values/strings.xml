@@ -150,7 +150,6 @@
     <string name="gps_sub_item_longitude">Longitude</string>
     <string name="gps_sub_item_obtaining_location">Obtaining location…</string>
     <string name="gps_sub_item_no_gps">This device has no GPS</string>
-    <string name="gps_sub_item_location_access_not_granted">Location access isn\'t granted.</string>
     <string name="sim_sub_item_no_sim">There\'s no sim card or its information isn\'t available.</string>
     <string name="sim_item_sim_card_serial_number">Sim Card Serial Number</string>
     <string name="sim_item_phone_type">Phone Type</string>
