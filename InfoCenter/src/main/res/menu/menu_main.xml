@@ -7,6 +7,10 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_latest_changes"
+        android:title="@string/action_latest_changes"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_about_app"
         android:title="@string/action_about_app"
         app:showAsAction="never" />

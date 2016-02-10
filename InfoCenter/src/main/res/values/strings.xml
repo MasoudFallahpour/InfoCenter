@@ -13,6 +13,7 @@
     <string name="action_exit">Exit</string>
     <string name="action_about_app">About</string>
     <string name="action_settings">Settings</string>
+    <string name="action_latest_changes">Latest Changes</string>
     <string name="set_select_language">Select Language</string>
     <string name="gen_item_manufacturer">Manufacturer</string>
     <string name="gen_item_brand">Brand</string>

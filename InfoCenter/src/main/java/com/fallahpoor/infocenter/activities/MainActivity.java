@@ -99,16 +99,6 @@ public class MainActivity extends LocalizationActivity implements
             displayFragment(FragmentType.GENERAL);
         }
 
-        ChangeLog changeLog = new ChangeLog(this);
-        /*
-         * Show the changelog dialog if this is the first time
-         * the app has been run after being upgraded.
-        */
-        if (changeLog.isFirstRun()) {
-            changelogDialog = changeLog.getLogDialog();
-            changelogDialog.show();
-        }
-
     } // end method onCreate
 
     @Override
@@ -123,11 +113,16 @@ public class MainActivity extends LocalizationActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_about_app:
-                displayDetails(FragmentType.ABOUT);
-                return true;
             case R.id.action_settings:
                 displayDetails(FragmentType.SETTINGS);
+                return true;
+            case R.id.action_latest_changes:
+                ChangeLog changeLog = new ChangeLog(this);
+                changelogDialog = changeLog.getLogDialog();
+                changelogDialog.show();
+                return true;
+            case R.id.action_about_app:
+                displayDetails(FragmentType.ABOUT);
                 return true;
             case R.id.action_exit:
                 finish();
