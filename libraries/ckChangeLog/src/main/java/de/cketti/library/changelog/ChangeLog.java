@@ -106,6 +106,9 @@ public class ChangeLog {
      */
     private String mCurrentVersionName;
 
+    public enum Direction{LTR, RTL};
+
+    private Direction mDirection;
 
     /**
      * Create a {@code ChangeLog} instance using the default {@link SharedPreferences} file.
@@ -152,6 +155,10 @@ public class ChangeLog {
             mCurrentVersionCode = NO_VERSION;
             Log.e(LOG_TAG, "Could not get version information from manifest!", e);
         }
+    }
+
+    public void setDirection(Direction dir) {
+        mDirection = dir;
     }
 
     /**
@@ -321,7 +328,11 @@ public class ChangeLog {
     protected String getLog(boolean full) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("<html dir=\"rtl\"><head><style type=\"text/css\">");
+        if (mDirection == Direction.RTL) {
+            sb.append("<html dir=\"rtl\"><head><style type=\"text/css\">");
+        } else {
+            sb.append("<html><head><style type=\"text/css\">");
+        }
         sb.append(mCss);
         sb.append("</style></head><body>");
 
