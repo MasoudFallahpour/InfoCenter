@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
     <release
-        version="2.1"
-        versioncode="7">
-        <change>Added support for Android Marshmallow.</change>
-        <change>Added the GPU information page.</change>
-        <change>Little changes in the appearance of the app.</change>
+        version="2.2"
+        versioncode="8">
+        <change>Added the ability to change the language of the app</change>
+        <change>Better support for Android Marshmallow</change>
     </release>
 </changelog>

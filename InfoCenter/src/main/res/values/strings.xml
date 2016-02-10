@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Information Center</string>
-    <string name="app_version">Version 2.1</string>
+    <string name="app_version">Version 2.2</string>
     <string name="app_description">This app displays detailed information about various components of your Android phone or tablet.</string>
     <string name="app_programmer">Programmer</string>
     <string name="masood_fallahpoor">Masood Fallahpoor</string>
