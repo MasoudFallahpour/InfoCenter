@@ -142,7 +142,7 @@ public class MainActivity extends LocalizationActivity implements
         displayDetails(position);
     }
 
-    public void displayDetails(int fragmentType) {
+    private void displayDetails(int fragmentType) {
 
         if (mIsDualPane) {
             displayFragment(fragmentType);
@@ -152,7 +152,7 @@ public class MainActivity extends LocalizationActivity implements
 
     }
 
-    public void displayFragment(int fragmentType) {
+    private void displayFragment(int fragmentType) {
 
         if (fragmentType == mCurrentFragment) {
             return;
@@ -180,7 +180,7 @@ public class MainActivity extends LocalizationActivity implements
     }
 
     private void displayChangelogDialog() {
-        
+
         ChangeLog changeLog = new ChangeLog(this);
 
         if (getLanguage().equalsIgnoreCase("fa")) {
