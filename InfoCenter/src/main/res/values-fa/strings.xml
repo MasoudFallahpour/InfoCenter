@@ -79,8 +79,8 @@
     <string name="cam_item_focal_length">فاصلهٔ کانونی</string>
     <string name="cam_no_front_camera">این دستگاه دارای دوربین جلو نیست</string>
     <string name="cam_no_camera">این دستگاه دارای دوربین نیست</string>
-    <string name="cam_sub_item_back_camera_busy">دوربین پشت در دسترس نیست</string>
-    <string name="cam_sub_item_front_camera_busy">دوربین جلو در دسترس نیست</string>
+    <string name="cam_sub_item_back_camera_info_unavailable">اطلاعات دوربین پشت در دسترس نیست</string>
+    <string name="cam_sub_item_front_camera_info_unavailable">اطلاعات دوربین جلو در دسترس نیست</string>
     <string name="cam_sub_item_mm">میلی متر</string>
     <string name="cam_sub_item_mp">مگاپیکسل</string>
     <string name="cam_item_front_camera">دوربین جلو</string>

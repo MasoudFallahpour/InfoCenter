@@ -81,8 +81,8 @@
     <string name="cam_item_focal_length">Focal Length</string>
     <string name="cam_no_front_camera">This device has no front camera</string>
     <string name="cam_no_camera">This device has no camera</string>
-    <string name="cam_sub_item_back_camera_busy">Back camera is busy</string>
-    <string name="cam_sub_item_front_camera_busy">Front camera is busy</string>
+    <string name="cam_sub_item_back_camera_info_unavailable">Back camera\'s information isn\'t available</string>
+    <string name="cam_sub_item_front_camera_info_unavailable">Front camera\'s information isn\'t available</string>
     <string name="cam_sub_item_mm">mm</string>
     <string name="cam_sub_item_mp">MP</string>
     <string name="cam_item_front_camera">Front Camera</string>

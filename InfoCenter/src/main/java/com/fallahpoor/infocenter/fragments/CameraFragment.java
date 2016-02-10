@@ -167,10 +167,10 @@ public class CameraFragment extends Fragment {
         } else { // camera is busy or for some other reason camera isn't available
             if (cameraFacing == CameraInfo.CAMERA_FACING_BACK) {
                 camParams.add(new OrdinaryListItem(
-                        getString(R.string.cam_sub_item_back_camera_busy), ""));
+                        getString(R.string.cam_sub_item_back_camera_info_unavailable), ""));
             } else {
                 camParams.add(new OrdinaryListItem(
-                        getString(R.string.cam_sub_item_front_camera_busy), ""));
+                        getString(R.string.cam_sub_item_front_camera_info_unavailable), ""));
             }
 
         }
