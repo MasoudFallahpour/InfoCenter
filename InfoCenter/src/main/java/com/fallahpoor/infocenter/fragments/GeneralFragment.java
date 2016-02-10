@@ -176,7 +176,7 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
 
         TelephonyManager telMgr = (TelephonyManager) getActivity().
                 getSystemService(Context.TELEPHONY_SERVICE);
-        String imei = null;
+        String imei = getString(R.string.unknown);
 
         try {
             if (telMgr != null) {
@@ -185,10 +185,6 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
         } catch (SecurityException exception) {
             /* App is running on a device with Android Marshmallow and user hasn't granted the
                READ_PHONE_STATE permission. */
-        }
-
-        if (Utils.isEmpty(imei)) {
-            imei = getString(R.string.unknown);
         }
 
         return imei;
