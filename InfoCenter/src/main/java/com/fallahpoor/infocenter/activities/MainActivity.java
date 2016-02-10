@@ -20,7 +20,6 @@
 package com.fallahpoor.infocenter.activities;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -50,7 +49,6 @@ public class MainActivity extends LocalizationActivity implements
     private final String CURRENT_FRAGMENT = "current_fragment";
     private int mCurrentFragment = FragmentType.UNKNOWN;
     private boolean mIsDualPane;
-    private AlertDialog changelogDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,14 +115,7 @@ public class MainActivity extends LocalizationActivity implements
                 displayDetails(FragmentType.SETTINGS);
                 return true;
             case R.id.action_latest_changes:
-                ChangeLog changeLog = new ChangeLog(this);
-                if (getLanguage().equalsIgnoreCase("fa")) {
-                    changeLog.setDirection(ChangeLog.Direction.RTL);
-                } else {
-                    changeLog.setDirection(ChangeLog.Direction.LTR);
-                }
-                changelogDialog = changeLog.getFullLogDialog();
-                changelogDialog.show();
+                displayChangelogDialog();
                 return true;
             case R.id.action_about_app:
                 displayDetails(FragmentType.ABOUT);
@@ -143,17 +134,6 @@ public class MainActivity extends LocalizationActivity implements
 
         super.onSaveInstanceState(outState);
         outState.putInt(CURRENT_FRAGMENT, mCurrentFragment);
-
-    }
-
-    @Override
-    protected void onPause() {
-
-        super.onPause();
-
-        if (changelogDialog != null && changelogDialog.isShowing()) {
-            changelogDialog.dismiss();
-        }
 
     }
 
@@ -196,6 +176,20 @@ public class MainActivity extends LocalizationActivity implements
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra(FRAGMENT_TO_DISPLAY, fragmentType);
         startActivity(intent);
+
+    }
+
+    private void displayChangelogDialog() {
+        
+        ChangeLog changeLog = new ChangeLog(this);
+
+        if (getLanguage().equalsIgnoreCase("fa")) {
+            changeLog.setDirection(ChangeLog.Direction.RTL);
+        } else {
+            changeLog.setDirection(ChangeLog.Direction.LTR);
+        }
+
+        changeLog.getFullLogDialog().show();
 
     }
 
