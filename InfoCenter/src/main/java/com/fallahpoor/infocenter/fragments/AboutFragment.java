@@ -19,11 +19,14 @@
 
 package com.fallahpoor.infocenter.fragments;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fallahpoor.infocenter.R;
 
@@ -40,7 +43,22 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_about, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
+
+        TextView appVersionTextView = (TextView) view.findViewById(R.id.appVersionTextView);
+
+        try {
+            PackageInfo packageInfo = getActivity().getPackageManager().getPackageInfo(
+                    getActivity().getPackageName(), 0);
+
+            appVersionTextView.setText(getString(R.string.app_version_format,
+                    packageInfo.versionName));
+
+        } catch (NameNotFoundException e) {
+        }
+
+        return view;
 
     }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:verticalScrollbarPosition="left">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:verticalScrollbarPosition="left">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:src="@drawable/ic_about"
-            tools:ignore="ContentDescription"/>
+            tools:ignore="ContentDescription" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Medium"
@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
-            android:text="@string/app_name"/>
+            android:text="@string/app_name" />
 
         <net.kianoni.fontloader.TextView
+            android:id="@+id/appVersionTextView"
             style="@style/TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/app_version"/>
+            android:layout_gravity="center_horizontal" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Medium"
@@ -42,7 +42,7 @@
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:gravity="center_horizontal"
             android:lineSpacingMultiplier="1.4"
-            android:text="@string/app_description"/>
+            android:text="@string/app_description" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Small"
@@ -51,7 +51,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:gravity="center_horizontal"
-            android:text="@string/app_programmer"/>
+            android:text="@string/app_programmer" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Medium"
@@ -60,7 +60,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
             android:gravity="center_horizontal"
-            android:text="@string/masood_fallahpoor"/>
+            android:text="@string/masood_fallahpoor" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Small"
@@ -68,25 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
-            android:text="@string/app_github_page"/>
-
-        <net.kianoni.fontloader.TextView
-            style="@style/TextAppearance.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
-            android:autoLink="web"
-            android:gravity="center_horizontal"
-            android:text="@string/app_github_address"/>
-
-        <net.kianoni.fontloader.TextView
-            style="@style/TextAppearance.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
-            android:text="@string/app_web_site"/>
+            android:text="@string/app_github_page" />
 
         <net.kianoni.fontloader.TextView
             style="@style/TextAppearance.Medium"
@@ -96,7 +78,25 @@
             android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
             android:autoLink="web"
             android:gravity="center_horizontal"
-            android:text="@string/app_web_site_address"/>
+            android:text="@string/app_github_address" />
+
+        <net.kianoni.fontloader.TextView
+            style="@style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
+            android:text="@string/app_web_site" />
+
+        <net.kianoni.fontloader.TextView
+            style="@style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/fragment_about_secondary_vertical_margin"
+            android:autoLink="web"
+            android:gravity="center_horizontal"
+            android:text="@string/app_web_site_address" />
     </LinearLayout>
 
 </ScrollView>
