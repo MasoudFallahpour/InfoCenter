@@ -5,7 +5,7 @@
 Info Center runs on devices having Android ICS (API 14) all the way through Android Marshmallow (API 23).
 
 ## Locale
-The only locale that Info Center supports is Persian and that means it uses Persian locale no matter what locale your device is using.
+Info Center supports both English and Persian locales.
 
 ## Download
 Info Center is officially released in an Iranian Android market called CafeBazaar. So you can always download the latest
