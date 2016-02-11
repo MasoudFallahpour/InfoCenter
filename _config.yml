@@ -11,7 +11,7 @@ permalink: / # disables post output
 timezone: Asia/Tehran
 lsi: false
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 # content configuration
 app_source_code_link: "https://github.com/MasoodFallahpoor/InfoCenter"
