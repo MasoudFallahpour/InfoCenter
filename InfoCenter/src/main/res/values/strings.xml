@@ -197,4 +197,5 @@
     <string name="crash_dialog_positive_button_text">Yes</string>
     <string name="crash_dialog_negative_button_text">No</string>
     <string name="changelog_full_title">Latest Changes</string>
+    <string name="changelog_ok_button">OK</string>
 </resources>
