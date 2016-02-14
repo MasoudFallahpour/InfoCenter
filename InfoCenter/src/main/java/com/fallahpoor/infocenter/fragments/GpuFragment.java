@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014-2015 Masood Fallahpoor
+    Copyright (C) 2014-2016 Masood Fallahpoor
 
     This file is part of Info Center.
 
