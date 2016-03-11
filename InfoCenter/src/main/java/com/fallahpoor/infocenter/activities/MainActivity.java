@@ -20,13 +20,16 @@
 package com.fallahpoor.infocenter.activities;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.fallahpoor.infocenter.R;
@@ -115,8 +118,11 @@ public class MainActivity extends LocalizationActivity implements
                 displayDetails(FragmentType.SETTINGS);
                 return true;
             case R.id.action_latest_changes:
-                displayChangelogDialog();
+                displayChangeLogDialog();
                 return true;
+            case R.id.action_rate_app:
+                startBazaarIntent();
+                break;
             case R.id.action_about_app:
                 displayDetails(FragmentType.ABOUT);
                 return true;
@@ -179,17 +185,30 @@ public class MainActivity extends LocalizationActivity implements
 
     }
 
-    private void displayChangelogDialog() {
+    private void displayChangeLogDialog() {
 
         ChangeLog changeLog = new ChangeLog(this);
 
-        if (getLanguage().equalsIgnoreCase("fa")) {
+        if (getLanguage().equalsIgnoreCase(Utils.LANGUAGE_FA)) {
             changeLog.setDirection(ChangeLog.Direction.RTL);
         } else {
             changeLog.setDirection(ChangeLog.Direction.LTR);
         }
 
         changeLog.getFullLogDialog().show();
+
+    }
+
+    private void startBazaarIntent() {
+
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setData(Uri.parse("bazaar://details?id=" + getApplicationContext().getPackageName()));
+        intent.setPackage("com.farsitel.bazaar");
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(this, R.string.bazaar_not_installed, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
