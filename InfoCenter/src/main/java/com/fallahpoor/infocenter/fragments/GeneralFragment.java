@@ -23,7 +23,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
@@ -48,12 +47,9 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Masood Fallahpoor
  */
-public class GeneralFragment extends Fragment implements Handler.Callback {
+public class GeneralFragment extends Fragment {
 
     private final int UPTIME_UPDATE_INTERVAL = 1000;
-    private final int UPDATE_UPTIME_MSG = 0;
-    private boolean mUpdateUptime;
-    private Handler mHandler;
     private CustomArrayAdapter mArrayAdapter;
 
     @Override
@@ -64,33 +60,25 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
 
-        mHandler = new Handler(getActivity().getMainLooper(), this);
-
         mArrayAdapter = new CustomArrayAdapter(getActivity(),
                 getListItems());
 
         ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setAdapter(mArrayAdapter);
 
+        final Handler handler = new Handler();
+
+        Runnable uptimeRunnable = new Runnable() {
+            @Override
+            public void run() {
+                updateUptime();
+                handler.postDelayed(this, UPTIME_UPDATE_INTERVAL);
+            }
+        };
+
+        handler.post(uptimeRunnable);
+
         return view;
-
-    }
-
-    @Override
-    public void onResume() {
-
-        super.onResume();
-        mUpdateUptime = true;
-        mHandler.sendEmptyMessage(UPDATE_UPTIME_MSG);
-
-    }
-
-    @Override
-    public void onPause() {
-
-        super.onPause();
-        mUpdateUptime = false;
-        mHandler.removeMessages(UPDATE_UPTIME_MSG);
 
     }
 
@@ -157,11 +145,6 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
 
         mArrayAdapter.notifyDataSetChanged();
 
-        if (mUpdateUptime) {
-            mHandler.sendEmptyMessageDelayed(UPDATE_UPTIME_MSG,
-                    UPTIME_UPDATE_INTERVAL);
-        }
-
     }
 
     private ListItem getUpTimeItem() {
@@ -223,17 +206,6 @@ public class GeneralFragment extends Fragment implements Handler.Callback {
                         .toMinutes(uptimeLong)));
 
         return uptimeStr;
-
-    }
-
-    @Override
-    public boolean handleMessage(Message msg) {
-
-        if (msg.what == UPDATE_UPTIME_MSG) {
-            updateUptime();
-        }
-
-        return true;
 
     }
 
