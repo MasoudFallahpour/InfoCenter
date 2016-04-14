@@ -185,6 +185,7 @@ public class CameraFragment extends Fragment {
                 getString(R.string.cam_item_camera_quality),
                 getString(R.string.cam_item_picture_size),
                 getString(R.string.cam_item_picture_format),
+                getString(R.string.cam_item_supported_video_sizes),
                 getString(R.string.cam_item_focal_length),
                 getString(R.string.cam_item_antibanding),
                 getString(R.string.cam_item_auto_exposure_lock),
@@ -208,6 +209,7 @@ public class CameraFragment extends Fragment {
         params.add(getMegaPixels(cameraParams));
         params.add(getPictureSize(cameraParams));
         params.add(getPictureFormat(cameraParams));
+        params.add(getSupportedVideoSizes(cameraParams));
         params.add(getFocalLength(cameraParams));
         params.add(cameraParams.getAntibanding() != null ? supported :
                 unsupported);
@@ -282,6 +284,25 @@ public class CameraFragment extends Fragment {
         }
 
         return format;
+
+    }
+
+    private String getSupportedVideoSizes(Camera.Parameters cameraParams) {
+
+        int i;
+        String videoSizes = "";
+        List<Size> supportedVideoSizes = cameraParams.getSupportedVideoSizes();
+
+        for (i = 0; i < supportedVideoSizes.size() - 1; i++) {
+            videoSizes += String.format(Utils.getLocale(), "%d x %d, ",
+                    supportedVideoSizes.get(i).width,
+                    supportedVideoSizes.get(i).height);
+        }
+
+        videoSizes += String.format(Utils.getLocale(), "%d x %d ", supportedVideoSizes.get(i).width,
+                supportedVideoSizes.get(i).height);
+
+        return videoSizes;
 
     }
 

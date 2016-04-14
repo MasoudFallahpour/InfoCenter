@@ -77,6 +77,7 @@
     <string name="cam_item_flash">Flash</string>
     <string name="cam_item_picture_size">Picture Size</string>
     <string name="cam_item_picture_format">Picture Format</string>
+    <string name="cam_item_supported_video_sizes">Supported Video Sizes</string>
     <string name="cam_item_scene_selection">Scene Selection</string>
     <string name="cam_item_zoom">Zoom</string>
     <string name="cam_item_video_snapshot">Video Snapshot</string>

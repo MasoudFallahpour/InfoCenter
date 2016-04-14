@@ -75,6 +75,7 @@
     <string name="cam_item_flash">فلاش</string>
     <string name="cam_item_picture_size">ابعاد عکس</string>
     <string name="cam_item_picture_format">فرمت عکس</string>
+    <string name="cam_item_supported_video_sizes">رزولوشن‌های فیلمبرداری</string>
     <string name="cam_item_scene_selection">انتخاب منظره</string>
     <string name="cam_item_zoom">بزرگنمایی</string>
     <string name="cam_item_video_snapshot">عکسبرداری از ویدئو</string>
