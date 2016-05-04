@@ -12,7 +12,7 @@ Info Center is officially released in an Iranian Android market called CafeBazaa
 version at [CafeBazaar](http://cafebazaar.ir/app/com.fallahpoor.infocenter)
 
 ## Build
-To build Info Center you need Android Support Library v21. After you installed the Support Library, through your SDK Manager,
+To build Info Center you need Android Support Library. After you installed the Support Library, through your SDK Manager,
 import Info Center into Android Studio and go for building!
 
 ## License
