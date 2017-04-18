@@ -3,11 +3,7 @@
 
     <dimen name="list_item_layout_vertical_margin">8dp</dimen>
     <dimen name="list_item_layout_horizontal_margin">16dp</dimen>
-    <dimen name="shadow_view_top_margin">10dp</dimen>
-    <dimen name="shadow_view_bottom_margin">6dp</dimen>
-    <dimen name="shadow_view_horizontal_margin">16dp</dimen>
     <dimen name="component_list_item_horizontal_margin">8dp</dimen>
-    <dimen name="list_item_item_text_view_vertical_padding">8dp</dimen>
     <dimen name="list_item_item_text_view_horizontal_padding">8dp</dimen>
     <dimen name="list_item_item_text_view_horizontal_margin">8dp</dimen>
     <dimen name="list_item_sub_item_text_view_top_margin">4dp</dimen>
@@ -16,8 +12,5 @@
     <dimen name="fragment_about_secondary_vertical_margin">4dp</dimen>
     <dimen name="fragment_about_logo_height">110dp</dimen>
     <dimen name="fragment_about_logo_width">110dp</dimen>
-    <dimen name="fragment_about_text_size">18sp</dimen>
-    <dimen name="elevation">2dp</dimen>
-    <dimen name="translation">2dp</dimen>
 
 </resources>
