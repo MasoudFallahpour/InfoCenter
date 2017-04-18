@@ -33,7 +33,6 @@
  */
 package de.cketti.library.changelog;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -41,11 +40,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.XmlResourceParser;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.SparseArray;
 import android.webkit.WebView;
-
-import com.alertdialogpro.AlertDialogPro;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -106,7 +104,7 @@ public class ChangeLog {
      */
     private String mCurrentVersionName;
 
-    public enum Direction{LTR, RTL};
+    public enum Direction{LTR, RTL}
 
     private Direction mDirection;
 
@@ -257,7 +255,7 @@ public class ChangeLog {
         //wv.setBackgroundColor(0); // transparent
         wv.loadDataWithBaseURL(null, getLog(full), "text/html", "UTF-8", null);
 
-        AlertDialogPro.Builder builder = new AlertDialogPro.Builder(mContext);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle(
                 mContext.getResources().getString(
                         full ? R.string.changelog_full_title : R.string.changelog_title))

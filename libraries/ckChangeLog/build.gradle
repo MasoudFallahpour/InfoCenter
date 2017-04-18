@@ -41,3 +41,7 @@ project.ext {
             developerName   : "cketti"
     ]
 }
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:25.3.1'
+}

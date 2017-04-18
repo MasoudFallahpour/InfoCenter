@@ -2,7 +2,6 @@
 
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/blue_gray</item>
-        <item name="alertDialogProTheme">@style/Theme.AlertDialogPro.Material.Light</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
