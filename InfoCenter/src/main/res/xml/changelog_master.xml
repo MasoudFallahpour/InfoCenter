@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
     <release
-        version="2.2"
-        versioncode="8">
-        <change>Added the ability to change the language of the app</change>
-        <change>Better support for Android Marshmallow</change>
+        version="2.3"
+        versioncode="9">
+        <change>Major UI changes</change>
+        <change>Support for Android Nougat</change>
+        <change>Display all resolutions supported by camera for video recording</change>
     </release>
 </changelog>
