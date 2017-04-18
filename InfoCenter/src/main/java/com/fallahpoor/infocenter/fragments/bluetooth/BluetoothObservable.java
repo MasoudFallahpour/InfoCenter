@@ -38,7 +38,7 @@ import java.util.Set;
 /**
  * @author Masood Fallahpoor
  */
-public class BluetoothObservable extends Observable {
+class BluetoothObservable extends Observable {
 
     private Context mContext;
     private BluetoothAdapter mBluetoothAdapter;

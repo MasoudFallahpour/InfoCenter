@@ -35,7 +35,7 @@ import java.util.Observable;
 /**
  * @author Masood Fallahpoor
  */
-public class BatteryObservable extends Observable {
+class BatteryObservable extends Observable {
 
     private Context mContext;
     private NumberFormat mPercentFormat = NumberFormat.

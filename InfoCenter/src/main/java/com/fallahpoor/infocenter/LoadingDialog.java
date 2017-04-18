@@ -33,7 +33,7 @@ import com.pnikosis.materialishprogress.ProgressWheel;
  */
 public class LoadingDialog extends Dialog {
 
-    public LoadingDialog(Context context) {
+    private LoadingDialog(Context context) {
         super(context, R.style.LoadingDialogTheme);
     }
 

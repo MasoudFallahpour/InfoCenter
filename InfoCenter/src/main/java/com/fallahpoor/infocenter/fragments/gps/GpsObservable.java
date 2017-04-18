@@ -40,7 +40,7 @@ import java.util.Observer;
  *
  * @author Masood Fallahpoor
  */
-public class GpsObservable extends Observable {
+class GpsObservable extends Observable {
 
     private final int MIN_UPDATE_INTERVAL = 30000;
     private final float MIN_DISTANCE = 50;

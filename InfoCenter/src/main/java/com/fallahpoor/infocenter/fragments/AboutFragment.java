@@ -56,6 +56,8 @@ public class AboutFragment extends Fragment {
                     packageInfo.versionName));
 
         } catch (NameNotFoundException e) {
+            appVersionTextView.setText(getString(R.string.app_version_format,
+                    "1.0"));
         }
 
         return view;

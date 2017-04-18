@@ -129,7 +129,7 @@ public class GpsFragment extends Fragment implements Observer {
     }
 
     // Checks if the device has GPS or not.
-    public boolean hasGpsFeature() {
+    private boolean hasGpsFeature() {
 
         LocationManager locationManager = (LocationManager) getActivity().
                 getSystemService(Context.LOCATION_SERVICE);
