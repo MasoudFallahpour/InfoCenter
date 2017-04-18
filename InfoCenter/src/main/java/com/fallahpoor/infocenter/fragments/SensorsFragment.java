@@ -123,7 +123,7 @@ public class SensorsFragment extends Fragment {
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    public ArrayList<String> getSubItemsArrayList() {
+    private ArrayList<String> getSubItemsArrayList() {
 
         SparseArray<String> sensorsArray = new SparseArray<>();
         ArrayList<String> subItems = new ArrayList<>();

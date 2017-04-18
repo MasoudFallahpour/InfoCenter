@@ -217,7 +217,7 @@ public class WifiObservable extends Observable {
         NetworkInfo netInfo;
         ConnectivityManager connMgr = (ConnectivityManager) mContext
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-        WifiManager wifiMgr = (WifiManager) mContext.getSystemService(
+        WifiManager wifiMgr = (WifiManager) mContext.getApplicationContext().getSystemService(
                 Context.WIFI_SERVICE);
 
         mStatus = mContext.getString(R.string.off);

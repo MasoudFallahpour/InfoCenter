@@ -290,19 +290,20 @@ public class CameraFragment extends Fragment {
     private String getSupportedVideoSizes(Camera.Parameters cameraParams) {
 
         int i;
-        String videoSizes = "";
+        StringBuilder videoSizes = new StringBuilder();
         List<Size> supportedVideoSizes = cameraParams.getSupportedVideoSizes();
 
         for (i = 0; i < supportedVideoSizes.size() - 1; i++) {
-            videoSizes += String.format(Utils.getLocale(), "%d x %d, ",
+            videoSizes.append(String.format(Utils.getLocale(), "%d x %d, ",
                     supportedVideoSizes.get(i).width,
-                    supportedVideoSizes.get(i).height);
+                    supportedVideoSizes.get(i).height));
         }
 
-        videoSizes += String.format(Utils.getLocale(), "%d x %d ", supportedVideoSizes.get(i).width,
-                supportedVideoSizes.get(i).height);
+        videoSizes.append(String.format(Utils.getLocale(), "%d x %d ", supportedVideoSizes.get(i)
+                        .width,
+                supportedVideoSizes.get(i).height));
 
-        return videoSizes;
+        return videoSizes.toString();
 
     }
 
