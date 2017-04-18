@@ -26,6 +26,7 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,6 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -125,7 +125,7 @@ public class SensorsFragment extends Fragment {
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public ArrayList<String> getSubItemsArrayList() {
 
-        HashMap<Integer, String> sensorsHashMap = new HashMap<>();
+        SparseArray<String> sensorsArray = new SparseArray<>();
         ArrayList<String> subItems = new ArrayList<>();
         Iterator<Integer> iterator;
         String supported = getString(R.string.supported);
@@ -162,7 +162,7 @@ public class SensorsFragment extends Fragment {
 
         // Assume all sensor types are unsupported
         while (iterator.hasNext()) {
-            sensorsHashMap.put(iterator.next(), unsupported);
+            sensorsArray.put(iterator.next(), unsupported);
         }
 
         /*
@@ -170,13 +170,13 @@ public class SensorsFragment extends Fragment {
          * "unsupported" to "supported".
          */
         for (Sensor sensor : sensors) {
-            sensorsHashMap.put(sensor.getType(), supported);
+            sensorsArray.put(sensor.getType(), supported);
         }
 
         iterator = sensorTypes.iterator();
 
         while (iterator.hasNext()) {
-            subItems.add(sensorsHashMap.get(iterator.next()));
+            subItems.add(sensorsArray.get(iterator.next()));
         }
 
         return subItems;
