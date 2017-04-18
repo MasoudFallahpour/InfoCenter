@@ -8,9 +8,9 @@
     android:layout_marginLeft="@dimen/list_item_layout_horizontal_margin"
     android:layout_marginRight="@dimen/list_item_layout_horizontal_margin"
     android:layout_marginTop="@dimen/list_item_layout_vertical_margin"
-    android:background="@drawable/list_item_background"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry">
 
     <ImageView
         android:id="@+id/componentImageView"
@@ -18,8 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="@dimen/component_list_item_horizontal_margin"
-        android:src="@drawable/ic_launcher"
-        tools:ignore="ContentDescription"/>
+        android:src="@drawable/ic_launcher"/>
 
     <net.kianoni.fontloader.TextView
         android:id="@+id/componentTextView"

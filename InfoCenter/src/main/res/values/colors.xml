@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="light_gray">#dddddd</color>
-    <color name="blue_gray">#607d8b</color>
-    <color name="light_blue_gray">#b0bec5</color>
+    <color name="color_primary">#212121</color>
+    <color name="color_primary_dark">@android:color/black</color>
+    <color name="color_accent">#EF5350</color>
+    <color name="background">#303030</color>
+    <color name="list_item_text_color">#FFFDE7</color>
 </resources>
