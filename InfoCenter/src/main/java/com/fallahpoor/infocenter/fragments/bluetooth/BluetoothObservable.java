@@ -49,7 +49,7 @@ class BluetoothObservable extends Observable {
     private String mName;
     private String mPairedDevices;
 
-    public BluetoothObservable(Context context) {
+    BluetoothObservable(Context context) {
 
         mContext = context;
         mBluetoothAdapter = getBluetoothAdapter();
@@ -63,27 +63,27 @@ class BluetoothObservable extends Observable {
 
     }
 
-    public String getStatus() {
+    String getStatus() {
         return mStatus;
     }
 
-    public String getAddress() {
+    String getAddress() {
         return mAddress;
     }
 
-    public String getName() {
+    String getName() {
         return mName;
     }
 
-    public String getPairedDevices() {
+    String getPairedDevices() {
         return mPairedDevices;
     }
 
-    public void enableBluetoothUpdates() {
+    void enableBluetoothUpdates() {
         mContext.registerReceiver(mBluetoothReceiver, mBluetoothIntentFilter);
     }
 
-    public void disableBluetoothUpdates() {
+    void disableBluetoothUpdates() {
         mContext.unregisterReceiver(mBluetoothReceiver);
     }
 

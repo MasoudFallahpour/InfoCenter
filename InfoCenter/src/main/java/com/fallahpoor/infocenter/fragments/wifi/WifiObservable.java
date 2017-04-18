@@ -57,7 +57,7 @@ public class WifiObservable extends Observable {
     private String mSignalStrength;
     private String mLinkSpeed;
 
-    public WifiObservable(Context context) {
+    WifiObservable(Context context) {
 
         mContext = context;
         mWifiReceiver = new WifiBroadcastReceiver();
@@ -71,31 +71,31 @@ public class WifiObservable extends Observable {
 
     }
 
-    public String getStatus() {
+    String getStatus() {
         return mStatus;
     }
 
-    public String getConnected() {
+    String getConnected() {
         return mConnected;
     }
 
-    public String getSSID() {
+    String getSSID() {
         return mSSID;
     }
 
-    public String getIpAddress() {
+    String getIpAddress() {
         return mIpAddress;
     }
 
-    public String getMacAddress() {
+    String getMacAddress() {
         return mMacAddress;
     }
 
-    public String getSignalStrength() {
+    String getSignalStrength() {
         return mSignalStrength;
     }
 
-    public String getLinkSpeed() {
+    String getLinkSpeed() {
         return mLinkSpeed;
     }
 

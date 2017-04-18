@@ -50,7 +50,7 @@ class BatteryObservable extends Observable {
     private String mTemperature;
     private String mVoltage;
 
-    public BatteryObservable(Context context) {
+    BatteryObservable(Context context) {
 
         mContext = context;
         mBatteryReceiver = new BatteryReceiver();
@@ -58,39 +58,39 @@ class BatteryObservable extends Observable {
 
     }
 
-    public String getStatus() {
+    String getStatus() {
         return mStatus;
     }
 
-    public String getLevel() {
+    String getLevel() {
         return mLevel;
     }
 
-    public String getHealth() {
+    String getHealth() {
         return mHealth;
     }
 
-    public String getPlugged() {
+    String getPlugged() {
         return mPlugged;
     }
 
-    public String getTechnology() {
+    String getTechnology() {
         return mTechnology;
     }
 
-    public String getTemperature() {
+    String getTemperature() {
         return mTemperature;
     }
 
-    public String getVoltage() {
+    String getVoltage() {
         return mVoltage;
     }
 
-    public void enableBatteryUpdates() {
+    void enableBatteryUpdates() {
         mContext.registerReceiver(mBatteryReceiver, mBatteryFilter);
     }
 
-    public void disableBatteryUpdates() {
+    void disableBatteryUpdates() {
         mContext.unregisterReceiver(mBatteryReceiver);
     }
 

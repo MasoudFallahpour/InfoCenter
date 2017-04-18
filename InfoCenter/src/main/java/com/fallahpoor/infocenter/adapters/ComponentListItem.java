@@ -80,8 +80,8 @@ public class ComponentListItem implements ListItem {
 
     private static class ViewHolder {
 
-        public TextView componentTextView;
-        public ImageView componentImageView;
+        TextView componentTextView;
+        ImageView componentImageView;
 
     }
 

@@ -50,7 +50,7 @@ class GpsObservable extends Observable {
     private LocationManager mLocationManager;
     private GpsLocationListener mGpsLocationListener;
 
-    public GpsObservable(Context context) {
+    GpsObservable(Context context) {
 
         mContext = context;
         mLocationManager = (LocationManager) context.getSystemService(
@@ -67,11 +67,11 @@ class GpsObservable extends Observable {
 
     }
 
-    public String getStatus() {
+    String getStatus() {
         return mStatus;
     }
 
-    public String getLocation() {
+    String getLocation() {
         return mLocation;
     }
 

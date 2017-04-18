@@ -83,8 +83,8 @@ public class OrdinaryListItem implements ListItem {
 
     private static class ViewHolder {
 
-        public TextView itemTextView;
-        public TextView subItemTextView;
+        TextView itemTextView;
+        TextView subItemTextView;
 
     }
 

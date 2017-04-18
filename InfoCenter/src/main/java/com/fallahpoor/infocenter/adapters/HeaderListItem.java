@@ -72,7 +72,7 @@ public class HeaderListItem implements ListItem {
 
     private static class ViewHolder {
 
-        public TextView headerTextView;
+        TextView headerTextView;
 
     }
 
