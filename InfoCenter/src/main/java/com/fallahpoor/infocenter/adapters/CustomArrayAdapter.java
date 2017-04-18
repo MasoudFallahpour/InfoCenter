@@ -24,10 +24,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-
-import com.hb.views.PinnedSectionListView;
-
 import java.util.List;
+
+import de.halfbit.pinnedsection.PinnedSectionListView;
 
 /**
  * This custom ArrayAdapter is used to populate the ListViews of the app.

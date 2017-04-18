@@ -3,7 +3,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <com.hb.views.PinnedSectionListView
+    <de.halfbit.pinnedsection.PinnedSectionListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

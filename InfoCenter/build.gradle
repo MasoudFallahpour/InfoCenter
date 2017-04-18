@@ -32,6 +32,6 @@ dependencies {
     compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.3'
     compile 'ch.acra:acra:4.9.2'
     compile 'com.akexorcist:localizationactivity:1.0.13'
+    compile "de.halfbit:pinned-section-listview:1.0.0"
     compile project(':libraries:ckChangeLog')
-    compile project(':libraries:PinnedSectionListView')
 }
