@@ -44,6 +44,8 @@ import java.util.ArrayList;
 import java.util.IllegalFormatException;
 import java.util.List;
 
+import de.halfbit.pinnedsection.PinnedSectionListView;
+
 /**
  * CameraFragment displays some properties of the camera(s) of the device,
  * if any.
@@ -69,6 +71,7 @@ public class CameraFragment extends Fragment {
                 false);
 
         mListView = (ListView) view.findViewById(R.id.listView);
+        ((PinnedSectionListView) mListView).setShadowVisible(false);
 
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
         msgTextView.setText(R.string.cam_no_camera);

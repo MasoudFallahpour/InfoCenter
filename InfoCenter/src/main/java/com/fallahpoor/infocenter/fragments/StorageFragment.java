@@ -40,6 +40,8 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 import java.io.File;
 import java.util.ArrayList;
 
+import de.halfbit.pinnedsection.PinnedSectionListView;
+
 /**
  * StorageFragment displays some information about the size of internal and
  * external storage of the device.
@@ -62,8 +64,8 @@ public class StorageFragment extends Fragment {
                 JELLY_BEAN_MR2;
 
         ListView listView = (ListView) view.findViewById(R.id.listView);
-        listView.setAdapter(new CustomArrayAdapter(getActivity(),
-                getListItems()));
+        ((PinnedSectionListView) listView).setShadowVisible(false);
+        listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems()));
 
         return view;
 
@@ -78,16 +80,13 @@ public class StorageFragment extends Fragment {
         totalSpace = getString(R.string.sto_item_total_space);
         freeSpace = getString(R.string.sto_item_free_space);
 
-        items.add(new HeaderListItem(
-                getString(R.string.sto_item_int_storage)));
+        items.add(new HeaderListItem(getString(R.string.sto_item_int_storage)));
         items.add(new OrdinaryListItem(totalSpace, getInternalTotal()));
         items.add(new OrdinaryListItem(freeSpace, getInternalFree()));
         items.add(new HeaderListItem(getString(R.string.
                 sto_item_ext_storage)));
-        items.add(new OrdinaryListItem(totalSpace,
-                getExternalTotal()));
-        items.add(new OrdinaryListItem(freeSpace,
-                getExternalFree()));
+        items.add(new OrdinaryListItem(totalSpace, getExternalTotal()));
+        items.add(new OrdinaryListItem(freeSpace, getExternalFree()));
 
         return items;
 
