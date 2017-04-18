@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignRight="@id/itemTextView"
                 android:layout_below="@id/itemTextView"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="@dimen/list_item_sub_item_text_view_top_margin"
                 android:gravity="right"
                 android:text="Sub Item"/>
