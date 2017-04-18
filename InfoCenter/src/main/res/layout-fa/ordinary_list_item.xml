@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical">
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             android:id="@+id/itemTextView"
             style="@style/TextAppearance.Large"
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:gravity="right"
             android:text="Item"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             android:id="@+id/subItemTextView"
             style="@style/TextAppearance.Small"
             android:layout_width="match_parent"

@@ -19,6 +19,7 @@
 
 package com.fallahpoor.infocenter.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 
@@ -27,6 +28,8 @@ import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 /**
  * DetailsActivity displays a Fragment based on the type that is passed
  * to it from MainActivity.
@@ -34,6 +37,11 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
  * @author Masood Fallahpoor
  */
 public class DetailsActivity extends LocalizationActivity {
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

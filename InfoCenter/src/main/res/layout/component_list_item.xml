@@ -20,7 +20,7 @@
         android:layout_marginLeft="@dimen/component_list_item_horizontal_margin"
         android:src="@drawable/ic_launcher"/>
 
-    <net.kianoni.fontloader.TextView
+    <TextView
         android:id="@+id/componentTextView"
         style="@style/TextAppearance.Large"
         android:layout_width="0dp"

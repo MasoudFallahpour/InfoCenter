@@ -27,6 +27,8 @@ import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 import org.acra.sender.HttpSender;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
  * This class does some initializations on app start.
  *
@@ -56,6 +58,12 @@ public class InfoCenterApp extends Application {
     public void onCreate() {
 
         super.onCreate();
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath(getString(R.string.font_path))
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
 
         // Initialize ACRA library
         ACRA.init(this);

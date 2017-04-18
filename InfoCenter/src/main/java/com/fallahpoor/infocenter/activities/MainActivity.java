@@ -21,6 +21,7 @@ package com.fallahpoor.infocenter.activities;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -39,6 +40,7 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 
 import de.cketti.library.changelog.ChangeLog;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * MainActivity is the main Activity of the app.
@@ -52,6 +54,11 @@ public class MainActivity extends LocalizationActivity implements
     private final String CURRENT_FRAGMENT = "current_fragment";
     private int mCurrentFragment = FragmentType.UNKNOWN;
     private boolean mIsDualPane;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

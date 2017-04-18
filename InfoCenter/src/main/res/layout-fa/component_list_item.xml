@@ -21,7 +21,7 @@
         android:src="@drawable/ic_launcher"
         tools:ignore="ContentDescription"/>
 
-    <net.kianoni.fontloader.TextView
+    <TextView
         android:id="@+id/componentTextView"
         style="@style/TextAppearance.Large"
         android:layout_width="0dp"

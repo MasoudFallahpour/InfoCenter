@@ -20,7 +20,7 @@
             android:src="@drawable/ic_about"
             tools:ignore="ContentDescription"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,14 +28,14 @@
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:text="@string/app_name"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             android:id="@+id/appVersionTextView"
             style="@style/TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:lineSpacingMultiplier="1.4"
             android:text="@string/app_description"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:gravity="center_horizontal"
             android:text="@string/app_programmer"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:gravity="center_horizontal"
             android:text="@string/masood_fallahpoor"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:text="@string/app_github_page"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:gravity="center_horizontal"
             android:text="@string/app_github_address"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             android:layout_marginTop="@dimen/fragment_about_primary_vertical_margin"
             android:text="@string/app_web_site"/>
 
-        <net.kianoni.fontloader.TextView
+        <TextView
             style="@style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
             android:autoLink="web"
             android:gravity="center_horizontal"
             android:text="@string/app_web_site_address"/>
-        
+
     </LinearLayout>
 
 </ScrollView>

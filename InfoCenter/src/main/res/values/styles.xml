@@ -20,22 +20,16 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="XMYekan">
-        <item name="fontFilePattern">fonts/{fontFamily}-{fontVariant}.ttf</item>
-        <item name="fontFamily">XMYekan</item>
-        <item name="fontVariant">Regular</item>
+    <style name="TextAppearance.Large" parent="@style/TextAppearance.AppCompat.Large">
+        <item name="fontPath">@string/font_path</item>
     </style>
 
-    <style name="TextAppearance.Large" parent="XMYekan">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    <style name="TextAppearance.Medium" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="fontPath">@string/font_path</item>
     </style>
 
-    <style name="TextAppearance.Medium" parent="XMYekan">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
-    </style>
-
-    <style name="TextAppearance.Small" parent="XMYekan">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    <style name="TextAppearance.Small" parent="@style/TextAppearance.AppCompat.Small">
+        <item name="fontPath">@string/font_path</item>
     </style>
 
 </resources>
