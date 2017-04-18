@@ -41,6 +41,7 @@
     <string name="and_sub_item_kk">KitKat</string>
     <string name="and_sub_item_lollipop">Lollipop</string>
     <string name="and_sub_item_marshmallow">Marshmallow</string>
+    <string name="and_sub_item_nougat">Nougat</string>
     <string name="cpu_item_manufacturer">Manufacturer</string>
     <string name="cpu_item_hardware">Hardware</string>
     <string name="cpu_item_processor">Processor</string>
