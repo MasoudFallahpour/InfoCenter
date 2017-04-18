@@ -128,13 +128,7 @@ public class GpuFragment extends Fragment {
             items.add(new OrdinaryListItem(getString(R.string.gpu_item_opengl_version),
                     gl.glGetString(GL10.GL_VERSION)));
 
-            getActivity().runOnUiThread(new Runnable() {
-
-                @Override
-                public void run() {
-                    mListView.setAdapter(new CustomArrayAdapter(getActivity(), items));
-                }
-            });
+            getActivity().runOnUiThread(() -> mListView.setAdapter(new CustomArrayAdapter(getActivity(), items)));
 
         }
 
