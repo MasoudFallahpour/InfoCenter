@@ -72,7 +72,7 @@ public class WifiFragment extends Fragment implements Observer {
     @Override
     public void onPause() {
 
-        super.onStop();
+        super.onPause();
         wifiObservable.deleteObserver(this);
 
     }
