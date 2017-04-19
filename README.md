@@ -2,7 +2,7 @@
 *Info Center* is an Android app that displays the details of (mostly) hardware components of a smartphone or tablet.
 
 ## What versions of Android does it support?
-Info Center runs on devices having Android ICS (API 14) all the way through Android Marshmallow (API 23).
+Info Center runs on devices having Android ICS (API 14) all the way through Android Nougat (API 25).
 
 ## Locale
 Info Center supports both English and Persian locales.
