@@ -32,13 +32,13 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.fallahpoor.infocenter.LoadingDialog;
 import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.Utils;
 import com.fallahpoor.infocenter.adapters.CustomArrayAdapter;
 import com.fallahpoor.infocenter.adapters.HeaderListItem;
 import com.fallahpoor.infocenter.adapters.ListItem;
 import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.ArrayList;
 import java.util.IllegalFormatException;
@@ -59,7 +59,7 @@ public class CameraFragment extends Fragment {
 
     private ListView mListView;
     private GetCameraParamsTask mGetCameraParamsTask;
-    private LoadingDialog mLoadingDialog;
+    private ProgressWheel mProgressWheel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +69,8 @@ public class CameraFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
+
+        mProgressWheel = (ProgressWheel) view.findViewById(R.id.progressWheel);
 
         mListView = (ListView) view.findViewById(R.id.listView);
         ((PinnedSectionListView) mListView).setShadowVisible(false);
@@ -104,10 +106,7 @@ public class CameraFragment extends Fragment {
             mGetCameraParamsTask = null;
         }
 
-        if (mLoadingDialog != null && mLoadingDialog.isShowing()) {
-            mLoadingDialog.dismiss();
-            mLoadingDialog = null;
-        }
+        mProgressWheel.stopSpinning();
 
     }
 
@@ -341,7 +340,7 @@ public class CameraFragment extends Fragment {
         protected void onPreExecute() {
 
             super.onPreExecute();
-            mLoadingDialog = LoadingDialog.show(getActivity());
+            mProgressWheel.setVisibility(View.VISIBLE);
 
         }
 
@@ -359,7 +358,8 @@ public class CameraFragment extends Fragment {
                     result));
 
             mGetCameraParamsTask = null;
-            mLoadingDialog.dismiss();
+            mProgressWheel.setVisibility(View.INVISIBLE);
+            mProgressWheel.stopSpinning();
 
         }
 

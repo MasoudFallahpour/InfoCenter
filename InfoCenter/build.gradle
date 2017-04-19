@@ -33,4 +33,5 @@ dependencies {
     compile 'de.halfbit:pinned-section-listview:1.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile project(':libraries:ckChangeLog')
+    compile 'com.pnikosis:materialish-progress:1.7'
 }
