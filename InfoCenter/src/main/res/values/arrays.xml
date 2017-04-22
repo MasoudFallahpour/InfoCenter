@@ -18,6 +18,23 @@
         <item>Sim Card</item>
     </string-array>
 
+    <integer-array name="components_icons">
+        <item>@drawable/ic_general</item>
+        <item>@drawable/ic_android</item>
+        <item>@drawable/ic_cpu</item>
+        <item>@drawable/ic_screen</item>
+        <item>@drawable/ic_ram</item>
+        <item>@drawable/ic_storage</item>
+        <item>@drawable/ic_camera</item>
+        <item>@drawable/ic_sensor</item>
+        <item>@drawable/ic_battery</item>
+        <item>@drawable/ic_wifi</item>
+        <item>@drawable/ic_gpu</item>
+        <item>@drawable/ic_bluetooth</item>
+        <item>@drawable/ic_gps</item>
+        <item>@drawable/ic_sim</item>
+    </integer-array>
+
     <string-array name="activity_titles">
         <item>General</item>
         <item>Android</item>

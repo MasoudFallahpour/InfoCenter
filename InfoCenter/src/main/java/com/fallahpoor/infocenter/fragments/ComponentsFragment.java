@@ -19,6 +19,7 @@
 
 package com.fallahpoor.infocenter.fragments;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -45,6 +46,18 @@ import java.util.ArrayList;
  */
 public class ComponentsFragment extends Fragment {
 
+    public interface ComponentsListener {
+
+        /**
+         * Called when user clicks on an item of the ListView of
+         * ComponentsFragment
+         *
+         * @param position the position of the clicked item
+         */
+        void onComponentClick(int position);
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,8 +68,7 @@ public class ComponentsFragment extends Fragment {
 
         ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setOnItemClickListener(new ComponentClickListener());
-        listView.setAdapter(new CustomArrayAdapter(getActivity(),
-                getListItems()));
+        listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems()));
 
         return view;
 
@@ -65,34 +77,17 @@ public class ComponentsFragment extends Fragment {
     private ArrayList<ListItem> getListItems() {
 
         ArrayList<ListItem> items = new ArrayList<>();
-        String[] listItems = getResources().getStringArray(
-                R.array.components);
-        int[] listImageIds = new int[]{R.drawable.ic_general,
-                R.drawable.ic_android, R.drawable.ic_cpu,
-                R.drawable.ic_screen, R.drawable.ic_ram,
-                R.drawable.ic_storage, R.drawable.ic_camera,
-                R.drawable.ic_sensor, R.drawable.ic_battery,
-                R.drawable.ic_wifi, R.drawable.ic_gpu,
-                R.drawable.ic_bluetooth, R.drawable.ic_gps,
-                R.drawable.ic_sim};
+        String[] listItems = getResources().getStringArray(R.array.components);
+        TypedArray listImageIds = getResources().obtainTypedArray(R.array.components_icons);
 
         for (int i = 0; i < listItems.length; i++) {
-            items.add(new ComponentListItem(listItems[i], listImageIds[i]));
+            items.add(new ComponentListItem(listItems[i],
+                    listImageIds.getResourceId(i, 0)));
         }
 
+        listImageIds.recycle();
+
         return items;
-
-    }
-
-    public interface ComponentsListener {
-
-        /**
-         * Called when user clicks on an item of the ListView of
-         * ComponentsFragment
-         *
-         * @param position the position of the clicked item
-         */
-        void onComponentClick(int position);
 
     }
 
