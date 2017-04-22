@@ -44,6 +44,8 @@ import java.util.ArrayList;
 import java.util.IllegalFormatException;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.halfbit.pinnedsection.PinnedSectionListView;
 
 /**
@@ -57,9 +59,11 @@ import de.halfbit.pinnedsection.PinnedSectionListView;
 @SuppressWarnings("deprecation")
 public class CameraFragment extends Fragment {
 
-    private ListView mListView;
     private GetCameraParamsTask mGetCameraParamsTask;
-    private ProgressWheel mProgressWheel;
+    @BindView(R.id.listView)
+    ListView mListView;
+    @BindView(R.id.progressWheel)
+    ProgressWheel mProgressWheel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,10 +73,8 @@ public class CameraFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
+        ButterKnife.bind(this, view);
 
-        mProgressWheel = (ProgressWheel) view.findViewById(R.id.progressWheel);
-
-        mListView = (ListView) view.findViewById(R.id.listView);
         ((PinnedSectionListView) mListView).setShadowVisible(false);
 
         TextView msgTextView = (TextView) view.findViewById(R.id.textView);
@@ -81,18 +83,6 @@ public class CameraFragment extends Fragment {
         populateListView(msgTextView);
 
         return view;
-
-    }
-
-    private void populateListView(TextView msgTextView) {
-
-        if (Camera.getNumberOfCameras() > 0) {
-            mGetCameraParamsTask = new GetCameraParamsTask();
-            mGetCameraParamsTask.execute();
-        } else {
-            mListView.setEmptyView(msgTextView);
-            mListView = null;
-        }
 
     }
 
@@ -107,6 +97,18 @@ public class CameraFragment extends Fragment {
         }
 
         mProgressWheel.stopSpinning();
+
+    }
+
+    private void populateListView(TextView msgTextView) {
+
+        if (Camera.getNumberOfCameras() > 0) {
+            mGetCameraParamsTask = new GetCameraParamsTask();
+            mGetCameraParamsTask.execute();
+        } else {
+            mListView.setEmptyView(msgTextView);
+            mListView = null;
+        }
 
     }
 

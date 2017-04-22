@@ -39,6 +39,9 @@ import java.util.Locale;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * GpuFragment displays some information about the GPU of the device including
  * its manufacturer, model, and OpenGL version.
@@ -47,8 +50,10 @@ import javax.microedition.khronos.opengles.GL10;
  */
 public class GpuFragment extends Fragment {
 
-    private ListView mListView;
-    private GLSurfaceView mGlSurfaceView;
+    @BindView(R.id.listView)
+    ListView mListView;
+    @BindView(R.id.glSurfaceView)
+    GLSurfaceView mGlSurfaceView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,14 +62,12 @@ public class GpuFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_gpu, container, false);
+        ButterKnife.bind(this, view);
 
-        mGlSurfaceView = (GLSurfaceView) view.findViewById(R.id.glSurfaceView);
         mGlSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
         mGlSurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         mGlSurfaceView.setRenderer(new DummyRenderer());
         mGlSurfaceView.setZOrderOnTop(true);
-
-        mListView = (ListView) view.findViewById(R.id.listView);
 
         return view;
 
