@@ -19,7 +19,6 @@
 
 package com.fallahpoor.infocenter.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -46,16 +45,6 @@ import java.util.ArrayList;
  */
 public class ComponentsFragment extends Fragment {
 
-    private ComponentsListener mListener;
-
-    @Override
-    public void onAttach(Activity activity) {
-
-        super.onAttach(activity);
-        mListener = (ComponentsListener) activity;
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -70,14 +59,6 @@ public class ComponentsFragment extends Fragment {
                 getListItems()));
 
         return view;
-
-    }
-
-    @Override
-    public void onDetach() {
-
-        super.onDetach();
-        mListener = null;
 
     }
 
@@ -120,7 +101,7 @@ public class ComponentsFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            mListener.onComponentClick(position);
+            ((ComponentsListener) getActivity()).onComponentClick(position);
         }
 
     }
