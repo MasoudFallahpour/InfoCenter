@@ -29,13 +29,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.acra.CrashReportDialog"
-            android:excludeFromRecents="true"
-            android:finishOnTaskLaunch="true"
-            android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.Dialog">
-        </activity>
-        <activity
             android:name=".activities.DetailsActivity"
             android:label="@string/app_name">
             <meta-data

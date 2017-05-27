@@ -192,10 +192,6 @@
     <string name="unknown">نامشخص</string>
     <string name="sub_item_mb">مگابایت</string>
     <string name="sub_item_gb">گیگابایت</string>
-    <string name="crash_toast_text">مرکز اطلاعات دچار مشکل شده است</string>
-    <string name="crash_dialog_text">برنامهٔ مرکز اطلاعات دچار مشکل شده است. آیا تمایل دارید گزارش مشکل برای توسعه‌دهندهٔ برنامه فرستاده شود؟</string>
-    <string name="crash_dialog_positive_button_text">بله</string>
-    <string name="crash_dialog_negative_button_text">خیر</string>
     <string name="changelog_full_title">آخرین تغییرات</string>
     <string name="changelog_ok_button">خُب</string>
     <string name="bazaar_not_installed">اپ کافه بازار بر روی دستگاه شما نصب نیست</string>
