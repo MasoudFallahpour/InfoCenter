@@ -9,7 +9,7 @@
     <string name="app_github_page">Source Code</string>
     <string name="app_github_address" translatable="false">https://github.com/MasoodFallahpoor/InfoCenter</string>
     <string name="app_web_site">Website</string>
-    <string name="app_web_site_address" translatable="false">https://masoodfallahpoor.github.io/InfoCenter</string>
+    <string name="app_web_site_address" translatable="false">http://fallahpoor.ir/InfoCenter</string>
     <string name="action_exit">Exit</string>
     <string name="action_about_app">About</string>
     <string name="action_settings">Settings</string>
