@@ -94,14 +94,12 @@ public class CpuFragment extends Fragment {
 
     private ArrayList<String> getItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(new String[]{
-                getString(R.string.cpu_item_manufacturer),
+        return new ArrayList<>(Arrays.asList(getString(R.string.cpu_item_manufacturer),
                 getString(R.string.cpu_item_hardware),
                 getString(R.string.cpu_item_processor),
                 getString(R.string.cpu_item_number_of_cores),
                 getString(R.string.cpu_item_frequency),
-                getString(R.string.cpu_item_features)
-        }));
+                getString(R.string.cpu_item_features)));
 
     }
 

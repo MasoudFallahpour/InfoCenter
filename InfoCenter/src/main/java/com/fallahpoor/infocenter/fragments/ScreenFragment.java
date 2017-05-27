@@ -79,14 +79,12 @@ public class ScreenFragment extends Fragment {
 
     private ArrayList<String> getItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(new String[]{
-                getString(R.string.scr_item_resolution),
+        return new ArrayList<>(Arrays.asList(getString(R.string.scr_item_resolution),
                 getString(R.string.scr_item_orientation),
                 getString(R.string.scr_item_refresh_rate),
                 getString(R.string.scr_item_dots_per_inch),
                 getString(R.string.scr_item_horizontal_dpi),
-                getString(R.string.scr_item_vertical_dpi),
-        }));
+                getString(R.string.scr_item_vertical_dpi)));
 
     }
 

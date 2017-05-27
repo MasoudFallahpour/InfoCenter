@@ -43,7 +43,7 @@ import java.util.Observer;
  *
  * @author Masood Fallahpoor
  */
-public class WifiObservable extends Observable {
+class WifiObservable extends Observable {
 
     private static final int SIGNAL_LEVELS = 5;
     private WifiBroadcastReceiver mWifiReceiver;

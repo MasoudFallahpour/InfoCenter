@@ -97,15 +97,13 @@ public class BatteryFragment extends Fragment implements Observer {
 
     private ArrayList<String> getItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(new String[]{
-                getString(R.string.item_status),
+        return new ArrayList<>(Arrays.asList(getString(R.string.item_status),
                 getString(R.string.bat_item_charge_level),
                 getString(R.string.bat_item_health),
                 getString(R.string.bat_item_plugged),
                 getString(R.string.bat_item_technology),
                 getString(R.string.bat_item_temperature),
-                getString(R.string.bat_item_voltage)
-        }));
+                getString(R.string.bat_item_voltage)));
 
     }
 

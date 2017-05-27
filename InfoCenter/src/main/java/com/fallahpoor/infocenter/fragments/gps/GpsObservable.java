@@ -42,7 +42,9 @@ import java.util.Observer;
  */
 class GpsObservable extends Observable {
 
+    @SuppressWarnings("FieldCanBeLocal")
     private final int MIN_UPDATE_INTERVAL = 30000;
+    @SuppressWarnings("FieldCanBeLocal")
     private final float MIN_DISTANCE = 50;
     private String mStatus;
     private String mLocation;
