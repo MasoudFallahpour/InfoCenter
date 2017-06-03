@@ -5,6 +5,7 @@ before_install:
 android:
   components:
     - tools
+    - platform-tools
     - build-tools-25.0.3
     - android-25
     - extra-android-support
