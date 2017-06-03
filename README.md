@@ -14,9 +14,5 @@ Info Center supports both English and Persian locales.
 Info Center is officially released in an Iranian Android market called CafeBazaar. So you can always download the latest
 version at [CafeBazaar](http://cafebazaar.ir/app/com.fallahpoor.infocenter)
 
-## Build
-To build Info Center you need Android Support Library. After you installed the Support Library, through your SDK Manager,
-import Info Center into Android Studio and go for building!
-
 ## License
 Info Center is licensed under GPLv3. So it's free as in freedom!
