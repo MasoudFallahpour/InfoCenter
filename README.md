@@ -1,4 +1,7 @@
 #Info Center
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/59b83a8b9a4640e8a035fa10d91d8fde)](https://www.codacy.com/app/MasoodFallahpoor/InfoCenter?utm_source=github.com&utm_medium=referral&utm_content=MasoodFallahpoor/InfoCenter&utm_campaign=badger)
+
 *Info Center* is an Android app that displays the details of (mostly) hardware components of a smartphone or tablet.
 
 ## What versions of Android does it support?
