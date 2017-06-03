@@ -136,6 +136,8 @@ public class MainActivity extends LocalizationActivity implements
             case R.id.action_exit:
                 finish();
                 return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
         return super.onOptionsItemSelected(item);

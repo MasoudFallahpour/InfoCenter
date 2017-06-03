@@ -228,21 +228,19 @@ class WifiObservable extends Observable {
         mSignalStrength = unknown;
         mLinkSpeed = unknown;
 
-        if (wifiMgr != null) {
-            if (isWifiEnabled(wifiMgr)) {
-                mStatus = mContext.getString(R.string.on);
-                netInfo = connMgr.getNetworkInfo(ConnectivityManager.
-                        TYPE_WIFI);
-                if (netInfo != null && netInfo.isConnected()) {
-                    mConnected = mContext.getString(R.string.yes);
-                    wifiInfo = wifiMgr.getConnectionInfo();
-                    if (wifiInfo != null) {
-                        mSSID = getSSID(wifiInfo);
-                        mIpAddress = getIpAddress(wifiInfo);
-                        mMacAddress = wifiInfo.getMacAddress();
-                        mSignalStrength = getSignalStrength(wifiInfo);
-                        mLinkSpeed = getLinkSpeed(wifiInfo);
-                    }
+        if (wifiMgr != null && isWifiEnabled(wifiMgr)) {
+            mStatus = mContext.getString(R.string.on);
+            netInfo = connMgr.getNetworkInfo(ConnectivityManager.
+                    TYPE_WIFI);
+            if (netInfo != null && netInfo.isConnected()) {
+                mConnected = mContext.getString(R.string.yes);
+                wifiInfo = wifiMgr.getConnectionInfo();
+                if (wifiInfo != null) {
+                    mSSID = getSSID(wifiInfo);
+                    mIpAddress = getIpAddress(wifiInfo);
+                    mMacAddress = wifiInfo.getMacAddress();
+                    mSignalStrength = getSignalStrength(wifiInfo);
+                    mLinkSpeed = getLinkSpeed(wifiInfo);
                 }
             }
         }

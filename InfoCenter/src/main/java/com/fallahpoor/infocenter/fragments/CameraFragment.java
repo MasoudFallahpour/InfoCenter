@@ -127,6 +127,9 @@ public class CameraFragment extends Fragment {
                 items.add(new HeaderListItem(
                         getString(R.string.cam_item_front_camera)));
                 items.addAll(getCameraParams(CameraInfo.CAMERA_FACING_FRONT));
+                break;
+            default:
+                // how many cameras do we have in here?!
         }
 
         return items;
