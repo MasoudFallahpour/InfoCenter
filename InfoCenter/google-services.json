@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "244491636891",
+    "firebase_url": "https://infocenter-1d0c0.firebaseio.com",
+    "project_id": "infocenter-1d0c0",
+    "storage_bucket": "infocenter-1d0c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244491636891:android:b43aa9295b6ef605",
+        "android_client_info": {
+          "package_name": "com.fallahpoor.infocenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244491636891-g25agq531qlg4ouq4945p6efd1a9ro99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fallahpoor.infocenter",
+            "certificate_hash": "82176c89c78c8581de68ae21258c2e40f4fa7292"
+          }
+        },
+        {
+          "client_id": "244491636891-0rc5mquuvijbl2tjdjgeu1kpmtinuv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJvhrPYz5kFF6lQXFJHvjCFVu2X_fRjzY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244491636891-0rc5mquuvijbl2tjdjgeu1kpmtinuv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
