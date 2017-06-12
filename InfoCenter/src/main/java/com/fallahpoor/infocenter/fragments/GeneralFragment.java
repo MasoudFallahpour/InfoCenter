@@ -51,6 +51,8 @@ public class GeneralFragment extends Fragment {
 
     private final int UPTIME_UPDATE_INTERVAL = 1000;
     private CustomArrayAdapter mArrayAdapter;
+    private Handler handler;
+    private Runnable uptimeRunnable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,9 +68,9 @@ public class GeneralFragment extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setAdapter(mArrayAdapter);
 
-        final Handler handler = new Handler();
+        handler = new Handler();
 
-        Runnable uptimeRunnable = new Runnable() {
+        uptimeRunnable = new Runnable() {
             @Override
             public void run() {
                 updateUptime();
@@ -76,10 +78,20 @@ public class GeneralFragment extends Fragment {
             }
         };
 
-        handler.post(uptimeRunnable);
-
         return view;
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        handler.post(uptimeRunnable);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        handler.removeCallbacks(uptimeRunnable);
     }
 
     private ArrayList<ListItem> getListItems() {
