@@ -2,14 +2,25 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.4.0-alpha6'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha14'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
+}
+
+ext {
+    supportLibVersion = '27.1.1'
+    butterKnifeVersion = '8.8.1'
+    myBuildToolsVersion = '27.0.3'
+    myCompileSdkVersion = 27
+    myMinSdkVersion = 14
+    myTargetSdkVersion = 27
 }

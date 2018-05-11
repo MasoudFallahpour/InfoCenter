@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion myCompileSdkVersion
+    buildToolsVersion myBuildToolsVersion
 
     defaultConfig {
         applicationId "com.fallahpoor.infocenter"
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion myMinSdkVersion
+        targetSdkVersion myTargetSdkVersion
         versionCode 9
         versionName "2.3"
     }
@@ -25,14 +25,14 @@ android {
 }
 
 dependencies {
-    compile 'com.pnikosis:materialish-progress:1.7'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:preference-v14:25.3.1'
-    compile 'ch.acra:acra:4.9.2'
-    compile 'com.akexorcist:localizationactivity:1.0.13'
-    compile 'de.halfbit:pinned-section-listview:1.0.0'
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile project(':libraries:ckChangeLog')
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:preference-v14:$supportLibVersion"
+    implementation 'ch.acra:acra:4.9.2'
+    implementation 'com.akexorcist:localizationactivity:1.1.1'
+    implementation 'de.halfbit:pinned-section-listview:1.0.0'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation project(':libraries:ckChangeLog')
 }
