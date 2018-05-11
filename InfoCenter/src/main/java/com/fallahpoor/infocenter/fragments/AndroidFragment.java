@@ -145,6 +145,9 @@ public class AndroidFragment extends Fragment {
             case Build.VERSION_CODES.N:
             case Build.VERSION_CODES.N_MR1:
                 return getString(R.string.and_sub_item_nougat);
+            case Build.VERSION_CODES.O:
+            case Build.VERSION_CODES.O_MR1:
+                return getString(R.string.and_sub_item_oreo);
             default:
                 return getString(R.string.unknown);
         }
