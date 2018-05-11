@@ -99,8 +99,7 @@ public class GeneralFragment extends Fragment {
 
     private ArrayList<String> getItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(new String[]{
-                getString(R.string.gen_item_manufacturer),
+        return new ArrayList<>(Arrays.asList(getString(R.string.gen_item_manufacturer),
                 getString(R.string.gen_item_brand),
                 getString(R.string.gen_item_model),
                 getString(R.string.gen_item_bootloader_version),
@@ -109,15 +108,13 @@ public class GeneralFragment extends Fragment {
                 getString(R.string.gen_item_imei),
                 getString(R.string.gen_item_serial_number),
                 getString(R.string.gen_item_radio_firmware_version),
-                getString(R.string.gen_item_uptime),
-        }));
+                getString(R.string.gen_item_uptime)));
 
     }
 
     private ArrayList<String> getSubItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(new String[]{
-                Build.MANUFACTURER,
+        return new ArrayList<>(Arrays.asList(Build.MANUFACTURER,
                 Build.BRAND,
                 Build.DEVICE,
                 Build.BOOTLOADER,
@@ -126,8 +123,7 @@ public class GeneralFragment extends Fragment {
                 getImei(),
                 Build.SERIAL,
                 getRadioFirmwareVersion(),
-                getFormattedUptime()
-        }));
+                getFormattedUptime()));
 
     }
 

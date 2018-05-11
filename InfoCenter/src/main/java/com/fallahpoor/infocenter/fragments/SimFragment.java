@@ -22,6 +22,7 @@ package com.fallahpoor.infocenter.fragments;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -47,7 +48,7 @@ import java.util.ArrayList;
 public class SimFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
@@ -55,9 +56,9 @@ public class SimFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+        ListView listView = view.findViewById(R.id.listView);
 
-        TextView msgTextView = (TextView) view.findViewById(R.id.textView);
+        TextView msgTextView = view.findViewById(R.id.textView);
         msgTextView.setText(R.string.sim_sub_item_no_sim);
 
         populateListView(listView, msgTextView);

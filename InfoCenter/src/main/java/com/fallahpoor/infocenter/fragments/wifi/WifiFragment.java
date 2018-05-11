@@ -20,6 +20,7 @@
 package com.fallahpoor.infocenter.fragments.wifi;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,13 +49,13 @@ public class WifiFragment extends Fragment implements Observer {
     private WifiObservable wifiObservable;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-        mListView = (ListView) view.findViewById(R.id.listView);
+        mListView = view.findViewById(R.id.listView);
         wifiObservable = new WifiObservable(getActivity());
         return view;
 
@@ -95,15 +96,13 @@ public class WifiFragment extends Fragment implements Observer {
     private ArrayList<String> getItemsArrayList() {
 
         return new ArrayList<>(Arrays.asList(
-                new String[]{
-                        getString(R.string.item_status),
-                        getString(R.string.wifi_item_connected_to_access_point),
-                        getString(R.string.wifi_item_ssid),
-                        getString(R.string.wifi_item_ip_address),
-                        getString(R.string.wifi_item_mac_address),
-                        getString(R.string.wifi_item_signal_quality),
-                        getString(R.string.wifi_item_link_speed)
-                }));
+                getString(R.string.item_status),
+                getString(R.string.wifi_item_connected_to_access_point),
+                getString(R.string.wifi_item_ssid),
+                getString(R.string.wifi_item_ip_address),
+                getString(R.string.wifi_item_mac_address),
+                getString(R.string.wifi_item_signal_quality),
+                getString(R.string.wifi_item_link_speed)));
 
     }
 

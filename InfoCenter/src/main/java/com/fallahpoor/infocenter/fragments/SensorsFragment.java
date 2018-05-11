@@ -25,6 +25,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -54,7 +55,7 @@ public class SensorsFragment extends Fragment {
     private boolean mIsApiAtLeast19;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
@@ -67,7 +68,7 @@ public class SensorsFragment extends Fragment {
         mIsApiAtLeast19 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.
                 KITKAT;
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+        ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(new CustomArrayAdapter(getActivity(),
                 getListItems()));
 
@@ -93,19 +94,17 @@ public class SensorsFragment extends Fragment {
     private ArrayList<String> getItemsArrayList() {
 
         ArrayList<String> items = new ArrayList<>(Arrays.asList(
-                new String[]{
-                        getString(R.string.sen_item_accelerometer),
-                        getString(R.string.sen_item_ambient_temperature),
-                        getString(R.string.sen_item_gravity),
-                        getString(R.string.sen_item_gyroscope),
-                        getString(R.string.sen_item_light),
-                        getString(R.string.sen_item_linear_acceleration),
-                        getString(R.string.sen_item_magnetic_field),
-                        getString(R.string.sen_item_pressure),
-                        getString(R.string.sen_item_proximity),
-                        getString(R.string.sen_item_relative_humidity),
-                        getString(R.string.sen_item_rotation_vector)
-                }));
+                getString(R.string.sen_item_accelerometer),
+                getString(R.string.sen_item_ambient_temperature),
+                getString(R.string.sen_item_gravity),
+                getString(R.string.sen_item_gyroscope),
+                getString(R.string.sen_item_light),
+                getString(R.string.sen_item_linear_acceleration),
+                getString(R.string.sen_item_magnetic_field),
+                getString(R.string.sen_item_pressure),
+                getString(R.string.sen_item_proximity),
+                getString(R.string.sen_item_relative_humidity),
+                getString(R.string.sen_item_rotation_vector)));
 
         if (mIsApiAtLeast18) {
             items.add(getString(R.string.sen_item_game_rotation_vector));
@@ -131,15 +130,13 @@ public class SensorsFragment extends Fragment {
         String supported = getString(R.string.supported);
         String unsupported = getString(R.string.unsupported);
         ArrayList<Integer> sensorTypes = new ArrayList<>(
-                Arrays.asList(new Integer[]{
-                        Sensor.TYPE_ACCELEROMETER,
+                Arrays.asList(Sensor.TYPE_ACCELEROMETER,
                         Sensor.TYPE_AMBIENT_TEMPERATURE,
                         Sensor.TYPE_GRAVITY, Sensor.TYPE_GYROSCOPE,
                         Sensor.TYPE_LIGHT, Sensor.TYPE_LINEAR_ACCELERATION,
                         Sensor.TYPE_MAGNETIC_FIELD, Sensor.TYPE_PRESSURE,
                         Sensor.TYPE_PROXIMITY, Sensor.TYPE_RELATIVE_HUMIDITY,
-                        Sensor.TYPE_ROTATION_VECTOR
-                }));
+                        Sensor.TYPE_ROTATION_VECTOR));
 
         if (mIsApiAtLeast18) {
             sensorTypes.add(Sensor.TYPE_GAME_ROTATION_VECTOR);

@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,7 @@ public class StorageFragment extends Fragment {
     private boolean mIsApiAtLeast18;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
@@ -63,7 +64,7 @@ public class StorageFragment extends Fragment {
         mIsApiAtLeast18 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.
                 JELLY_BEAN_MR2;
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+        ListView listView = view.findViewById(R.id.listView);
         ((PinnedSectionListView) listView).setShadowVisible(false);
         listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems()));
 

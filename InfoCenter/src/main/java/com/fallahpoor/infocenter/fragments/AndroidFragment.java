@@ -21,6 +21,7 @@ package com.fallahpoor.infocenter.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ import java.util.ArrayList;
 public class AndroidFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
@@ -54,7 +55,7 @@ public class AndroidFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+        ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(new CustomArrayAdapter(getActivity(),
                 getListItems()));
 
