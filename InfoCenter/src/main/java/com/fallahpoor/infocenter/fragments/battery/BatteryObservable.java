@@ -213,7 +213,12 @@ class BatteryObservable extends Observable {
         @Override
         public void onReceive(Context context, Intent batteryIntent) {
 
-            int status, level, health, plugged, temperature, voltage;
+            int status;
+            int level;
+            int health;
+            int plugged;
+            int temperature;
+            int voltage;
             String technology;
 
             status = batteryIntent.getIntExtra(BatteryManager.EXTRA_STATUS, 0);

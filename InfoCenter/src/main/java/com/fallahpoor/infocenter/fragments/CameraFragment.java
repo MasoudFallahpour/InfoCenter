@@ -128,6 +128,9 @@ public class CameraFragment extends Fragment {
                 items.add(new HeaderListItem(
                         getString(R.string.cam_item_front_camera)));
                 items.addAll(getCameraParams(CameraInfo.CAMERA_FACING_FRONT));
+                break;
+            default:
+                // how many cameras do we have in here?!
         }
 
         return items;
@@ -298,15 +301,18 @@ public class CameraFragment extends Fragment {
         StringBuilder videoSizes = new StringBuilder();
         List<Size> supportedVideoSizes = cameraParams.getSupportedVideoSizes();
 
+        if (supportedVideoSizes == null) {
+            return getString(R.string.unknown);
+        }
+
         for (i = 0; i < supportedVideoSizes.size() - 1; i++) {
             videoSizes.append(String.format(Utils.getLocale(), "%d x %d, ",
                     supportedVideoSizes.get(i).width,
                     supportedVideoSizes.get(i).height));
         }
 
-        videoSizes.append(String.format(Utils.getLocale(), "%d x %d ", supportedVideoSizes.get(i)
-                        .width,
-                supportedVideoSizes.get(i).height));
+        videoSizes.append(String.format(Utils.getLocale(), "%d x %d ",
+                supportedVideoSizes.get(i).width, supportedVideoSizes.get(i).height));
 
         return videoSizes.toString();
 

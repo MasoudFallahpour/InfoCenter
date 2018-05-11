@@ -20,6 +20,7 @@
 package com.fallahpoor.infocenter.adapters;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,9 @@ public class CustomArrayAdapter extends ArrayAdapter<ListItem> implements
         return getItem(position).getViewType();
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         return getItem(position).getView(mInflater, convertView, parent);
     }
 

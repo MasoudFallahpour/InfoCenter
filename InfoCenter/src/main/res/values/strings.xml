@@ -9,7 +9,7 @@
     <string name="app_github_page">Source Code</string>
     <string name="app_github_address" translatable="false">https://github.com/MasoodFallahpoor/InfoCenter</string>
     <string name="app_web_site">Website</string>
-    <string name="app_web_site_address" translatable="false">https://masoodfallahpoor.github.io/InfoCenter</string>
+    <string name="app_web_site_address" translatable="false">http://fallahpoor.ir/InfoCenter</string>
     <string name="action_exit">Exit</string>
     <string name="action_about_app">About</string>
     <string name="action_settings">Settings</string>
@@ -195,10 +195,6 @@
     <string name="unknown">Unknown</string>
     <string name="sub_item_mb">MB</string>
     <string name="sub_item_gb">GB</string>
-    <string name="crash_toast_text">Information Center has encountered a problem.</string>
-    <string name="crash_dialog_text">Information Center has encountered a problem. Would you like to send a report about the problem to developer of the app?</string>
-    <string name="crash_dialog_positive_button_text">Yes</string>
-    <string name="crash_dialog_negative_button_text">No</string>
     <string name="changelog_full_title">Latest Changes</string>
     <string name="changelog_ok_button">OK</string>
     <string name="bazaar_not_installed">Bazaar app is not installed on your device.</string>
