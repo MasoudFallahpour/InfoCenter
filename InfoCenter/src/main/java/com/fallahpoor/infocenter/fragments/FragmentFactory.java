@@ -76,19 +76,19 @@ public class FragmentFactory {
 
         public final static int UNKNOWN = -1;
         public final static int GENERAL = 0;
-        public final static int ANDROID = 1;
-        public final static int CPU = 2;
-        public final static int SCREEN = 3;
-        public final static int RAM = 4;
-        public final static int STORAGE = 5;
-        public final static int CAMERA = 6;
-        public final static int SENSORS = 7;
-        public final static int BATTERY = 8;
-        public final static int WIFI = 9;
-        public final static int GPU = 10;
-        public final static int BLUETOOTH = 11;
-        public final static int GPS = 12;
-        public final static int SIM = 13;
+        final static int ANDROID = 1;
+        final static int CPU = 2;
+        final static int SCREEN = 3;
+        final static int RAM = 4;
+        final static int STORAGE = 5;
+        final static int CAMERA = 6;
+        final static int SENSORS = 7;
+        final static int BATTERY = 8;
+        final static int WIFI = 9;
+        final static int GPU = 10;
+        final static int BLUETOOTH = 11;
+        final static int GPS = 12;
+        final static int SIM = 13;
         public final static int ABOUT = 14;
 
     }

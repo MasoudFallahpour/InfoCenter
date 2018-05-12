@@ -70,12 +70,9 @@ public class AndroidFragment extends Fragment {
         items.add(new OrdinaryListItem(
                 getString(R.string.and_item_version),
                 Build.VERSION.RELEASE));
-        items.add(new OrdinaryListItem(getString(R.string.and_item_name),
-                getVersionName()));
-        items.add(new OrdinaryListItem(getString(R.string.and_item_sdk_number),
-                getSdkNumber()));
-        items.add(new OrdinaryListItem(getString(R.string.and_item_kernel_version),
-                getKernelInfo()));
+        items.add(new OrdinaryListItem(getString(R.string.and_item_name), getVersionName()));
+        items.add(new OrdinaryListItem(getString(R.string.and_item_sdk_number), getSdkNumber()));
+        items.add(new OrdinaryListItem(getString(R.string.and_item_kernel_version), getKernelInfo()));
 
         return items;
 

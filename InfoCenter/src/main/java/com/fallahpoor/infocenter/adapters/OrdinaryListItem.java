@@ -64,10 +64,8 @@ public class OrdinaryListItem implements ListItem {
                     false);
 
             viewHolder = new ViewHolder();
-            viewHolder.itemTextView = (TextView) convertView.findViewById(
-                    R.id.itemTextView);
-            viewHolder.subItemTextView = (TextView) convertView.findViewById(
-                    R.id.subItemTextView);
+            viewHolder.itemTextView = convertView.findViewById(R.id.itemTextView);
+            viewHolder.subItemTextView = convertView.findViewById(R.id.subItemTextView);
 
             convertView.setTag(viewHolder);
         } else {

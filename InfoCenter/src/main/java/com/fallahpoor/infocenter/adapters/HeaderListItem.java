@@ -52,12 +52,10 @@ public class HeaderListItem implements ListItem {
         final ViewHolder viewHolder;
 
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.header_list_item, parent,
-                    false);
+            convertView = inflater.inflate(R.layout.header_list_item, parent, false);
 
             viewHolder = new ViewHolder();
-            viewHolder.headerTextView = (TextView) convertView.findViewById(
-                    R.id.headerTextView);
+            viewHolder.headerTextView = convertView.findViewById(R.id.headerTextView);
 
             convertView.setTag(viewHolder);
         } else {
@@ -71,9 +69,7 @@ public class HeaderListItem implements ListItem {
     }
 
     private static class ViewHolder {
-
         TextView headerTextView;
-
     }
 
 } // end class HeaderListItem

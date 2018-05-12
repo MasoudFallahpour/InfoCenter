@@ -39,10 +39,8 @@ public class ComponentListItem implements ListItem {
     private int mItemImageId;
 
     public ComponentListItem(String itemText, int itemImageId) {
-
         mItemText = itemText;
         mItemImageId = itemImageId;
-
     }
 
     @Override
@@ -51,8 +49,7 @@ public class ComponentListItem implements ListItem {
     }
 
     @Override
-    public View getView(LayoutInflater inflater, View convertView,
-                        ViewGroup parent) {
+    public View getView(LayoutInflater inflater, View convertView, ViewGroup parent) {
 
         final ViewHolder viewHolder;
 
@@ -61,10 +58,8 @@ public class ComponentListItem implements ListItem {
                     false);
 
             viewHolder = new ViewHolder();
-            viewHolder.componentTextView = (TextView) convertView.findViewById(
-                    R.id.componentTextView);
-            viewHolder.componentImageView = (ImageView) convertView.findViewById(
-                    R.id.componentImageView);
+            viewHolder.componentTextView = convertView.findViewById(R.id.componentTextView);
+            viewHolder.componentImageView = convertView.findViewById(R.id.componentImageView);
 
             convertView.setTag(viewHolder);
         } else {
@@ -79,10 +74,8 @@ public class ComponentListItem implements ListItem {
     }
 
     private static class ViewHolder {
-
         private TextView componentTextView;
         private ImageView componentImageView;
-
     }
 
 } // end class ComponentListItem

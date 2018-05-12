@@ -60,12 +60,10 @@ public class Utils {
         String fmtSize;
 
         if (mb < 1024) {
-            fmtSize = String.format(mLocale, "%d", mb) +
-                    " " + MB;
+            fmtSize = String.format(mLocale, "%d", mb) + " " + MB;
         } else {
             gb = (double) mb / 1024;
-            fmtSize = String.format(mLocale, "%.2f", gb) +
-                    " " + GB;
+            fmtSize = String.format(mLocale, "%.2f", gb) + " " + GB;
         }
 
         return fmtSize;
@@ -85,11 +83,9 @@ public class Utils {
         String fmtFrequency;
 
         if (frequencyDbl < 1000) {
-            fmtFrequency = String.format(mLocale, "%.0f %s",
-                    frequencyDbl, MHz);
+            fmtFrequency = String.format(mLocale, "%.0f %s", frequencyDbl, MHz);
         } else {
-            fmtFrequency = String.format(mLocale, "%.1f %s",
-                    frequencyDbl / 1000, GHz);
+            fmtFrequency = String.format(mLocale, "%.1f %s", frequencyDbl / 1000, GHz);
         }
 
         return fmtFrequency;

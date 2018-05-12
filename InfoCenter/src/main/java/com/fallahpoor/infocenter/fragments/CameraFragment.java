@@ -156,11 +156,9 @@ public class CameraFragment extends Fragment {
                 items.addAll(getCameraParams(CameraInfo.CAMERA_FACING_BACK));
                 break;
             case 2:
-                items.add(new HeaderListItem(
-                        getString(R.string.cam_item_back_camera)));
+                items.add(new HeaderListItem(getString(R.string.cam_item_back_camera)));
                 items.addAll(getCameraParams(CameraInfo.CAMERA_FACING_BACK));
-                items.add(new HeaderListItem(
-                        getString(R.string.cam_item_front_camera)));
+                items.add(new HeaderListItem(getString(R.string.cam_item_front_camera)));
                 items.addAll(getCameraParams(CameraInfo.CAMERA_FACING_FRONT));
                 break;
             default:
@@ -241,8 +239,7 @@ public class CameraFragment extends Fragment {
 
     }
 
-    private ArrayList<String> getParameters(Camera.Parameters
-                                                    cameraParams) {
+    private ArrayList<String> getParameters(Camera.Parameters cameraParams) {
 
         ArrayList<String> params = new ArrayList<>();
         String supported = getString(R.string.supported);
@@ -253,19 +250,14 @@ public class CameraFragment extends Fragment {
         params.add(getPictureFormat(cameraParams));
         params.add(getSupportedVideoSizes(cameraParams));
         params.add(getFocalLength(cameraParams));
-        params.add(cameraParams.getAntibanding() != null ? supported :
-                unsupported);
-        params.add(cameraParams.isAutoExposureLockSupported() ? supported :
-                unsupported);
-        params.add(cameraParams.isAutoWhiteBalanceLockSupported() ? supported
-                : unsupported);
-        params.add(cameraParams.getColorEffect() != null ? supported :
-                unsupported);
+        params.add(cameraParams.getAntibanding() != null ? supported : unsupported);
+        params.add(cameraParams.isAutoExposureLockSupported() ? supported : unsupported);
+        params.add(cameraParams.isAutoWhiteBalanceLockSupported() ? supported : unsupported);
+        params.add(cameraParams.getColorEffect() != null ? supported : unsupported);
         params.add(cameraParams.getFlashMode() != null ? supported : unsupported);
         params.add(cameraParams.getSceneMode() != null ? supported : unsupported);
         params.add(cameraParams.isZoomSupported() ? supported : unsupported);
-        params.add(cameraParams.isVideoSnapshotSupported() ? supported :
-                unsupported);
+        params.add(cameraParams.isVideoSnapshotSupported() ? supported : unsupported);
 
         return params;
 
