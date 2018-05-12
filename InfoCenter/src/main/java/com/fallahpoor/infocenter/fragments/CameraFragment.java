@@ -130,7 +130,9 @@ public class CameraFragment extends Fragment {
             mGetCameraParamsTask = null;
         }
 
-        mProgressWheel.stopSpinning();
+        if (mProgressWheel != null && mProgressWheel.isSpinning()) {
+            mProgressWheel.stopSpinning();
+        }
 
     }
 
@@ -141,7 +143,6 @@ public class CameraFragment extends Fragment {
             mGetCameraParamsTask.execute();
         } else {
             mListView.setEmptyView(messageTextView);
-            mListView = null;
         }
 
     }
