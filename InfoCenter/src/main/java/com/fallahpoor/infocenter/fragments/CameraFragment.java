@@ -19,6 +19,8 @@
 
 package com.fallahpoor.infocenter.fragments;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
@@ -26,6 +28,7 @@ import android.hardware.Camera.Size;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +50,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import de.halfbit.pinnedsection.PinnedSectionListView;
 
 /**
@@ -60,12 +64,16 @@ import de.halfbit.pinnedsection.PinnedSectionListView;
 @SuppressWarnings("deprecation")
 public class CameraFragment extends Fragment {
 
-    private Utils mUtils;
-    private GetCameraParamsTask mGetCameraParamsTask;
+    private static final int REQUEST_CODE_CAMERA = 1001;
     @BindView(R.id.listView)
     ListView mListView;
     @BindView(R.id.progressWheel)
     ProgressWheel mProgressWheel;
+    @BindView(R.id.textView)
+    TextView messageTextView;
+    private Utils mUtils;
+    private GetCameraParamsTask mGetCameraParamsTask;
+    private Unbinder unbinder;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -75,19 +83,41 @@ public class CameraFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         mUtils = new Utils(getActivity());
 
         ((PinnedSectionListView) mListView).setShadowVisible(false);
 
-        TextView msgTextView = view.findViewById(R.id.textView);
-        msgTextView.setText(R.string.cam_no_camera);
+        messageTextView.setText(R.string.cam_no_camera);
 
-        populateListView(msgTextView);
+        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED) {
+            populateListView();
+        } else {
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_CAMERA);
+        }
 
         return view;
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_CAMERA) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                populateListView();
+            } else {
+                mListView.setEmptyView(messageTextView);
+            }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override
@@ -104,13 +134,13 @@ public class CameraFragment extends Fragment {
 
     }
 
-    private void populateListView(TextView msgTextView) {
+    private void populateListView() {
 
         if (Camera.getNumberOfCameras() > 0) {
             mGetCameraParamsTask = new GetCameraParamsTask();
             mGetCameraParamsTask.execute();
         } else {
-            mListView.setEmptyView(msgTextView);
+            mListView.setEmptyView(messageTextView);
             mListView = null;
         }
 

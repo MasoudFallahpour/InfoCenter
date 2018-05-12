@@ -66,10 +66,6 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.CAMERA) !=
-                    PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.CAMERA}, 0);
-            }
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) !=
                     PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
@@ -103,10 +99,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -135,10 +129,8 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-
         super.onSaveInstanceState(outState);
         outState.putInt(CURRENT_FRAGMENT, mCurrentFragment);
-
     }
 
     @Override
@@ -147,13 +139,11 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void displayDetails(int fragmentType) {
-
         if (mIsDualPane) {
             displayFragment(fragmentType);
         } else {
             displayDetailsActivity(fragmentType);
         }
-
     }
 
     private void displayFragment(int fragmentType) {
@@ -176,11 +166,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void displayDetailsActivity(int fragmentType) {
-
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra(FRAGMENT_TO_DISPLAY, fragmentType);
         startActivity(intent);
-
     }
 
     private void displayChangeLogDialog() {
