@@ -204,8 +204,8 @@ class WifiObservable extends Observable {
     } // end method getIpAddress
 
     private String getLinkSpeed(WifiInfo wifiInfo) {
-
-        return String.format(Utils.getLocale(), "%d", wifiInfo.getLinkSpeed())
+        Utils mUtils = new Utils(mContext);
+        return String.format(mUtils.getLocale(), "%d", wifiInfo.getLinkSpeed())
                 + " " + mContext.getString(R.string.wifi_sub_item_mbps);
 
     }

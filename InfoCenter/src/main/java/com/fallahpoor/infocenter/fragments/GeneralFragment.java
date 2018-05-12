@@ -65,7 +65,7 @@ public class GeneralFragment extends Fragment {
         mArrayAdapter = new CustomArrayAdapter(getActivity(),
                 getListItems());
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+        ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(mArrayAdapter);
 
         handler = new Handler();
@@ -203,8 +203,9 @@ public class GeneralFragment extends Fragment {
 
         String uptimeStr;
         long uptimeLong = SystemClock.elapsedRealtime();
+        Utils utils = new Utils(getActivity());
 
-        uptimeStr = String.format(Utils.getLocale(), "%02d:%02d:%02d",
+        uptimeStr = String.format(utils.getLocale(), "%02d:%02d:%02d",
                 TimeUnit.MILLISECONDS.toHours(uptimeLong),
                 TimeUnit.MILLISECONDS.toMinutes(uptimeLong)
                         - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS

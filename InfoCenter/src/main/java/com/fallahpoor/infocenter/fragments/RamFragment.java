@@ -47,6 +47,8 @@ import java.util.ArrayList;
  */
 public class RamFragment extends Fragment {
 
+    private Utils mUtils;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class RamFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
+
+        mUtils = new Utils(getActivity());
 
         ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(new CustomArrayAdapter(getActivity(),
@@ -93,7 +97,7 @@ public class RamFragment extends Fragment {
             buffReader.close();
             String[] tokens = aLine.split("\\s+");
             lngTotalRam = Long.parseLong(tokens[1]) * 1024;
-            totalRam = Utils.getFormattedSize(lngTotalRam);
+            totalRam = mUtils.getFormattedSize(lngTotalRam);
 
         } catch (Exception ex) {
             totalRam = getString(R.string.unknown);
@@ -118,7 +122,7 @@ public class RamFragment extends Fragment {
             memoryInfo = new MemoryInfo();
             activityManager.getMemoryInfo(memoryInfo);
             lngFreeRam = memoryInfo.availMem;
-            freeRam = Utils.getFormattedSize(lngFreeRam);
+            freeRam = mUtils.getFormattedSize(lngFreeRam);
         } else {
             freeRam = getString(R.string.unknown);
         }

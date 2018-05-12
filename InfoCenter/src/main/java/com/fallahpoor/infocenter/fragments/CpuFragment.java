@@ -60,6 +60,7 @@ public class CpuFragment extends Fragment {
     private final String CORES = "Cores";
     private final String FREQUENCY = "Frequency";
     private final String FEATURES = "Features";
+    private Utils mUtils;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -69,6 +70,8 @@ public class CpuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
+
+        mUtils = new Utils(getActivity());
 
         ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(new CustomArrayAdapter(getActivity(),
@@ -135,7 +138,7 @@ public class CpuFragment extends Fragment {
         String value;
 
         cpuInfo.put(MANUFACTURER, getManufacturer());
-        cpuInfo.put(FREQUENCY, String.format(Utils.getLocale(),
+        cpuInfo.put(FREQUENCY, String.format(mUtils.getLocale(),
                 "%s: %s / %s: %s",
                 getString(R.string.cpu_sub_item_min),
                 getCpuFrequency(MinOrMax.MIN),
@@ -189,7 +192,7 @@ public class CpuFragment extends Fragment {
         } catch (Exception ignored) {
         }
 
-        return Utils.getFormattedFrequency(frequency);
+        return mUtils.getFormattedFrequency(frequency);
 
     } // end method getCpuFrequency
 
@@ -219,8 +222,7 @@ public class CpuFragment extends Fragment {
         try {
             File dir = new File("/sys/devices/system/cpu/");
             File[] files = dir.listFiles(new CpuFilter());
-            cores = String.format(Utils.getLocale(), "%d",
-                    files.length);
+            cores = String.format(mUtils.getLocale(), "%d", files.length);
 
         } catch (Exception e) {
             cores = getString(R.string.unknown);

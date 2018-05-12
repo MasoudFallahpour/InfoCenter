@@ -30,35 +30,16 @@ import java.util.Locale;
  */
 public class Utils {
 
-    public final static String LANGUAGE_EN = "en";
-    public final static String LANGUAGE_FA = "fa";
-    private static Locale mLocale;
-    private static Context mContext;
+    private Locale mLocale;
+    private Context mContext;
 
-    private Utils() {
-    }
-
-    public static void initialize(Context context) {
-        initialize(context, LANGUAGE_FA);
-    }
-
-    public static void initialize(Context context, String language) {
+    public Utils(Context context) {
         mContext = context;
-        setLocale(language);
+        mLocale = new Locale("fa", "IR");
     }
 
-    public static Locale getLocale() {
+    public Locale getLocale() {
         return mLocale;
-    }
-
-    public static void setLocale(String language) {
-
-        if (language.equalsIgnoreCase(LANGUAGE_EN)) {
-            mLocale = new Locale(LANGUAGE_EN, "US");
-        } else {
-            mLocale = new Locale(LANGUAGE_FA, "IR");
-        }
-
     }
 
     public static boolean isEmpty(String string) {
@@ -66,7 +47,7 @@ public class Utils {
     }
 
     // Converts and formats the given number of bytes to MB or GB
-    public static String getFormattedSize(long size) {
+    public String getFormattedSize(long size) {
 
         if (size < 0) {
             return mContext.getString(R.string.unknown);
@@ -79,11 +60,11 @@ public class Utils {
         String fmtSize;
 
         if (mb < 1024) {
-            fmtSize = String.format(getLocale(), "%d", mb) +
+            fmtSize = String.format(mLocale, "%d", mb) +
                     " " + MB;
         } else {
             gb = (double) mb / 1024;
-            fmtSize = String.format(getLocale(), "%.2f", gb) +
+            fmtSize = String.format(mLocale, "%.2f", gb) +
                     " " + GB;
         }
 
@@ -92,7 +73,7 @@ public class Utils {
     } // end method getFormattedSize
 
     // Converts and formats the given frequency from Hz to MHz or GHz
-    public static String getFormattedFrequency(String frequency) {
+    public String getFormattedFrequency(String frequency) {
 
         if (isEmpty(frequency)) {
             return mContext.getString(R.string.unknown);
@@ -104,10 +85,10 @@ public class Utils {
         String fmtFrequency;
 
         if (frequencyDbl < 1000) {
-            fmtFrequency = String.format(getLocale(), "%.0f %s",
+            fmtFrequency = String.format(mLocale, "%.0f %s",
                     frequencyDbl, MHz);
         } else {
-            fmtFrequency = String.format(getLocale(), "%.1f %s",
+            fmtFrequency = String.format(mLocale, "%.1f %s",
                     frequencyDbl / 1000, GHz);
         }
 

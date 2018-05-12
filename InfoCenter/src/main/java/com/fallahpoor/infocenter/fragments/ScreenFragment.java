@@ -47,6 +47,8 @@ import java.util.Arrays;
  */
 public class ScreenFragment extends Fragment {
 
+    private Utils mUtils;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class ScreenFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
+
+        mUtils = new Utils(getActivity());
 
         ListView listView = view.findViewById(R.id.listView);
         listView.setAdapter(new CustomArrayAdapter(getActivity(),
@@ -113,7 +117,7 @@ public class ScreenFragment extends Fragment {
 
     private String getDisplaySize(Point displaySize) {
 
-        return String.format(Utils.getLocale(), "%d x %d", displaySize.x,
+        return String.format(mUtils.getLocale(), "%d x %d", displaySize.x,
                 displaySize.y);
 
     }
@@ -132,24 +136,24 @@ public class ScreenFragment extends Fragment {
 
     private String getRefreshRate(Display display) {
 
-        return String.format(Utils.getLocale(), "%.0f %s", display.
+        return String.format(mUtils.getLocale(), "%.0f %s", display.
                 getRefreshRate(), getString(R.string.scr_sub_item_hertz));
 
     }
 
     private String getDpi(DisplayMetrics displayMetrics) {
 
-        return String.format(Utils.getLocale(), "%d", displayMetrics.
+        return String.format(mUtils.getLocale(), "%d", displayMetrics.
                 densityDpi);
 
     }
 
     private String getHorizontalDpi(DisplayMetrics displayMetrics) {
-        return String.format(Utils.getLocale(), "%.0f", displayMetrics.xdpi);
+        return String.format(mUtils.getLocale(), "%.0f", displayMetrics.xdpi);
     }
 
     private String getVerticalDpi(DisplayMetrics displayMetrics) {
-        return String.format(Utils.getLocale(), "%.0f", displayMetrics.ydpi);
+        return String.format(mUtils.getLocale(), "%.0f", displayMetrics.ydpi);
     }
 
 } // end class ScreenFragment

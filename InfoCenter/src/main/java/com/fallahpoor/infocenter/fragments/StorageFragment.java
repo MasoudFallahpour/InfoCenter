@@ -52,6 +52,7 @@ import de.halfbit.pinnedsection.PinnedSectionListView;
 public class StorageFragment extends Fragment {
 
     private boolean mIsApiAtLeast18;
+    private Utils mUtils;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -61,6 +62,7 @@ public class StorageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_storage, container,
                 false);
 
+        mUtils = new Utils(getActivity());
         mIsApiAtLeast18 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.
                 JELLY_BEAN_MR2;
 
@@ -109,7 +111,7 @@ public class StorageFragment extends Fragment {
                     * (long) internalStatFs.getBlockSize();
         }
 
-        return Utils.getFormattedSize(size);
+        return mUtils.getFormattedSize(size);
 
     }
 
@@ -129,7 +131,7 @@ public class StorageFragment extends Fragment {
                     * (long) internalStatFs.getBlockSize();
         }
 
-        return Utils.getFormattedSize(size);
+        return mUtils.getFormattedSize(size);
 
     }
 
@@ -156,7 +158,7 @@ public class StorageFragment extends Fragment {
                     * (long) extStorageStatFs.getBlockSize();
         }
 
-        return Utils.getFormattedSize(size);
+        return mUtils.getFormattedSize(size);
 
     } // end method getExternalStorage
 
@@ -183,7 +185,7 @@ public class StorageFragment extends Fragment {
                     * (long) extStorageStatFs.getBlockSize();
         }
 
-        return Utils.getFormattedSize(size);
+        return mUtils.getFormattedSize(size);
 
     }
 

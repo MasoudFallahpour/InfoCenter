@@ -28,13 +28,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.fallahpoor.infocenter.R;
-import com.fallahpoor.infocenter.Utils;
 import com.fallahpoor.infocenter.fragments.ComponentsFragment;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
@@ -47,7 +46,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  *
  * @author Masood Fallahpoor
  */
-public class MainActivity extends LocalizationActivity implements
+public class MainActivity extends AppCompatActivity implements
         ComponentsFragment.ComponentsListener {
 
     public static final String FRAGMENT_TO_DISPLAY = "fragment_to_display";
@@ -63,11 +62,8 @@ public class MainActivity extends LocalizationActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-        setDefaultLanguage(Utils.LANGUAGE_FA);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Utils.setLocale(getLanguage());
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) !=
@@ -117,9 +113,6 @@ public class MainActivity extends LocalizationActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                displayDetails(FragmentType.SETTINGS);
-                return true;
             case R.id.action_latest_changes:
                 displayChangeLogDialog();
                 return true;
@@ -191,17 +184,9 @@ public class MainActivity extends LocalizationActivity implements
     }
 
     private void displayChangeLogDialog() {
-
         ChangeLog changeLog = new ChangeLog(this);
-
-        if (getLanguage().equalsIgnoreCase(Utils.LANGUAGE_FA)) {
-            changeLog.setDirection(ChangeLog.Direction.RTL);
-        } else {
-            changeLog.setDirection(ChangeLog.Direction.LTR);
-        }
-
+        changeLog.setDirection(ChangeLog.Direction.RTL);
         changeLog.getFullLogDialog().show();
-
     }
 
     private void startBazaarIntent() {

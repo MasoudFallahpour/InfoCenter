@@ -22,8 +22,8 @@ package com.fallahpoor.infocenter.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 
-import com.akexorcist.localizationactivity.LocalizationActivity;
 import com.fallahpoor.infocenter.R;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
@@ -36,7 +36,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  *
  * @author Masood Fallahpoor
  */
-public class DetailsActivity extends LocalizationActivity {
+public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {

@@ -60,6 +60,7 @@ import de.halfbit.pinnedsection.PinnedSectionListView;
 @SuppressWarnings("deprecation")
 public class CameraFragment extends Fragment {
 
+    private Utils mUtils;
     private GetCameraParamsTask mGetCameraParamsTask;
     @BindView(R.id.listView)
     ListView mListView;
@@ -75,6 +76,8 @@ public class CameraFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_camera, container,
                 false);
         ButterKnife.bind(this, view);
+
+        mUtils = new Utils(getActivity());
 
         ((PinnedSectionListView) mListView).setShadowVisible(false);
 
@@ -258,7 +261,7 @@ public class CameraFragment extends Fragment {
         if (maxWidth != Integer.MIN_VALUE && maxHeight !=
                 Integer.MIN_VALUE) {
             dblMegaPixels = (double) (maxWidth * maxHeight) / 1000000;
-            strMegaPixels = String.format(Utils.getLocale(), "%.1f %s",
+            strMegaPixels = String.format(mUtils.getLocale(), "%.1f %s",
                     dblMegaPixels, getString(R.string.cam_sub_item_mp));
         }
 
@@ -271,7 +274,7 @@ public class CameraFragment extends Fragment {
         int width = cameraParams.getPictureSize().width;
         int height = cameraParams.getPictureSize().height;
 
-        return String.format(Utils.getLocale(), "%d x %d", width, height);
+        return String.format(mUtils.getLocale(), "%d x %d", width, height);
 
     }
 
@@ -306,12 +309,12 @@ public class CameraFragment extends Fragment {
         }
 
         for (i = 0; i < supportedVideoSizes.size() - 1; i++) {
-            videoSizes.append(String.format(Utils.getLocale(), "%d x %d, ",
+            videoSizes.append(String.format(mUtils.getLocale(), "%d x %d, ",
                     supportedVideoSizes.get(i).width,
                     supportedVideoSizes.get(i).height));
         }
 
-        videoSizes.append(String.format(Utils.getLocale(), "%d x %d ",
+        videoSizes.append(String.format(mUtils.getLocale(), "%d x %d ",
                 supportedVideoSizes.get(i).width, supportedVideoSizes.get(i).height));
 
         return videoSizes.toString();
@@ -323,7 +326,7 @@ public class CameraFragment extends Fragment {
         String focalLength;
 
         try {
-            focalLength = String.format(Utils.getLocale(), "%.2f %s",
+            focalLength = String.format(mUtils.getLocale(), "%.2f %s",
                     cameraParams.getFocalLength(),
                     getString(R.string.cam_sub_item_mm));
         } catch (IllegalFormatException ex) {
@@ -335,22 +338,17 @@ public class CameraFragment extends Fragment {
     }
 
     private void releaseCamera(Camera camera) {
-
         if (camera != null) {
             camera.release();
         }
-
     }
 
-    private class GetCameraParamsTask extends AsyncTask<Void, Void,
-            ArrayList<ListItem>> {
+    private class GetCameraParamsTask extends AsyncTask<Void, Void, ArrayList<ListItem>> {
 
         @Override
         protected void onPreExecute() {
-
             super.onPreExecute();
             mProgressWheel.setVisibility(View.VISIBLE);
-
         }
 
         @Override
@@ -363,8 +361,7 @@ public class CameraFragment extends Fragment {
 
             super.onPostExecute(result);
 
-            mListView.setAdapter(new CustomArrayAdapter(getActivity(),
-                    result));
+            mListView.setAdapter(new CustomArrayAdapter(getActivity(), result));
 
             mGetCameraParamsTask = null;
             mProgressWheel.setVisibility(View.INVISIBLE);

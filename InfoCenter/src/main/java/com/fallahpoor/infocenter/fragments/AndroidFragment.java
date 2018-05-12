@@ -103,7 +103,8 @@ public class AndroidFragment extends Fragment {
     }
 
     private String getSdkNumber() {
-        return String.format(Utils.getLocale(), "%d", Build.VERSION.SDK_INT);
+        Utils utils = new Utils(getActivity());
+        return String.format(utils.getLocale(), "%d", Build.VERSION.SDK_INT);
     }
 
     private String getVersionName() {

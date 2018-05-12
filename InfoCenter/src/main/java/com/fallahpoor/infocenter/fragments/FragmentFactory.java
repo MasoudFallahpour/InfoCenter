@@ -66,8 +66,6 @@ public class FragmentFactory {
                 return new SimFragment();
             case FragmentType.ABOUT:
                 return new AboutFragment();
-            case FragmentType.SETTINGS:
-                return new SettingsFragment();
             default:
                 return new GeneralFragment();
         } // end switch
@@ -92,7 +90,6 @@ public class FragmentFactory {
         public final static int GPS = 12;
         public final static int SIM = 13;
         public final static int ABOUT = 14;
-        public final static int SETTINGS = 15;
 
     }
 

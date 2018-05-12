@@ -51,10 +51,12 @@ class GpsObservable extends Observable {
     private Context mContext;
     private LocationManager mLocationManager;
     private GpsLocationListener mGpsLocationListener;
+    private Utils mUtils;
 
     GpsObservable(Context context) {
 
         mContext = context;
+        mUtils = new Utils(context);
         mLocationManager = (LocationManager) context.getSystemService(
                 Context.LOCATION_SERVICE);
         mGpsLocationListener = new GpsLocationListener();
@@ -127,12 +129,12 @@ class GpsObservable extends Observable {
     private class GpsLocationListener implements LocationListener {
 
         private String getLatitude(Location location) {
-            return String.format(Utils.getLocale(), "%f", location.
+            return String.format(mUtils.getLocale(), "%f", location.
                     getLatitude());
         }
 
         private String getLongitude(Location location) {
-            return String.format(Utils.getLocale(), "%f", location.
+            return String.format(mUtils.getLocale(), "%f", location.
                     getLongitude());
         }
 
@@ -145,7 +147,7 @@ class GpsObservable extends Observable {
             String city = mContext.getString(R.string.gps_sub_item_city);
             String latitude = mContext.getString(R.string.gps_sub_item_latitude);
             String longitude = mContext.getString(R.string.gps_sub_item_longitude);
-            Geocoder geocoder = new Geocoder(mContext, Utils.getLocale());
+            Geocoder geocoder = new Geocoder(mContext, mUtils.getLocale());
             List<Address> addresses;
 
             try {

@@ -38,8 +38,7 @@ import java.util.Observable;
 class BatteryObservable extends Observable {
 
     private Context mContext;
-    private NumberFormat mPercentFormat = NumberFormat.
-            getPercentInstance(Utils.getLocale());
+    private NumberFormat mPercentFormat;
     private BatteryReceiver mBatteryReceiver;
     private IntentFilter mBatteryFilter;
     private String mStatus;
@@ -49,13 +48,14 @@ class BatteryObservable extends Observable {
     private String mTechnology;
     private String mTemperature;
     private String mVoltage;
+    private Utils mUtils;
 
     BatteryObservable(Context context) {
-
         mContext = context;
+        mUtils = new Utils(context);
         mBatteryReceiver = new BatteryReceiver();
         mBatteryFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-
+        mPercentFormat = NumberFormat.getPercentInstance(mUtils.getLocale());
     }
 
     String getStatus() {
@@ -199,12 +199,12 @@ class BatteryObservable extends Observable {
     }
 
     private String getTemperature(int temperature) {
-        return String.format(Utils.getLocale(), "%d %s", temperature,
+        return String.format(mUtils.getLocale(), "%d %s", temperature,
                 mContext.getString(R.string.bat_sub_item_centigrade));
     }
 
     private String getVoltage(int voltage) {
-        return String.format(Utils.getLocale(), "%d %s", voltage,
+        return String.format(mUtils.getLocale(), "%d %s", voltage,
                 mContext.getString(R.string.bat_sub_item_milli_volt));
     }
 

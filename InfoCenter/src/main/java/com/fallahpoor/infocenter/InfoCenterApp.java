@@ -23,11 +23,6 @@ import android.app.Application;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-/**
- * This class does some initializations on app start.
- *
- * @author Masood Fallahpoor
- */
 public class InfoCenterApp extends Application {
 
     @Override
@@ -41,9 +36,6 @@ public class InfoCenterApp extends Application {
                 .build()
         );
 
-        // Initialize Utils class
-        Utils.initialize(this);
-
     }
 
-} // end class InfoCenterApp
+}
