@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "244491636891-3uq2jj4gl8v8slhuh1s7p36jdjo3o2re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fallahpoor.infocenter",
+            "certificate_hash": "02d1b7533303064e74a271f9bfff82e599990d68"
+          }
+        },
+        {
           "client_id": "244491636891-g25agq531qlg4ouq4945p6efd1a9ro99.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

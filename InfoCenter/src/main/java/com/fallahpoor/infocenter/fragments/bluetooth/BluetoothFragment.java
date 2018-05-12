@@ -25,6 +25,7 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,15 +55,15 @@ public class BluetoothFragment extends Fragment implements Observer {
     private boolean mHasBluetooth;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-        mListView = (ListView) view.findViewById(R.id.listView);
-        TextView msgTextView = (TextView) view.findViewById(R.id.textView);
+        mListView = view.findViewById(R.id.listView);
+        TextView msgTextView = view.findViewById(R.id.textView);
         msgTextView.setText(R.string.blu_sub_item_no_bluetooth);
 
         mHasBluetooth = hasBluetoothFeature();

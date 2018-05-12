@@ -22,6 +22,7 @@ package com.fallahpoor.infocenter.fragments;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +40,14 @@ import com.fallahpoor.infocenter.R;
 public class AboutFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        TextView appVersionTextView = (TextView) view.findViewById(R.id.appVersionTextView);
+        TextView appVersionTextView = view.findViewById(R.id.appVersionTextView);
 
         try {
             PackageInfo packageInfo = getActivity().getPackageManager().getPackageInfo(

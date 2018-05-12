@@ -20,6 +20,7 @@
 package com.fallahpoor.infocenter.fragments.battery;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,13 +49,13 @@ public class BatteryFragment extends Fragment implements Observer {
     private ListView mListView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-        mListView = (ListView) view.findViewById(R.id.listView);
+        mListView = view.findViewById(R.id.listView);
 
         mBatteryObservable = new BatteryObservable(getActivity());
 
@@ -132,5 +133,5 @@ public class BatteryFragment extends Fragment implements Observer {
     public void update(Observable observable, Object o) {
         updateListView();
     }
-    
+
 } // end class BatteryFragment

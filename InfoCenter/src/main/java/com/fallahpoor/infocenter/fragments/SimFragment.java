@@ -19,9 +19,13 @@
 
 package com.fallahpoor.infocenter.fragments;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -38,6 +42,10 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * SimFragment displays some information about the SIM card and telephony
  * network of the device.
@@ -46,35 +54,60 @@ import java.util.ArrayList;
  */
 public class SimFragment extends Fragment {
 
+    private static final int REQUEST_CODE_READ_PHONE_STATE = 1000;
+
+    @BindView(R.id.listView)
+    ListView listView;
+    @BindView(R.id.textView)
+    TextView messageTextView;
+
+    private Unbinder unbinder;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_others, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
-        View view = inflater.inflate(R.layout.fragment_others, container,
-                false);
+        messageTextView.setText(R.string.sim_sub_item_no_sim);
 
-        ListView listView = (ListView) view.findViewById(R.id.listView);
-
-        TextView msgTextView = (TextView) view.findViewById(R.id.textView);
-        msgTextView.setText(R.string.sim_sub_item_no_sim);
-
-        populateListView(listView, msgTextView);
+        if (ActivityCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+            populateListView();
+        } else {
+            requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},
+                    REQUEST_CODE_READ_PHONE_STATE);
+        }
 
         return view;
 
     }
 
-    private void populateListView(ListView listView, TextView msgTextView) {
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 
-        if (isTelephonySupported() && isSimPresent()) {
-            listView.setAdapter(new CustomArrayAdapter(getActivity(),
-                    getListItems()));
-        } else {
-            listView.setEmptyView(msgTextView);
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_READ_PHONE_STATE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                populateListView();
+            } else {
+                listView.setEmptyView(messageTextView);
+            }
         }
+    }
 
+    private void populateListView() {
+        if (isTelephonySupported() && isSimPresent()) {
+            listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems()));
+        } else {
+            listView.setEmptyView(messageTextView);
+        }
     }
 
     private ArrayList<ListItem> getListItems() {
@@ -108,27 +141,37 @@ public class SimFragment extends Fragment {
 
     // Returns true if the device supports telephony
     private boolean isTelephonySupported() {
-
-        PackageManager pm = getActivity().getPackageManager();
-        return pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-
+        if (getActivity() == null) {
+            return false;
+        } else {
+            PackageManager pm = getActivity().getPackageManager();
+            return pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+        }
     }
 
     // Returns true if the SIM is present
     private boolean isSimPresent() {
 
-        TelephonyManager telephonyManager = (TelephonyManager) getActivity()
-                .getSystemService(Context.TELEPHONY_SERVICE);
-
-        return (telephonyManager.getPhoneType() == TelephonyManager.
-                PHONE_TYPE_GSM
-                && telephonyManager.getSimState() != TelephonyManager.
-                SIM_STATE_ABSENT);
+        if (getActivity() == null) {
+            return false;
+        } else {
+            TelephonyManager telephonyManager = (TelephonyManager) getActivity()
+                    .getSystemService(Context.TELEPHONY_SERVICE);
+            if (telephonyManager == null) {
+                return false;
+            } else {
+                return (telephonyManager.getPhoneType() == TelephonyManager.
+                        PHONE_TYPE_GSM
+                        && telephonyManager.getSimState() != TelephonyManager.
+                        SIM_STATE_ABSENT);
+            }
+        }
 
     }
 
     private String getSimSerialNumber(TelephonyManager telephonyManager) {
 
+        @SuppressLint("MissingPermission")
         String simSerialNumber = telephonyManager.getSimSerialNumber();
 
         if (Utils.isEmpty(simSerialNumber)) {

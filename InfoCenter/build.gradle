@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion myCompileSdkVersion
+    buildToolsVersion myBuildToolsVersion
 
     defaultConfig {
         applicationId "com.fallahpoor.infocenter"
-        minSdkVersion 14
-        targetSdkVersion 25
+        minSdkVersion myMinSdkVersion
+        targetSdkVersion myTargetSdkVersion
         versionCode 9
         versionName "2.3"
     }
@@ -22,23 +23,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
 }
 
 dependencies {
-    compile 'com.pnikosis:materialish-progress:1.7'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:preference-v14:25.3.1'
-    compile 'com.akexorcist:localizationactivity:1.0.13'
-    compile 'de.halfbit:pinned-section-listview:1.0.0'
-    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
-    compile 'com.jakewharton:butterknife:8.6.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-    compile project(':libraries:ckChangeLog')
-    compile 'com.google.firebase:firebase-crash:10.2.6'
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:preference-v14:$supportLibVersion"
+    implementation 'ch.acra:acra:4.9.2'
+    implementation 'com.akexorcist:localizationactivity:1.1.1'
+    implementation 'de.halfbit:pinned-section-listview:1.0.0'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation project(':libraries:ckChangeLog')
 }
-
 apply plugin: 'com.google.gms.google-services'

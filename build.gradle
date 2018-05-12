@@ -2,17 +2,33 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url 'https://maven.google.com' }
+        google()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha3'
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha14'
+        classpath 'com.google.gms:google-services:3.2.0'
+        classpath 'io.fabric.tools:gradle:1.25.1'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://maven.google.com' }
+        google()
+        maven {
+            url 'https://maven.google.com/'
+        }
     }
+}
+
+ext {
+    supportLibVersion = '27.1.1'
+    butterKnifeVersion = '8.8.1'
+    myBuildToolsVersion = '27.0.3'
+    myCompileSdkVersion = 27
+    myMinSdkVersion = 14
+    myTargetSdkVersion = 27
 }

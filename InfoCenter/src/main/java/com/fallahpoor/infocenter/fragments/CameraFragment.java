@@ -25,6 +25,7 @@ import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Size;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,7 +67,7 @@ public class CameraFragment extends Fragment {
     ProgressWheel mProgressWheel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
@@ -77,7 +78,7 @@ public class CameraFragment extends Fragment {
 
         ((PinnedSectionListView) mListView).setShadowVisible(false);
 
-        TextView msgTextView = (TextView) view.findViewById(R.id.textView);
+        TextView msgTextView = view.findViewById(R.id.textView);
         msgTextView.setText(R.string.cam_no_camera);
 
         populateListView(msgTextView);
