@@ -5,7 +5,6 @@
         <item name="colorAccent">@color/color_accent</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
         <item name="android:textColorPrimary">@color/text_color_primary</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
     </style>
 
     <style name="TextAppearance.Large" parent="@style/TextAppearance.AppCompat.Large">
