@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
@@ -50,23 +51,21 @@ import java.util.concurrent.TimeUnit;
 public class GeneralFragment extends Fragment {
 
     private final int UPTIME_UPDATE_INTERVAL = 1000;
-    private CustomArrayAdapter mArrayAdapter;
+    private CustomArrayAdapter customArrayAdapter;
     private Handler handler;
     private Runnable uptimeRunnable;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_others, container,
-                false);
+        View view = inflater.inflate(R.layout.fragment_others, container, false);
 
-        mArrayAdapter = new CustomArrayAdapter(getActivity(),
-                getListItems());
+        customArrayAdapter = new CustomArrayAdapter(getActivity(), getListItems());
 
         ListView listView = view.findViewById(R.id.listView);
-        listView.setAdapter(mArrayAdapter);
+        listView.setAdapter(customArrayAdapter);
 
         handler = new Handler();
 
@@ -151,15 +150,12 @@ public class GeneralFragment extends Fragment {
         upTimeItem = (OrdinaryListItem) getUpTimeItem();
         upTimeItem.setSubItemText(getFormattedUptime());
 
-        mArrayAdapter.notifyDataSetChanged();
+        customArrayAdapter.notifyDataSetChanged();
 
     }
 
     private ListItem getUpTimeItem() {
-
-        return mArrayAdapter
-                .getItem(mArrayAdapter.getCount() - 1);
-
+        return customArrayAdapter.getItem(customArrayAdapter.getCount() - 1);
     }
 
     // Returns the IMEI/MEID of the device or "unknown" if it's not available.
