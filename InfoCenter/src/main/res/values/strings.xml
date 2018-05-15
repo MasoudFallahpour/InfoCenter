@@ -152,7 +152,7 @@
     <string name="gps_sub_item_latitude">عرض جغرافیایی</string>
     <string name="gps_sub_item_longitude">طول جغرافیایی</string>
     <string name="gps_sub_item_obtaining_location">در حال به دست آوردن موقعیت</string>
-    <string name="gps_sub_item_no_gps">این دستگاه دارای موقعیت‌یاب نیست</string>
+    <string name="gps_sub_item_no_gps">این دستگاه دارای موقعیت‌یاب نیست و یا اجازه دسترسی به موقعیت داده نشده است.</string>
     <string name="sim_sub_item_no_sim">این دستگاه دارای سیم کارت نیست و یا اطلاعات آن در دسترس نیست.</string>
     <string name="sim_item_sim_card_serial_number">شماره سریال سیم کارت</string>
     <string name="sim_item_phone_type">نوع دستگاه</string>

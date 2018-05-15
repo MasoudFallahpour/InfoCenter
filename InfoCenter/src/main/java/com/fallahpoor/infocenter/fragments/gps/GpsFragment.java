@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014-2016 Masood Fallahpoor
+    Copyright (C) 2014-2018 Masood Fallahpoor
 
     This file is part of Info Center.
 
@@ -19,10 +19,13 @@
 
 package com.fallahpoor.infocenter.fragments.gps;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +43,10 @@ import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * GpsFragment displays the on/off status of device's GPS and the
  * location of the device if the GPS in on.
@@ -48,62 +55,84 @@ import java.util.Observer;
  */
 public class GpsFragment extends Fragment implements Observer {
 
-    private GpsObservable mGpsObservable;
-    private ListView mListView;
-    private boolean mHasGpsFeature;
+    private static final int REQUEST_CODE_ACCESS_FINE_LOCATION = 1003;
+    @BindView(R.id.listView)
+    ListView listView;
+    @BindView(R.id.textView)
+    TextView messageTextView;
+    private GpsObservable gpsObservable;
+    private Unbinder unbinder;
+    private boolean hasGpsFeature;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-
         View view = inflater.inflate(R.layout.fragment_others, container,
                 false);
-        mListView = view.findViewById(R.id.listView);
-        TextView msgTextView = view.findViewById(R.id.textView);
-        msgTextView.setText(R.string.gps_sub_item_no_gps);
+        unbinder = ButterKnife.bind(this, view);
 
-        mHasGpsFeature = hasGpsFeature();
+        messageTextView.setText(R.string.gps_sub_item_no_gps);
+        hasGpsFeature = hasGpsFeature();
+        gpsObservable = new GpsObservable(getActivity());
 
-        populateListView(msgTextView);
+        if (isLocationPermissionGranted()) {
+            populateListView();
+        } else {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_CODE_ACCESS_FINE_LOCATION);
+        }
 
         return view;
 
     }
 
-    private void populateListView(TextView msgTextView) {
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_ACCESS_FINE_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                populateListView();
+            } else {
+                listView.setEmptyView(messageTextView);
+            }
+        }
+    }
 
-        if (mHasGpsFeature) {
-            mGpsObservable = new GpsObservable(getActivity());
+    private boolean isLocationPermissionGranted() {
+        return ActivityCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void populateListView() {
+        if (hasGpsFeature) {
             updateListView();
         } else {
-            mListView.setEmptyView(msgTextView);
-            mListView = null;
+            listView.setEmptyView(messageTextView);
         }
-
     }
 
     @Override
     public void onResume() {
-
         super.onResume();
-
-        if (mHasGpsFeature) {
-            mGpsObservable.addObserver(this);
+        if (hasGpsFeature && isLocationPermissionGranted()) {
+            gpsObservable.addObserver(this);
         }
-
     }
 
     @Override
     public void onPause() {
-
         super.onPause();
-
-        if (mHasGpsFeature) {
-            mGpsObservable.deleteObserver(this);
+        if (hasGpsFeature) {
+            gpsObservable.deleteObserver(this);
         }
+    }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     private ArrayList<ListItem> getListItems() {
@@ -111,17 +140,16 @@ public class GpsFragment extends Fragment implements Observer {
         ArrayList<ListItem> listItems = new ArrayList<>();
 
         listItems.add(new OrdinaryListItem(getString(R.string.item_status),
-                mGpsObservable.getStatus()));
+                gpsObservable.getStatus()));
         listItems.add(new OrdinaryListItem(getString(R.string.gps_item_location),
-                mGpsObservable.getLocation()));
+                gpsObservable.getLocation()));
 
         return listItems;
 
     }
 
     private void updateListView() {
-        mListView.setAdapter(new CustomArrayAdapter(getActivity(),
-                getListItems()));
+        listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems()));
     }
 
     @Override
@@ -129,7 +157,6 @@ public class GpsFragment extends Fragment implements Observer {
         updateListView();
     }
 
-    // Checks if the device has GPS or not.
     private boolean hasGpsFeature() {
 
         LocationManager locationManager = (LocationManager) getActivity().
@@ -152,6 +179,6 @@ public class GpsFragment extends Fragment implements Observer {
 
         return false;
 
-    } // end method hasGpsFeature
+    }
 
-} // end class GpsFragment
+}

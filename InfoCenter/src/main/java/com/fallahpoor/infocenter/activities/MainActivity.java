@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014-2016 Masood Fallahpoor
+    Copyright (C) 2014-2018 Masood Fallahpoor
 
     This file is part of Info Center.
 
@@ -41,11 +41,6 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 import de.cketti.library.changelog.ChangeLog;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * MainActivity is the main Activity of the app.
- *
- * @author Masood Fallahpoor
- */
 public class MainActivity extends AppCompatActivity implements
         ComponentsFragment.ComponentsListener {
 
@@ -70,13 +65,7 @@ public class MainActivity extends AppCompatActivity implements
                     PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
             }
-            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) !=
-                    PackageManager.PERMISSION_GRANTED &&
-                    checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) !=
-                            PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION}, 0);
-            }
+
         }
 
         /*
