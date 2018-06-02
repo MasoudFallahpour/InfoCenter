@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha14'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha15'
 
     }
 }
@@ -19,6 +19,7 @@ android {
     defaultConfig {
         versionName "1.2.2"
         minSdkVersion myMinSdkVersion
+        targetSdkVersion myTargetSdkVersion
     }
 }
 
