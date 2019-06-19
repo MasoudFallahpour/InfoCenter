@@ -21,7 +21,9 @@ package com.fallahpoor.infocenter;
 
 import android.app.Application;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.viewpump.ViewPump;
 
 public class InfoCenterApp extends Application {
 
@@ -30,11 +32,13 @@ public class InfoCenterApp extends Application {
 
         super.onCreate();
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath(getString(R.string.font_path))
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
+        ViewPump.init(ViewPump.builder()
+                .addInterceptor(new CalligraphyInterceptor(
+                        new CalligraphyConfig.Builder()
+                                .setDefaultFontPath(getString(R.string.font_path))
+                                .setFontAttrId(R.attr.fontPath)
+                                .build()))
+                .build());
 
     }
 

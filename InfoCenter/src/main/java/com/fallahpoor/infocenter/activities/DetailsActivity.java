@@ -28,6 +28,7 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 /**
  * DetailsActivity displays a Fragment based on the type that is passed
@@ -39,7 +40,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override

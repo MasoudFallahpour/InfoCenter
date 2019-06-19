@@ -36,7 +36,7 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import de.cketti.library.changelog.ChangeLog;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends AppCompatActivity implements
         ComponentsFragment.ComponentsListener {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
