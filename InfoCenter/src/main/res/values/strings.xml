@@ -193,4 +193,5 @@
     <string name="sub_item_mb">مگابایت</string>
     <string name="sub_item_gb">گیگابایت</string>
     <string name="bazaar_not_installed">اپ کافه بازار بر روی دستگاه شما نصب نیست</string>
+    <string name="and_sub_item_pie">پای</string>
 </resources>

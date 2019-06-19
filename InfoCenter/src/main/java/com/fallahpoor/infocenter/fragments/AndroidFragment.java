@@ -21,8 +21,6 @@ package com.fallahpoor.infocenter.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +36,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 /**
  * AndroidFragment displays some information about device's Android version.
@@ -146,6 +147,8 @@ public class AndroidFragment extends Fragment {
             case Build.VERSION_CODES.O:
             case Build.VERSION_CODES.O_MR1:
                 return getString(R.string.and_sub_item_oreo);
+            case Build.VERSION_CODES.P:
+                return getString(R.string.and_sub_item_pie);
             default:
                 return getString(R.string.unknown);
         }
