@@ -11,7 +11,6 @@
     <string name="font_path">fonts/Shabnam-Regular.ttf</string>
     <string name="app_github_address">https://github.com/MasoodFallahpoor/InfoCenter</string>
     <string name="app_web_site_address">http://fallahpoor.ir/InfoCenter</string>
-    <string name="action_exit">خروج</string>
     <string name="action_about_app">درباره</string>
     <string name="action_rate_app">امتیاز دهید</string>
     <string name="gen_item_manufacturer">سازنده</string>
