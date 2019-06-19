@@ -19,7 +19,7 @@
 
 package com.fallahpoor.infocenter.fragments;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.fallahpoor.infocenter.fragments.battery.BatteryFragment;
 import com.fallahpoor.infocenter.fragments.bluetooth.BluetoothFragment;

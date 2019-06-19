@@ -24,8 +24,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -35,6 +33,8 @@ import com.fallahpoor.infocenter.fragments.ComponentsFragment;
 import com.fallahpoor.infocenter.fragments.FragmentFactory;
 import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import de.cketti.library.changelog.ChangeLog;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

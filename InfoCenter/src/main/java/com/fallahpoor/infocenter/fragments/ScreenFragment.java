@@ -21,8 +21,8 @@ package com.fallahpoor.infocenter.fragments;
 
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.LayoutInflater;
