@@ -1,34 +1,31 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
         maven {
             url 'https://maven.fabric.io/public'
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-alpha15'
-        classpath 'com.google.gms:google-services:3.2.0'
-        classpath 'io.fabric.tools:gradle:1.25.2'
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'io.fabric.tools:gradle:1.29.0'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
         google()
-        maven {
-            url 'https://maven.google.com/'
-        }
+        jcenter()
     }
 }
 
 ext {
-    supportLibVersion = '27.1.1'
+    supportLibVersion = '28.0.0'
     butterKnifeVersion = '8.8.1'
-    myBuildToolsVersion = '27.0.3'
-    myCompileSdkVersion = 27
+    myBuildToolsVersion = '28.0.3'
+    myCompileSdkVersion = 28
     myMinSdkVersion = 14
-    myTargetSdkVersion = 27
+    myTargetSdkVersion = 28
 }
