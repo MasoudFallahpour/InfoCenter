@@ -35,7 +35,6 @@ import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import de.cketti.library.changelog.ChangeLog;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends AppCompatActivity implements
@@ -85,9 +84,6 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_latest_changes:
-                displayChangeLogDialog();
-                return true;
             case R.id.action_rate_app:
                 startBazaarIntent();
                 break;
@@ -147,12 +143,6 @@ public class MainActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra(FRAGMENT_TO_DISPLAY, fragmentType);
         startActivity(intent);
-    }
-
-    private void displayChangeLogDialog() {
-        ChangeLog changeLog = new ChangeLog(this);
-        changeLog.setDirection(ChangeLog.Direction.RTL);
-        changeLog.getFullLogDialog().show();
     }
 
     private void startBazaarIntent() {

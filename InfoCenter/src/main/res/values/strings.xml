@@ -13,7 +13,6 @@
     <string name="app_web_site_address">http://fallahpoor.ir/InfoCenter</string>
     <string name="action_exit">خروج</string>
     <string name="action_about_app">درباره</string>
-    <string name="action_latest_changes">آخرین تغییرات</string>
     <string name="action_rate_app">امتیاز دهید</string>
     <string name="gen_item_manufacturer">سازنده</string>
     <string name="gen_item_brand">برند</string>
@@ -194,7 +193,5 @@
     <string name="unknown">نامشخص</string>
     <string name="sub_item_mb">مگابایت</string>
     <string name="sub_item_gb">گیگابایت</string>
-    <string name="changelog_full_title">آخرین تغییرات</string>
-    <string name="changelog_ok_button">خُب</string>
     <string name="bazaar_not_installed">اپ کافه بازار بر روی دستگاه شما نصب نیست</string>
 </resources>
