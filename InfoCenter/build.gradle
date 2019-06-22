@@ -26,13 +26,13 @@ android {
 }
 
 dependencies {
-    implementation 'com.pnikosis:materialish-progress:1.7'
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.pnikosis:materialish-progress:1.7'
     implementation 'de.halfbit:pinned-section-listview:1.0.0'
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
     implementation 'io.github.inflationx:viewpump:1.0.0'
-    implementation 'com.jakewharton:butterknife:10.1.0'
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
