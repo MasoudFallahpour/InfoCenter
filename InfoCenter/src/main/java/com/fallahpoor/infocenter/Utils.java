@@ -30,16 +30,16 @@ import java.util.Locale;
  */
 public class Utils {
 
-    private Locale mLocale;
-    private Context mContext;
+    private Locale locale;
+    private Context context;
 
     public Utils(Context context) {
-        mContext = context;
-        mLocale = new Locale("fa", "IR");
+        this.context = context;
+        locale = new Locale("fa", "IR");
     }
 
     public Locale getLocale() {
-        return mLocale;
+        return locale;
     }
 
     public static boolean isEmpty(String string) {
@@ -50,20 +50,20 @@ public class Utils {
     public String getFormattedSize(long size) {
 
         if (size < 0) {
-            return mContext.getString(R.string.unknown);
+            return context.getString(R.string.unknown);
         }
 
         long mb = size / 1048576L;
         double gb;
-        String MB = mContext.getString(R.string.sub_item_mb);
-        String GB = mContext.getString(R.string.sub_item_gb);
+        String MB = context.getString(R.string.sub_item_mb);
+        String GB = context.getString(R.string.sub_item_gb);
         String fmtSize;
 
         if (mb < 1024) {
-            fmtSize = String.format(mLocale, "%d", mb) + " " + MB;
+            fmtSize = String.format(locale, "%d", mb) + " " + MB;
         } else {
             gb = (double) mb / 1024;
-            fmtSize = String.format(mLocale, "%.2f", gb) + " " + GB;
+            fmtSize = String.format(locale, "%.2f", gb) + " " + GB;
         }
 
         return fmtSize;
@@ -74,18 +74,18 @@ public class Utils {
     public String getFormattedFrequency(String frequency) {
 
         if (isEmpty(frequency)) {
-            return mContext.getString(R.string.unknown);
+            return context.getString(R.string.unknown);
         }
 
         double frequencyDbl = (double) Long.valueOf(frequency) / 1000;
-        String MHz = mContext.getString(R.string.cpu_sub_item_mhz);
-        String GHz = mContext.getString(R.string.cpu_sub_item_ghz);
+        String MHz = context.getString(R.string.cpu_sub_item_mhz);
+        String GHz = context.getString(R.string.cpu_sub_item_ghz);
         String fmtFrequency;
 
         if (frequencyDbl < 1000) {
-            fmtFrequency = String.format(mLocale, "%.0f %s", frequencyDbl, MHz);
+            fmtFrequency = String.format(locale, "%.0f %s", frequencyDbl, MHz);
         } else {
-            fmtFrequency = String.format(mLocale, "%.1f %s", frequencyDbl / 1000, GHz);
+            fmtFrequency = String.format(locale, "%.1f %s", frequencyDbl / 1000, GHz);
         }
 
         return fmtFrequency;
