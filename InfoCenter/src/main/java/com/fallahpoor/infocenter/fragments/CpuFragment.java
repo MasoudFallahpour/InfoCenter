@@ -21,9 +21,7 @@ package com.fallahpoor.infocenter.fragments;
 
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +43,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 /**
  * CpuFragment displays some information about the CPU of the device including
@@ -118,7 +119,7 @@ public class CpuFragment extends Fragment {
 
         for (String key : keys) {
             value = cpuInfo.get(key);
-            if (Utils.isEmpty(value)) {
+            if (TextUtils.isEmpty(value)) {
                 subItems.add(unknown);
             } else {
                 subItems.add(value);

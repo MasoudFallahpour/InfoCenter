@@ -24,9 +24,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +40,9 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 /**
  * GeneralFragment displays some general information about the device including
@@ -186,7 +188,7 @@ public class GeneralFragment extends Fragment {
 
         String radioVersion = Build.getRadioVersion();
 
-        if (Utils.isEmpty(radioVersion)) {
+        if (TextUtils.isEmpty(radioVersion)) {
             radioVersion = getString(R.string.unknown);
         }
 

@@ -24,10 +24,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +33,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fallahpoor.infocenter.R;
-import com.fallahpoor.infocenter.Utils;
 import com.fallahpoor.infocenter.adapters.CustomArrayAdapter;
 import com.fallahpoor.infocenter.adapters.ListItem;
 import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -174,7 +174,7 @@ public class SimFragment extends Fragment {
         @SuppressLint("MissingPermission")
         String simSerialNumber = telephonyManager.getSimSerialNumber();
 
-        if (Utils.isEmpty(simSerialNumber)) {
+        if (TextUtils.isEmpty(simSerialNumber)) {
             return getString(R.string.unknown);
         } else {
             return simSerialNumber;
@@ -221,7 +221,7 @@ public class SimFragment extends Fragment {
 
         String netOpName = telephonyManager.getNetworkOperatorName();
 
-        if (Utils.isEmpty(netOpName)) {
+        if (TextUtils.isEmpty(netOpName)) {
             netOpName = getString(R.string.unknown);
         } else {
             switch (netOpName.toLowerCase()) {
