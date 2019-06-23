@@ -93,10 +93,13 @@ class CameraFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_camera, container, false)
+    }
 
-        val view = inflater.inflate(R.layout.fragment_camera, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
 
         utils = Utils(activity!!)
 
@@ -113,8 +116,6 @@ class CameraFragment : Fragment() {
         } else {
             requestPermissions(arrayOf(Manifest.permission.CAMERA), REQUEST_CODE_CAMERA)
         }
-
-        return view
 
     }
 

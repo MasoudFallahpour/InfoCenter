@@ -50,10 +50,7 @@ class ComponentsFragment : Fragment() {
 
             for (i in listItems.indices) {
                 items.add(
-                    ComponentListItem(
-                        listItems[i],
-                        listImageIds.getResourceId(i, 0)
-                    )
+                    ComponentListItem(listItems[i], listImageIds.getResourceId(i, 0))
                 )
             }
 
@@ -79,23 +76,20 @@ class ComponentsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.fragment_components, container, false)
+        return inflater.inflate(R.layout.fragment_components, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         listView.onItemClickListener = ComponentClickListener()
         listView.adapter = CustomArrayAdapter(activity, listItems)
-
-        return view
-
     }
 
     private inner class ComponentClickListener : OnItemClickListener {
-
         override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
             (activity as ComponentsListener).onComponentClick(position)
         }
-
     }
 
 }

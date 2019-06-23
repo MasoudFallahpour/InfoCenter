@@ -157,17 +157,18 @@ class SensorsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_others, container, false)
+    }
 
-        val view = inflater.inflate(R.layout.fragment_others, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
 
         isApiAtLeast18 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
         isApiAtLeast19 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
 
         listView.adapter = CustomArrayAdapter(activity, listItems)
-
-        return view
 
     }
 

@@ -45,18 +45,16 @@ class GpuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_gpu, container, false)
+    }
 
-        val view = inflater.inflate(R.layout.fragment_gpu, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0)
         glSurfaceView.holder.setFormat(PixelFormat.TRANSLUCENT)
         glSurfaceView.setRenderer(DummyRenderer())
         glSurfaceView.setZOrderOnTop(true)
-
-        return view
-
     }
 
     override fun onResume() {

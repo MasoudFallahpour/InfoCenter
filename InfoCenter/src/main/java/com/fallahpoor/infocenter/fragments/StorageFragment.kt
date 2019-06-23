@@ -168,12 +168,17 @@ class StorageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.fragment_storage, container, false)
+        return inflater.inflate(R.layout.fragment_storage, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
 
         utils = Utils(activity!!)
         isApiAtLeast18 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
+
         listView.setShadowVisible(false)
         textView.setText(R.string.sto_sub_item_ext_storage_not_available)
 
@@ -189,9 +194,6 @@ class StorageFragment : Fragment() {
                 REQUEST_CODE_READ_EXTERNAL_STORAGE
             )
         }
-
-        return view
-
     }
 
     private fun populateListView() {

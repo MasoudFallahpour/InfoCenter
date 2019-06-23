@@ -108,10 +108,13 @@ class RamFragment : Fragment() {
 
         utils = Utils(activity!!)
 
-        listView.adapter = CustomArrayAdapter(activity, listItems)
-
         return view
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        listView.adapter = CustomArrayAdapter(activity, listItems)
     }
 
 }

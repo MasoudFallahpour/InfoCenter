@@ -116,9 +116,12 @@ class AndroidFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.fragment_others, container, false)
-        listView.adapter = CustomArrayAdapter(activity, listItems)
-        return view
+        return inflater.inflate(R.layout.fragment_others, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        listView.adapter = CustomArrayAdapter(activity!!, listItems)
     }
 
 }

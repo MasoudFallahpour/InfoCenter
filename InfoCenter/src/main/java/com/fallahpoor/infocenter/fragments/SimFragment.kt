@@ -118,9 +118,13 @@ class SimFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
-        val view = inflater.inflate(R.layout.fragment_others, container, false)
+        return inflater.inflate(R.layout.fragment_others, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
 
         textView.setText(R.string.sim_sub_item_no_sim)
 
@@ -134,8 +138,6 @@ class SimFragment : Fragment() {
                 REQUEST_CODE_READ_PHONE_STATE
             )
         }
-
-        return view
 
     }
 

@@ -39,18 +39,19 @@ class AboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_about, container, false)
+    }
 
-        val view = inflater.inflate(R.layout.fragment_about, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
 
         appVersionTextView.text = String.format(
             Locale("fa", "IR"),
             getString(R.string.app_version_format),
             BuildConfig.VERSION_NAME
         )
-
-        return view
 
     }
 
