@@ -20,8 +20,6 @@
 package com.fallahpoor.infocenter.fragments.wifi;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +32,11 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Observable;
-import java.util.Observer;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 /**
  * WifiFragment displays some information about Wi-Fi connection of the device
@@ -43,50 +44,50 @@ import java.util.Observer;
  *
  * @author Masood Fallahpoor
  */
-public class WifiFragment extends Fragment implements Observer {
+public class WifiFragment extends Fragment {
 
-    private ListView mListView;
-    private WifiObservable wifiObservable;
+    private ListView listView;
+    private WifiViewModel wifiViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_others, container,
-                false);
-        mListView = view.findViewById(R.id.listView);
-        wifiObservable = new WifiObservable(getActivity());
+        View view = inflater.inflate(R.layout.fragment_others, container, false);
+        listView = view.findViewById(R.id.listView);
         return view;
 
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        wifiViewModel = ViewModelProviders.of(this).get(WifiViewModel.class);
+    }
+
+    @Override
     public void onResume() {
-
         super.onResume();
-        wifiObservable.addObserver(this);
-        updateListView();
-
+        wifiViewModel.getWifiStateLiveData()
+                .observe(getViewLifecycleOwner(),
+                        wifiState -> listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems(wifiState))));
     }
 
     @Override
     public void onPause() {
-
         super.onPause();
-        wifiObservable.deleteObserver(this);
-
+        wifiViewModel.getWifiStateLiveData().removeObservers(getViewLifecycleOwner());
     }
 
-    private ArrayList<ListItem> getListItems() {
+    private ArrayList<ListItem> getListItems(final WifiState wifiState) {
 
         ArrayList<ListItem> items = new ArrayList<>();
         ArrayList<String> itemsArrayList = getItemsArrayList();
-        ArrayList<String> subItemsArrayList = getSubItemsArrayList();
+        ArrayList<String> subItemsArrayList = getSubItemsArrayList(wifiState);
 
         for (int i = 0; i < itemsArrayList.size(); i++) {
-            items.add(new OrdinaryListItem(itemsArrayList.get(i),
-                    subItemsArrayList.get(i)));
+            items.add(new OrdinaryListItem(itemsArrayList.get(i), subItemsArrayList.get(i)));
         }
 
         return items;
@@ -95,41 +96,34 @@ public class WifiFragment extends Fragment implements Observer {
 
     private ArrayList<String> getItemsArrayList() {
 
-        return new ArrayList<>(Arrays.asList(
-                getString(R.string.item_status),
-                getString(R.string.wifi_item_connected_to_access_point),
-                getString(R.string.wifi_item_ssid),
-                getString(R.string.wifi_item_ip_address),
-                getString(R.string.wifi_item_mac_address),
-                getString(R.string.wifi_item_signal_quality),
-                getString(R.string.wifi_item_link_speed)));
+        return new ArrayList<>(
+                Arrays.asList(
+                        getString(R.string.item_status),
+                        getString(R.string.wifi_item_connected_to_access_point),
+                        getString(R.string.wifi_item_ssid),
+                        getString(R.string.wifi_item_ip_address),
+                        getString(R.string.wifi_item_mac_address),
+                        getString(R.string.wifi_item_signal_quality),
+                        getString(R.string.wifi_item_link_speed)
+                )
+        );
 
     }
 
-    private ArrayList<String> getSubItemsArrayList() {
+    private ArrayList<String> getSubItemsArrayList(WifiState wifiState) {
 
-        ArrayList<String> subItems = new ArrayList<>();
+        return new ArrayList<>(
+                Arrays.asList(
+                        wifiState.getStatus(),
+                        wifiState.getConnected(),
+                        wifiState.getSsid(),
+                        wifiState.getIpAddress(),
+                        wifiState.getMacAddress(),
+                        wifiState.getSignalStrength(),
+                        wifiState.getLinkSpeed()
+                )
+        );
 
-        subItems.add(wifiObservable.getStatus());
-        subItems.add(wifiObservable.getConnected());
-        subItems.add(wifiObservable.getSSID());
-        subItems.add(wifiObservable.getIpAddress());
-        subItems.add(wifiObservable.getMacAddress());
-        subItems.add(wifiObservable.getSignalStrength());
-        subItems.add(wifiObservable.getLinkSpeed());
-
-        return subItems;
-
-    }
-
-    private void updateListView() {
-        mListView.setAdapter(new CustomArrayAdapter(getActivity(),
-                getListItems()));
-    }
-
-    @Override
-    public void update(Observable observable, Object o) {
-        updateListView();
     }
 
 } // end class WifiFragment

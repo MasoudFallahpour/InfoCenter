@@ -27,6 +27,7 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'com.pnikosis:materialish-progress:1.7'
     implementation 'de.halfbit:pinned-section-listview:1.0.0'
     implementation 'io.github.inflationx:calligraphy3:3.1.1'
