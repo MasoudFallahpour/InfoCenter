@@ -106,7 +106,7 @@
     <string name="sen_item_step_detector">حسگر تشخیص‌دهندهٔ گام</string>
     <string name="bat_item_charge_level">میزان شارژ</string>
     <string name="bat_item_health">وضعیت سلامتی</string>
-    <string name="bat_item_plugged">متصل به برق</string>
+    <string name="bat_item_plugged">در حال شارژ</string>
     <string name="bat_item_technology">تکنولوژی ساخت</string>
     <string name="bat_item_temperature">دما</string>
     <string name="bat_item_voltage">ولتاژ</string>
