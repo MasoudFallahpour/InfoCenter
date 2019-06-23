@@ -20,8 +20,6 @@
 package com.fallahpoor.infocenter.fragments.battery;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,62 +32,58 @@ import com.fallahpoor.infocenter.adapters.OrdinaryListItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Observable;
-import java.util.Observer;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 /**
  * BatteryFragment displays some information about the battery of the device
  * including its status, charge level, build technology etc.
- *
- * @author Masood Fallahpoor
  */
-public class BatteryFragment extends Fragment implements Observer {
+public class BatteryFragment extends Fragment {
 
-    private BatteryObservable mBatteryObservable;
-    private ListView mListView;
+    private BatteryViewModel batteryViewModel;
+    private ListView listView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_others, container,
-                false);
-        mListView = view.findViewById(R.id.listView);
-
-        mBatteryObservable = new BatteryObservable(getActivity());
-
+        View view = inflater.inflate(R.layout.fragment_others, container, false);
+        listView = view.findViewById(R.id.listView);
         return view;
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        batteryViewModel = ViewModelProviders.of(this).get(BatteryViewModel.class);
     }
 
     @Override
     public void onResume() {
-
         super.onResume();
-        mBatteryObservable.addObserver(this);
-        mBatteryObservable.enableBatteryUpdates();
-
+        batteryViewModel.getBatteryStateLiveData()
+                .observe(getViewLifecycleOwner(),
+                        batteryState -> listView.setAdapter(new CustomArrayAdapter(getActivity(), getListItems(batteryState))));
     }
 
     @Override
     public void onPause() {
-
         super.onPause();
-        mBatteryObservable.disableBatteryUpdates();
-        mBatteryObservable.deleteObserver(this);
-
+        batteryViewModel.getBatteryStateLiveData().removeObservers(getViewLifecycleOwner());
     }
 
-    private ArrayList<ListItem> getListItems() {
+    private ArrayList<ListItem> getListItems(BatteryState batteryState) {
 
         ArrayList<ListItem> listItems = new ArrayList<>();
         ArrayList<String> itemsArrayList = getItemsArrayList();
-        ArrayList<String> subItemsArrayList = getSubItemsArrayList();
+        ArrayList<String> subItemsArrayList = getSubItemsArrayList(batteryState);
 
         for (int i = 0; i < itemsArrayList.size(); i++) {
-            listItems.add(new OrdinaryListItem(itemsArrayList.get(i),
-                    subItemsArrayList.get(i)));
+            listItems.add(new OrdinaryListItem(itemsArrayList.get(i), subItemsArrayList.get(i)));
         }
 
         return listItems;
@@ -108,30 +102,18 @@ public class BatteryFragment extends Fragment implements Observer {
 
     }
 
-    private ArrayList<String> getSubItemsArrayList() {
-
-        ArrayList<String> subItemsArrayList = new ArrayList<>();
-
-        subItemsArrayList.add(mBatteryObservable.getStatus());
-        subItemsArrayList.add(mBatteryObservable.getLevel());
-        subItemsArrayList.add(mBatteryObservable.getHealth());
-        subItemsArrayList.add(mBatteryObservable.getPlugged());
-        subItemsArrayList.add(mBatteryObservable.getTechnology());
-        subItemsArrayList.add(mBatteryObservable.getTemperature());
-        subItemsArrayList.add(mBatteryObservable.getVoltage());
-
-        return subItemsArrayList;
-
+    private ArrayList<String> getSubItemsArrayList(BatteryState batteryState) {
+        return new ArrayList<>(
+                Arrays.asList(
+                        batteryState.getStatus(),
+                        batteryState.getLevel(),
+                        batteryState.getHealth(),
+                        batteryState.getPlugged(),
+                        batteryState.getTechnology(),
+                        batteryState.getTemperature(),
+                        batteryState.getVoltage()
+                )
+        );
     }
 
-    private void updateListView() {
-        mListView.setAdapter(new CustomArrayAdapter(getActivity(),
-                getListItems()));
-    }
-
-    @Override
-    public void update(Observable observable, Object o) {
-        updateListView();
-    }
-
-} // end class BatteryFragment
+}
