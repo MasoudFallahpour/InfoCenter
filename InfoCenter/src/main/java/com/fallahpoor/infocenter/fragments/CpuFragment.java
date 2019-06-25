@@ -175,7 +175,7 @@ public class CpuFragment extends Fragment {
     private String getCpuFrequency(MinOrMax minOrMax) {
 
         BufferedReader buffReader;
-        String frequency = null;
+        String frequency = "0";
         File frequencyFile;
 
         if (minOrMax == MinOrMax.MAX) {

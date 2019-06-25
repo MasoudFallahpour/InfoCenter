@@ -12,7 +12,6 @@
     <string name="app_github_address">https://github.com/MasoodFallahpoor/InfoCenter</string>
     <string name="app_web_site_address">http://fallahpoor.ir/InfoCenter</string>
     <string name="action_about_app">درباره</string>
-    <string name="action_rate_app">امتیاز دهید</string>
     <string name="gen_item_manufacturer">سازنده</string>
     <string name="gen_item_brand">برند</string>
     <string name="gen_item_model">مدل</string>
@@ -40,6 +39,7 @@
     <string name="and_sub_item_marshmallow">مارشمالو</string>
     <string name="and_sub_item_nougat">نوقا</string>
     <string name="and_sub_item_oreo">اوریو</string>
+    <string name="and_sub_item_pie">پای</string>
     <string name="cpu_item_manufacturer">سازنده</string>
     <string name="cpu_item_hardware">سخت‌افزار</string>
     <string name="cpu_item_processor">مدل</string>
@@ -192,6 +192,19 @@
     <string name="unknown">نامشخص</string>
     <string name="sub_item_mb">مگابایت</string>
     <string name="sub_item_gb">گیگابایت</string>
-    <string name="bazaar_not_installed">اپ کافه بازار بر روی دستگاه شما نصب نیست</string>
-    <string name="and_sub_item_pie">پای</string>
+    <string name="fragment_title_general">مشخصات کلی</string>
+    <string name="fragment_title_android">اندروید</string>
+    <string name="fragment_title_cpu">پردازنده</string>
+    <string name="fragment_title_screen">صفحه نمایش</string>
+    <string name="fragment_title_ram">رم</string>
+    <string name="fragment_title_storage">حافظه جانبی</string>
+    <string name="fragment_title_camera">دوربین</string>
+    <string name="fragment_title_sensors">حسگرها</string>
+    <string name="fragment_title_battery">باتری</string>
+    <string name="fragment_title_wifi">وای فای</string>
+    <string name="fragment_title_gpu">پردازنده گرافیکی</string>
+    <string name="fragment_title_bluetooth">بلوتوث</string>
+    <string name="fragment_title_gps">موقعیت‌یاب</string>
+    <string name="fragment_title_sim">سیم‌کارت</string>
+    <string name="fragment_title_about">درباره</string>
 </resources>

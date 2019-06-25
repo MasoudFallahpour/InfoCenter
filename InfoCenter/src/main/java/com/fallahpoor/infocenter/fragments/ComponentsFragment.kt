@@ -23,7 +23,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import androidx.fragment.app.Fragment
 import com.fallahpoor.infocenter.R
@@ -60,16 +59,8 @@ class ComponentsFragment : Fragment() {
 
         }
 
-    interface ComponentsListener {
-
-        /**
-         * Called when user clicks on an item of the ListView of
-         * ComponentsFragment
-         *
-         * @param position the position of the clicked item
-         */
-        fun onComponentClick(position: Int)
-
+    interface ItemClickListener {
+        fun onItemClick(position: Int)
     }
 
     override fun onCreateView(
@@ -82,14 +73,9 @@ class ComponentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listView.onItemClickListener = ComponentClickListener()
+        listView.onItemClickListener =
+            OnItemClickListener { _, _, position, _ -> (activity as ItemClickListener).onItemClick(position) }
         listView.adapter = CustomArrayAdapter(activity, listItems)
-    }
-
-    private inner class ComponentClickListener : OnItemClickListener {
-        override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-            (activity as ComponentsListener).onComponentClick(position)
-        }
     }
 
 }

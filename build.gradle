@@ -29,6 +29,7 @@ ext {
     supportLibVersion = '28.0.0'
     butterKnifeVersion = '10.1.0'
     myBuildToolsVersion = '28.0.3'
+    navigationVersion = '1.0.0'
     myCompileSdkVersion = 28
     myMinSdkVersion = 14
     myTargetSdkVersion = 28

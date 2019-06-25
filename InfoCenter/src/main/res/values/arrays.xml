@@ -18,25 +18,6 @@
         <item>سیم کارت</item>
     </string-array>
 
-    <string-array name="activity_titles">
-        <item>مشخصات کلی</item>
-        <item>اندروید</item>
-        <item>پردازنده</item>
-        <item>صفحه نمایش</item>
-        <item>رم</item>
-        <item>حافظهٔ جانبی</item>
-        <item>دوربین</item>
-        <item>حسگرها</item>
-        <item>باتری</item>
-        <item>وای فای</item>
-        <item>پردازندهٔ گرافیکی</item>
-        <item>بلوتوث</item>
-        <item>موقعیت‌یاب</item>
-        <item>سیم کارت</item>
-        <item>درباره</item>
-        <item>تنظیمات</item>
-    </string-array>
-
     <integer-array name="components_icons">
         <item>@drawable/ic_general</item>
         <item>@drawable/ic_android</item>

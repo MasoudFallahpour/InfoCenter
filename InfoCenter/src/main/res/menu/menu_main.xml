@@ -3,11 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_rate_app"
-        android:title="@string/action_rate_app"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/action_about_app"
+        android:id="@+id/aboutFragment"
         android:title="@string/action_about_app"
         app:showAsAction="never"/>
 

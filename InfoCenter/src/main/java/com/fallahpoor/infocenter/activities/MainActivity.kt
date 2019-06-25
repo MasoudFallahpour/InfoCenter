@@ -19,52 +19,31 @@
 
 package com.fallahpoor.infocenter.activities
 
-import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.onNavDestinationSelected
 import com.fallahpoor.infocenter.R
 import com.fallahpoor.infocenter.fragments.ComponentsFragment
-import com.fallahpoor.infocenter.fragments.FragmentFactory
-import com.fallahpoor.infocenter.fragments.FragmentFactory.FragmentType
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ComponentsFragment.ComponentsListener {
-
-    private val CURRENT_FRAGMENT = "current_fragment"
-    private var currentFragment = FragmentType.UNKNOWN
-    private var isDualPane: Boolean = false
+class MainActivity : AppCompatActivity(), ComponentsFragment.ItemClickListener {
 
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        /*
-         * When detailsContainer is present in the layout, then app is
-         * running in dual pane mode.
-         */
-        isDualPane = findViewById<View>(R.id.detailsContainer) != null
-
-        if (savedInstanceState != null) {
-            currentFragment = savedInstanceState.getInt(CURRENT_FRAGMENT)
-            return
-        }
-
-        if (isDualPane) {
-            displayFragment(FragmentType.GENERAL)
-        }
-
+        NavigationUI.setupActionBarWithNavController(this, navHostFragment.findNavController())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -73,81 +52,42 @@ class MainActivity : AppCompatActivity(), ComponentsFragment.ComponentsListener 
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = navHostFragment.findNavController()
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+    }
 
-        when (item.itemId) {
-            R.id.action_rate_app -> startBazaarIntent()
-            R.id.action_about_app -> {
-                displayDetails(FragmentType.ABOUT)
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = navHostFragment.findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        return (navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp())
+    }
+
+    override fun onItemClick(position: Int) {
+        navigateToFragment(position)
+    }
+
+    private fun navigateToFragment(fragmentType: Int) {
+
+        val actionId: Int = when (fragmentType) {
+            0 -> R.id.action_componentsFragment_to_generalFragment
+            1 -> R.id.action_componentsFragment_to_androidFragment
+            2 -> R.id.action_componentsFragment_to_cpuFragment
+            3 -> R.id.action_componentsFragment_to_screenFragment
+            4 -> R.id.action_componentsFragment_to_ramFragment
+            5 -> R.id.action_componentsFragment_to_ramFragment
+            6 -> R.id.action_componentsFragment_to_cameraFragment
+            7 -> R.id.action_componentsFragment_to_sensorsFragment
+            8 -> R.id.action_componentsFragment_to_batteryFragment
+            9 -> R.id.action_componentsFragment_to_wifiFragment
+            10 -> R.id.action_componentsFragment_to_gpuFragment
+            11 -> R.id.action_componentsFragment_to_bluetoothFragment
+            12 -> R.id.action_componentsFragment_to_gpsFragment
+            13 -> R.id.action_componentsFragment_to_simFragment
+            else -> R.id.action_componentsFragment_to_generalFragment
         }
 
-        return super.onOptionsItemSelected(item)
+        navHostFragment.findNavController().navigate(actionId)
 
     }
 
-    public override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt(CURRENT_FRAGMENT, currentFragment)
-    }
-
-    override fun onComponentClick(position: Int) {
-        displayDetails(position)
-    }
-
-    private fun displayDetails(fragmentType: Int) {
-        if (isDualPane) {
-            displayFragment(fragmentType)
-        } else {
-            displayDetailsActivity(fragmentType)
-        }
-    }
-
-    private fun displayFragment(fragmentType: Int) {
-
-        if (fragmentType == currentFragment) {
-            return
-        }
-
-        currentFragment = fragmentType
-
-        supportFragmentManager.beginTransaction()
-            .setCustomAnimations(
-                R.anim.fragment_enter_from_left,
-                R.anim.fragment_exit_to_right, R.anim.fragment_enter_from_right,
-                R.anim.fragment_exit_to_left
-            )
-            .replace(
-                R.id.detailsContainer,
-                FragmentFactory.create(fragmentType)
-            )
-            .commit()
-
-    }
-
-    private fun displayDetailsActivity(fragmentType: Int) {
-        val intent = Intent(this, DetailsActivity::class.java)
-            .putExtra(FRAGMENT_TO_DISPLAY, fragmentType)
-        startActivity(intent)
-    }
-
-    private fun startBazaarIntent() {
-
-        val intent = Intent(Intent.ACTION_EDIT).apply {
-            data = Uri.parse("bazaar://details?id=" + applicationContext.packageName)
-            setPackage("com.farsitel.bazaar")
-        }
-        try {
-            startActivity(intent)
-        } catch (ex: ActivityNotFoundException) {
-            Toast.makeText(this, R.string.bazaar_not_installed, Toast.LENGTH_SHORT).show()
-        }
-
-    }
-
-    companion object {
-        const val FRAGMENT_TO_DISPLAY = "fragment_to_display"
-    }
-
-} // end class MainActivity
+}
